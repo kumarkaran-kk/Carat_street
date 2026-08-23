@@ -1,0 +1,63 @@
+# Environment files and local secrets
+.env
+.env.*
+!.env.example
+
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Test, coverage and tool caches
+/.phpunit.cache/
+/.phpunit.result.cache
+/coverage/
+/.cache/
+
+# Local browser renders and responsive review output
+/.responsive-review/
+
+# Local rollback snapshots
+/.rollback-backups/
+
+# Video inspection frames and development utilities
+/video-analysis/
+/tools/
+/video-inspect.html
+
+# Design references and internal project notes
+/original-ss.png
+/brand-info.txt
+
+# Local deployment archives
+/coming-soon.zip
+/*.zip
+
+# Runtime and debug files
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+*.pid
+*.seed
+*.swp
+*.swo
+*~
+
+# Local database files and dumps
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+
+# IDE settings
+/.idea/
+/.vscode/
+*.code-workspace
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+

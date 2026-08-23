@@ -1,0 +1,350 @@
+:root {
+    --cream: #f4eadb;
+    --paper: #fffaf2;
+    --ink: #171512;
+    --gold: #a68150;
+    --line: rgba(23, 21, 18, .22);
+    --serif: "Baskervville", Georgia, serif;
+    --sans: "Montserrat", Arial, sans-serif
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--cream);
+    color: var(--ink)
+}
+
+body {
+    font-family: var(--serif)
+}
+
+.launch {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: minmax(560px, 52%) 48%;
+    overflow: hidden
+}
+
+.launch-copy {
+    position: relative;
+    min-height: 100svh;
+    padding: 34px clamp(34px, 5.2vw, 100px) 26px;
+    display: flex;
+    flex-direction: column;
+    background: var(--cream)
+}
+
+.launch-copy:before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    left: -250px;
+    top: 24%;
+    border: 1px solid rgba(166, 129, 80, .32);
+    border-radius: 50%;
+    box-shadow: 0 0 0 48px rgba(166, 129, 80, .04), 0 0 0 96px rgba(166, 129, 80, .025)
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1
+}
+
+.brand img {
+    width: 92px;
+    height: 76px;
+    object-fit: contain
+}
+
+.edition,
+.eyebrow,
+.launch-note span,
+.principles,
+footer {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: .17em
+}
+
+.edition {
+    font-size: 10px;
+    font-weight: 500
+}
+
+.intro {
+    position: relative;
+    z-index: 1;
+    margin: auto 0;
+    width: min(700px, 100%);
+    padding: 52px 0 45px
+}
+
+.eyebrow {
+    margin: 0 0 25px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600
+}
+
+h1 {
+    margin: 0;
+    font-weight: 400;
+    font-size: clamp(82px, 8.5vw, 164px);
+    line-height: .72;
+    letter-spacing: -.065em
+}
+
+h1 span,
+h1 em {
+    display: block
+}
+
+h1 em {
+    margin-left: .52em;
+    color: var(--gold);
+    font-weight: 400
+}
+
+.description {
+    max-width: 570px;
+    margin: 48px 0 35px;
+    font-size: clamp(19px, 1.45vw, 27px);
+    line-height: 1.5
+}
+
+.launch-note {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    max-width: 610px;
+    padding: 21px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line)
+}
+
+.launch-note span {
+    flex: 0 0 132px;
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 600
+}
+
+.launch-note p {
+    margin: 0;
+    padding-left: 34px;
+    border-left: 1px solid var(--line);
+    font-size: clamp(23px, 1.8vw, 34px);
+    line-height: 1.12;
+    font-style: italic
+}
+
+.principles {
+    display: flex;
+    max-width: 610px;
+    margin-top: 25px;
+    color: #5c554c;
+    font-size: 8px;
+    font-weight: 600
+}
+
+.principles span {
+    flex: 1;
+    position: relative;
+    padding-left: 18px
+}
+
+.principles span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    transform: translateY(-50%)
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px
+}
+
+.editorial {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    background: #bca995;
+    color: #fff
+}
+
+.editorial>img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 52% center;
+    animation: reveal 1.4s cubic-bezier(.22, .61, .36, 1) both
+}
+
+.image-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .28))
+}
+
+.editorial p {
+    position: absolute;
+    left: 9%;
+    bottom: 8%;
+    margin: 0;
+    font-size: clamp(46px, 5vw, 96px);
+    line-height: .88;
+    letter-spacing: -.04em
+}
+
+.editorial i {
+    font-weight: 400
+}
+
+.vertical-mark {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    font: 9px var(--sans);
+    letter-spacing: .3em;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%)
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: scale(1.06)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@media(max-width:900px) {
+    .launch {
+        display: block
+    }
+
+    .launch-copy {
+        min-height: 63svh;
+        padding: 22px 24px
+    }
+
+    .editorial {
+        min-height: 58svh
+    }
+
+    .intro {
+        padding: 65px 0 50px
+    }
+
+    h1 {
+        font-size: clamp(76px, 22vw, 125px)
+    }
+
+    .edition {
+        display: none
+    }
+
+    .description {
+        margin-top: 40px
+    }
+
+    .editorial p {
+        font-size: 60px
+    }
+}
+
+@media(max-width:520px) {
+    .brand img {
+        width: 75px;
+        height: 60px
+    }
+
+    .launch-copy {
+        min-height: 100svh
+    }
+
+    .intro {
+        padding: 42px 0 28px
+    }
+
+    .eyebrow {
+        font-size: 9px
+    }
+
+    h1 {
+        font-size: 79px
+    }
+
+    .description {
+        font-size: 17px;
+        margin: 34px 0 25px
+    }
+
+    .launch-note {
+        gap: 18px
+    }
+
+    .launch-note span {
+        flex-basis: 88px;
+        font-size: 7px
+    }
+
+    .launch-note p {
+        padding-left: 18px;
+        font-size: 22px
+    }
+
+    .principles {
+        gap: 10px;
+        font-size: 6px;
+        letter-spacing: .1em
+    }
+
+    .principles span {
+        padding-left: 12px
+    }
+
+    .principles span:before {
+        width: 4px;
+        height: 4px
+    }
+
+    footer {
+        margin-top: auto;
+        gap: 20px
+    }
+
+    .editorial {
+        min-height: 70svh
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .editorial>img {
+        animation: none
+    }
+}
