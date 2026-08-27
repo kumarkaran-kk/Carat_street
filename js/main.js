@@ -29,9 +29,11 @@ if(heroSlides.length>1){
 const fitHomeCanvas=()=>{
   const isHome=document.body.classList.contains('home-page');
   const shouldFit=isHome&&window.innerWidth>1024&&window.innerWidth<1900;
+  const canvasScale=shouldFit?window.innerWidth/1900:1;
   const responsiveStylesheet=document.querySelector('link[href*="css/responsive.css"]');
   document.body.classList.toggle('desktop-fitted',shouldFit);
-  document.body.style.zoom=shouldFit?String(window.innerWidth/1900):'';
+  document.body.style.zoom=shouldFit?String(canvasScale):'';
+  document.body.style.setProperty('--cave-full-height',shouldFit?`${window.innerHeight/canvasScale}px`:'100vh');
   if(responsiveStylesheet) responsiveStylesheet.disabled=shouldFit;
   requestAnimationFrame(positionHeroTitle);
 };
@@ -59,11 +61,26 @@ if(collectionsSection){
 const caveScene=document.querySelector('.cave-scene');
 if(caveScene){
   const caveToggle=caveScene.querySelector('.cave-toggle');
-  const openCave=()=>caveScene.classList.add('is-revealed');
-  const closeCave=()=>caveScene.classList.remove('is-revealed');
+  let caveStageTimer=null;
+  const setCaveButton=(expanded,label)=>{caveToggle?.setAttribute('aria-expanded',String(expanded));const text=caveToggle?.querySelector('span');if(text)text.textContent=label};
+  const openCave=()=>{
+    clearTimeout(caveStageTimer);
+    caveScene.classList.remove('is-revealed');
+    caveScene.classList.add('is-mid');
+    setCaveButton(true,'Opening');
+    caveStageTimer=setTimeout(()=>{
+      caveScene.classList.add('is-revealed');
+      setCaveButton(true,'Tap To Close');
+    },300);
+  };
+  const closeCave=()=>{
+    clearTimeout(caveStageTimer);
+    caveScene.classList.remove('is-mid','is-revealed');
+    setCaveButton(false,'Tap To Reveal');
+  };
   caveScene.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse')openCave()});
   caveScene.addEventListener('pointerleave',event=>{if(event.pointerType==='mouse')closeCave()});
-  caveToggle?.addEventListener('click',event=>{event.stopPropagation();const revealed=caveScene.classList.toggle('is-revealed');caveToggle.setAttribute('aria-expanded',String(revealed));caveToggle.querySelector('span').textContent=revealed?'Tap To Close':'Tap To Reveal'});
+  caveToggle?.addEventListener('click',event=>{event.stopPropagation();if(caveScene.classList.contains('is-mid')||caveScene.classList.contains('is-revealed'))closeCave();else openCave()});
 }
 
 const goldDish=document.querySelector('.gold-dish');

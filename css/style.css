@@ -2962,6 +2962,22 @@ body {
   }
 }
 
+/* The laptop homepage is zoomed from its 1900px master canvas. Counter that
+   zoom for this section so the cave still occupies the physical viewport. */
+.desktop-fitted .cave-scene {
+  height: var(--cave-full-height, 100vh) !important;
+  min-height: 0 !important;
+  max-height: none !important
+}
+
+.desktop-fitted .cave-stage {
+  left: 50% !important;
+  width: auto !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  transform: translate(-50%, -50%) !important
+}
+
 /* Freshly Arrived product swap and ecommerce hover treatment. */
 .products {
   position: relative;
@@ -3114,184 +3130,222 @@ body {
   }
 }
 
-/* Cave reveal reconstructed from the supplied motion reference. */
+/* Three-stage cave reveal translated from the supplied Figma variant brief. */
 .cave-scene {
   isolation: isolate;
-  height: 900px;
-  background: #080b08
+  position: relative;
+  height: 51.106vw;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #000
+}
+
+.cave-stage {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  aspect-ratio: 1900 / 971;
+  overflow: hidden;
+  transform: translateY(-50%)
+}
+
+.cave-scene:before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: linear-gradient(180deg, #ffedd6 21%, #fff 75%, #fff6eb 100%);
+  opacity: 0;
+  transition: opacity .3s ease-in-out
 }
 
 .cave-scene .cave-reveal {
   position: absolute;
-  z-index: 0;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  opacity: 1;
-  transform: none;
+  left: 7.316%;
+  top: -3.399%;
+  width: 85.368%;
+  height: 106.797%;
+  max-width: none;
+  object-fit: fill;
   filter: none;
-  transition: none
+  pointer-events: none
 }
 
-.cave-wordmark {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  pointer-events: none;
-  color: #fff;
-  font: 400 clamp(64px, 6.8vw, 132px)/1 var(--serif)
-}
-
-.cave-wordmark span {
-  position: absolute;
-  top: 48%;
-  transform: translateY(-50%);
-  white-space: nowrap
-}
-
-.cave-wordmark span:first-child {
-  left: 22%
-}
-
-.cave-wordmark span:last-child {
-  right: 22%
+.cave-scene .cave-reveal {
+  z-index: 1
 }
 
 .cave-scene .cave-hand {
   position: absolute;
-  z-index: 1;
-  left: 50%;
-  bottom: -28%;
-  width: min(28.5%, 545px);
+  z-index: 2;
+  left: 39.316%;
+  top: 13.079%;
+  width: 21.316%;
   height: auto;
   max-width: none;
   object-fit: contain;
-  object-position: center bottom;
-  clip-path: inset(0 0 23% 0);
-  transform: translate3d(-50%, 55%, 0) scale(1.035);
-  transform-origin: center bottom;
-  filter: brightness(.62);
-  pointer-events: none;
-  will-change: transform, filter;
-  transition: transform 1.65s cubic-bezier(.16, .72, .24, 1), filter 1.25s ease
-}
-
-.cave-scene .tree-left,
-.cave-scene .tree-right {
-  z-index: 2;
-  width: 64%;
-  height: 100%;
-  object-fit: cover;
-  will-change: transform;
-  transition: transform 1.4s cubic-bezier(.65, 0, .35, 1);
-  filter: drop-shadow(0 0 28px rgba(0, 0, 0, .26))
-}
-
-.cave-scene .tree-left {
-  left: 0;
-  object-position: left center;
-  transform-origin: left center;
-  transform: scale(1.05)
-}
-
-.cave-scene .tree-right {
-  right: 0;
-  object-position: right center;
-  transform-origin: right center;
-  transform: scale(1.05)
-}
-
-.cave-scene .cave-closed {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: none;
-  will-change: transform, opacity;
-  transition: transform 1.4s cubic-bezier(.65, 0, .35, 1), opacity .72s ease
-}
-
-.cave-scene.is-revealed .cave-reveal {
-  opacity: 1;
   transform: none;
-  filter: none
+  transform-origin: center top;
+  filter: none;
+  pointer-events: none;
+  will-change: left, top, width;
+  transition: left .3s ease-in-out, top .3s ease-in-out, width .3s ease-in-out
+}
+
+.cave-wordmark {
+  position: absolute;
+  z-index: 6;
+  left: 21.789%;
+  top: 39.959%;
+  display: flex;
+  width: 60.684%;
+  height: 20.083%;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  font: 400 clamp(58px, 7.947vw, 151px)/1 var(--serif);
+  text-align: center;
+  transition: left .3s ease-in-out, width .3s ease-in-out, opacity .3s ease-in-out
+}
+
+.cave-wordmark span {
+  position: static;
+  transform: none;
+  white-space: nowrap
+}
+
+.cave-wordmark span:first-child {
+  letter-spacing: .066vw;
+  transform: translateX(.21vw)
+}
+
+.cave-wordmark span:last-child {
+  transform: translateX(.053vw)
+}
+
+.cave-scene .cave-foliage {
+  position: absolute;
+  z-index: 4;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  transform-origin: center;
+  pointer-events: none;
+  will-change: left, top, width, transform;
+  transition: left .3s ease-in-out, top .3s ease-in-out, width .3s ease-in-out, transform .3s ease-in-out
+}
+
+.cave-scene .cave-foliage-one {
+  left: 100%;
+  top: -54.6%;
+  width: 260.7%;
+  transform: translate(-50%, -50%) rotate(24.17deg)
+}
+
+.cave-scene .cave-foliage-two {
+  left: 31.7%;
+  top: 34.95%;
+  width: 128%;
+  transform: translate(-50%, -50%) rotate(-35.92deg)
+}
+
+.cave-scene.is-mid:before,
+.cave-scene.is-revealed:before {
+  opacity: 1
+}
+
+.cave-scene.is-mid .cave-hand {
+  left: 39.316%;
+  top: 99.588%;
+  width: 21.316%
+}
+
+.cave-scene.is-mid .cave-foliage-one {
+  left: -.789%;
+  top: -7.724%;
+  width: 65.105%;
+  transform: rotate(0)
+}
+
+.cave-scene.is-mid .cave-foliage-two {
+  left: 39.211%;
+  top: -14.006%;
+  width: 60.789%;
+  transform: rotate(0)
 }
 
 .cave-scene.is-revealed .cave-hand {
-  transform: translate3d(-50%, 0, 0) scale(1);
-  filter: brightness(1)
+  left: 36%;
+  top: 9.784%;
+  width: 32.263%
 }
 
-.cave-scene.is-revealed .cave-closed {
-  opacity: 0;
-  transform: scale(1.12)
+.cave-scene.is-revealed .cave-foliage-one {
+  left: 0;
+  top: -8.857%;
+  width: 65.105%;
+  transform: rotate(0)
 }
 
-.cave-scene.is-revealed .tree-left {
-  transform: translate3d(-58%, 0, 0) scale(1.02)
+.cave-scene.is-revealed .cave-foliage-two {
+  left: 39.211%;
+  top: -14.006%;
+  width: 60.789%;
+  transform: rotate(0)
 }
 
-.cave-scene.is-revealed .tree-right {
-  transform: translate3d(58%, 0, 0) scale(1.02)
+.cave-scene.is-revealed .cave-wordmark {
+  opacity: 1
+}
+
+.cave-toggle {
+  display: none
 }
 
 @media(max-width:900px) {
   .cave-scene {
-    height: min(65vw, 560px)
-  }
-
-  .cave-scene .tree-left,
-  .cave-scene .tree-right {
-    width: 72%;
-    height: 100%;
-    object-fit: cover
-  }
-
-  .cave-scene .cave-hand {
-    width: 44%;
-    max-width: none;
-    left: 50%;
-    bottom: -18%
+    height: 51.106vw;
+    min-height: 0;
+    border-radius: 0
   }
 
   .cave-wordmark {
-    font-size: clamp(30px, 7vw, 64px)
+    left: 8%;
+    width: 84%;
+    font-size: clamp(27px, 7vw, 58px)
   }
 
-  .cave-wordmark span {
-    top: 47%
+  .cave-scene.is-revealed .cave-hand {
+    left: 31%;
+    width: 38%
   }
 
-  .cave-wordmark span:first-child {
-    left: 8%
-  }
-
-  .cave-wordmark span:last-child {
-    right: 8%
-  }
-
-  .cave-scene.is-revealed .tree-left {
-    transform: translate3d(-61%, 0, 0)
-  }
-
-  .cave-scene.is-revealed .tree-right {
-    transform: translate3d(61%, 0, 0)
+  .cave-toggle {
+    position: absolute;
+    z-index: 8;
+    right: 14px;
+    bottom: 14px;
+    display: inline-flex;
+    padding: 9px 13px;
+    border: 1px solid rgba(255, 255, 255, .72);
+    background: rgba(0, 0, 0, .45);
+    color: #fff;
+    font: 500 10px/1 var(--sans);
+    letter-spacing: .08em;
+    text-transform: uppercase
   }
 }
 
 @media(prefers-reduced-motion:reduce) {
 
-  .cave-scene .cave-closed,
+  .cave-scene:before,
   .cave-scene .cave-hand,
-  .cave-scene .tree-left,
-  .cave-scene .tree-right {
+  .cave-wordmark,
+  .cave-scene .cave-foliage {
     transition: none
   }
 }

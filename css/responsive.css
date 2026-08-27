@@ -1641,55 +1641,55 @@ img {
 /* Mobile hero alignment and explicit hamburger open/closed geometry. */
 @media(max-width:600px) {
   .home-page .hero-copy {
-    left:50%!important;
-    right:auto!important;
-    width:calc(100% - 36px)!important;
-    transform:translateX(-50%)!important;
-    align-items:center!important;
-    text-align:center!important
+    left: 50% !important;
+    right: auto !important;
+    width: calc(100% - 36px) !important;
+    transform: translateX(-50%) !important;
+    align-items: center !important;
+    text-align: center !important
   }
 
   .home-page .hero-copy>p,
   .home-page .hero-title-window,
   .home-page .hero-title-track,
   .home-page .hero-title-track span {
-    width:100%!important;
-    text-align:center!important
+    width: 100% !important;
+    text-align: center !important
   }
 
   .home-page .hero-title-track span {
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important
   }
 
   .home-page .hero-copy .button {
-    margin-left:auto!important;
-    margin-right:auto!important;
-    align-self:center!important
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-self: center !important
   }
 
   .site-header .menu-toggle span {
-    transform:none!important;
-    transition:top .25s ease,left .25s ease,width .25s ease,transform .25s ease,opacity .2s ease!important
+    transform: none !important;
+    transition: top .25s ease, left .25s ease, width .25s ease, transform .25s ease, opacity .2s ease !important
   }
 
   .site-header .menu-toggle.is-open span:nth-child(1) {
-    top:10px!important;
-    left:0!important;
-    width:32px!important;
-    transform:rotate(45deg)!important
+    top: 10px !important;
+    left: 0 !important;
+    width: 32px !important;
+    transform: rotate(45deg) !important
   }
 
   .site-header .menu-toggle.is-open span:nth-child(2) {
-    opacity:0!important
+    opacity: 0 !important
   }
 
   .site-header .menu-toggle.is-open span:nth-child(3) {
-    top:10px!important;
-    left:0!important;
-    width:32px!important;
-    transform:rotate(-45deg)!important
+    top: 10px !important;
+    left: 0 !important;
+    width: 32px !important;
+    transform: rotate(-45deg) !important
   }
 }
 
@@ -2122,114 +2122,114 @@ img {
 /* Final phone alignment pass for homepage content groups. */
 @media(max-width:600px) {
   .home-page .collection-card>div {
-    position:absolute!important;
-    inset:0!important;
-    display:flex!important;
-    width:100%!important;
-    height:100%!important;
-    padding:28px 20px!important;
-    box-sizing:border-box!important;
-    flex-direction:column!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:16px!important;
-    text-align:center!important
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 28px 20px !important;
+    box-sizing: border-box !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    text-align: center !important
   }
 
   .home-page .collection-card h3,
   .home-page .collection-card p,
   .home-page .collection-card a {
-    position:static!important;
-    inset:auto!important;
-    left:auto!important;
-    top:auto!important;
-    bottom:auto!important;
-    transform:none!important;
-    margin:0!important
+    position: static !important;
+    inset: auto !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0 !important
   }
 
   .home-page .collection-card h3 {
-    width:100%!important;
-    line-height:1!important;
-    text-align:center!important
+    width: 100% !important;
+    line-height: 1 !important;
+    text-align: center !important
   }
 
   .home-page .collection-card p {
-    width:min(100%,340px)!important;
-    line-height:1.3!important;
-    text-align:center!important
+    width: min(100%, 340px) !important;
+    line-height: 1.3 !important;
+    text-align: center !important
   }
 
   .home-page .collection-card p br {
-    display:block!important
+    display: block !important
   }
 
   .home-page .collection-card a {
-    display:flex!important;
-    width:min(235px,82%)!important;
-    height:58px!important;
-    flex:0 0 58px!important;
-    align-items:center!important;
-    justify-content:center!important;
-    opacity:1!important;
-    visibility:visible!important;
-    text-align:center!important
+    display: flex !important;
+    width: min(235px, 82%) !important;
+    height: 58px !important;
+    flex: 0 0 58px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-align: center !important
   }
 
   .home-page .deal .countdown {
-    display:grid!important;
-    grid-template-columns:repeat(4,minmax(0,1fr))!important;
-    width:100%!important;
-    max-width:100%!important;
-    justify-self:stretch!important;
-    gap:0!important
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-self: stretch !important;
+    gap: 0 !important
   }
 
   .home-page .deal .countdown div {
-    display:flex!important;
-    min-width:0!important;
-    height:76px!important;
-    padding:0 5px!important;
-    box-sizing:border-box!important;
-    flex-direction:column!important;
-    align-items:center!important;
-    justify-content:center!important;
-    border-right:1px solid rgba(255,255,255,.65)!important
+    display: flex !important;
+    min-width: 0 !important;
+    height: 76px !important;
+    padding: 0 5px !important;
+    box-sizing: border-box !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-right: 1px solid rgba(255, 255, 255, .65) !important
   }
 
   .home-page .deal .countdown div:last-child {
-    border-right:0!important
+    border-right: 0 !important
   }
 
   .home-page .deal .countdown strong {
-    display:block!important;
-    font-size:34px!important;
-    line-height:.9!important;
-    text-align:center!important
+    display: block !important;
+    font-size: 34px !important;
+    line-height: .9 !important;
+    text-align: center !important
   }
 
   .home-page .deal .countdown span {
-    display:block!important;
-    margin-top:9px!important;
-    font-size:17px!important;
-    line-height:1!important;
-    text-align:center!important
+    display: block !important;
+    margin-top: 9px !important;
+    font-size: 17px !important;
+    line-height: 1 !important;
+    text-align: center !important
   }
 
   .home-page footer .copyright {
-    display:flex!important;
-    width:100%!important;
-    flex-direction:column!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:10px!important;
-    text-align:center!important
+    display: flex !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center !important
   }
 
   .home-page footer .copyright span {
-    display:block!important;
-    width:100%!important;
-    text-align:center!important
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important
   }
 }
 
@@ -2238,87 +2238,115 @@ img {
    Figma coordinate rules without changing the desktop canvas. */
 @media(max-width:1024px) {
   .site-header .menu-toggle {
-    left:18px!important
+    left: 18px !important
   }
 
   .site-header .header-actions {
-    position:absolute!important;
-    top:23px!important;
-    right:18px!important;
-    left:auto!important;
-    display:flex!important;
-    width:32px!important;
-    height:32px!important;
-    margin:0!important;
-    gap:0!important;
-    align-items:center!important;
-    justify-content:center!important
+    position: absolute !important;
+    top: 23px !important;
+    right: 18px !important;
+    left: auto !important;
+    display: flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    margin: 0 !important;
+    gap: 0 !important;
+    align-items: center !important;
+    justify-content: center !important
   }
 
   .site-header .header-search {
-    display:inline-flex!important;
-    width:32px!important;
-    height:32px!important;
-    padding:0!important;
-    align-items:center!important;
-    justify-content:center!important;
-    border-radius:50%!important;
-    background:transparent!important
+    display: inline-flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: transparent !important
   }
 
   .site-header .header-search img {
-    display:block!important;
-    width:23px!important;
-    height:23px!important;
-    object-fit:contain!important
+    display: block !important;
+    width: 23px !important;
+    height: 23px !important;
+    object-fit: contain !important
   }
 
   .site-header .header-search span {
-    display:none!important
+    display: none !important
   }
 }
 
 @media(max-width:600px) {
   .site-header {
-    height:70px!important;
-    padding:0 18px!important
+    height: 70px !important;
+    padding: 0 18px !important
   }
 
   .site-header .menu-toggle {
-    top:23px!important;
-    left:18px!important
+    top: 23px !important;
+    left: 18px !important
   }
 
   .site-header .brand {
-    top:4px!important;
-    width:96px!important;
-    height:62px!important;
-    background-size:88px auto!important;
-    background-position:center center!important
+    top: 4px !important;
+    width: 96px !important;
+    height: 62px !important;
+    background-size: 88px auto !important;
+    background-position: center center !important
   }
 
   .site-header .header-actions {
-    top:19px!important;
-    right:18px!important
+    top: 19px !important;
+    right: 18px !important
   }
 }
 
 /* Match the homepage's cropped crest treatment on laptop-sized inner pages. */
 @media(min-width:1025px) and (max-width:1899px) {
+
   .storefront-page .site-header .brand,
   .product-page .site-header .brand {
-    top:8px!important;
-    width:80px!important;
-    height:76px!important;
-    overflow:hidden!important;
-    background-image:url('../assets/web/decorative-jewellery-model.webp')!important;
-    background-repeat:no-repeat!important;
-    background-size:200px auto!important;
-    background-position:center -6px!important
+    top: 8px !important;
+    width: 80px !important;
+    height: 76px !important;
+    overflow: hidden !important;
+    background-image: url('../assets/web/decorative-jewellery-model.webp') !important;
+    background-repeat: no-repeat !important;
+    background-size: 200px auto !important;
+    background-position: center -6px !important
   }
 
   .storefront-page .site-header .brand img,
   .product-page .site-header .brand img {
-    display:none!important
+    display: none !important
+  }
+}
+
+/* Full-screen cave on tablet landscape, laptop and desktop. */
+@media(min-width:901px) {
+  .cave-scene {
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 0 !important;
+    max-height: none !important
+  }
+
+  .cave-stage {
+    left: 50%;
+    width: auto;
+    min-width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%)
+  }
+}
+
+@media(max-width:1024px) {
+  .cave-toggle {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 12px !important;
+    transform: translateX(-50%) !important
   }
 }
