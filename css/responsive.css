@@ -2350,3 +2350,15 @@ img {
     transform: translateX(-50%) !important
   }
 }
+
+/* Fill the taller mobile reveal panel. Preserve the artwork ratio and crop
+   only the far left/right edges instead of exposing the black stage. */
+@media(max-width:900px) {
+  .cave-stage {
+    left:50%!important;
+    width:auto!important;
+    min-width:100%!important;
+    height:100%!important;
+    transform:translate(-50%,-50%)!important
+  }
+}
