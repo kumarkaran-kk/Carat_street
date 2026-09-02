@@ -31,9 +31,14 @@ const fitHomeCanvas=()=>{
   const shouldFit=isHome&&window.innerWidth>1024&&window.innerWidth<1900;
   const canvasScale=shouldFit?window.innerWidth/1900:1;
   const responsiveStylesheet=document.querySelector('link[href*="css/responsive.css"]');
+  const sharedFooter=isHome?document.querySelector('body > footer'):null;
   document.body.classList.toggle('desktop-fitted',shouldFit);
   document.body.style.zoom=shouldFit?String(canvasScale):'';
   document.body.style.setProperty('--cave-full-height',shouldFit?`${window.innerHeight/canvasScale}px`:'100vh');
+  if(sharedFooter){
+    sharedFooter.style.zoom=shouldFit?String(1/canvasScale):'';
+    sharedFooter.style.width=shouldFit?`${window.innerWidth}px`:'';
+  }
   if(responsiveStylesheet) responsiveStylesheet.disabled=shouldFit;
   requestAnimationFrame(positionHeroTitle);
 };

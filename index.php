@@ -1,10 +1,6 @@
 <?php
-$products = [
-    ['web/gold-necklace-product.webp', 'web/diamond-pendant-product.webp', 'Stylish Pearl Necklace', '$23.00 – $25.00'],
-    ['web/pearl-necklace-product.webp', 'web/diamond-pendant-alternate.webp', 'Stylish Pearl Necklace', '$23.00 – $25.00'],
-    ['web/gold-necklace-product.webp', 'web/jewellery-styling-model.webp', 'Stylish Pearl Necklace', '$23.00 – $25.00'],
-    ['web/pearl-necklace-product.webp', 'web/diamond-pendant-product.webp', 'Stylish Pearl Necklace', '$23.00 – $25.00'],
-];
+require __DIR__ . '/includes/catalog.php';
+$products = array_slice($catalogProducts, 0, 4);
 $pageTitle = 'Carat Street — Fine Jewellery';
 $pageDescription = "Timeless jewellery for life's most meaningful moments.";
 $bodyClass = 'home-page';
@@ -75,11 +71,11 @@ $bodyClass = 'home-page';
         <h2 class="center">Shine Brighter With Every Diamond</h2>
         <div class="product-grid">
             <?php foreach ($products as $product): ?><article class="product">
-                    <div class="product-image"><img class="product-primary" src="assets/<?= $product[0] ?>" alt="<?= htmlspecialchars($product[2]) ?>"><img class="product-hover" src="assets/<?= $product[1] ?>" alt=""></div>
+                    <div class="product-image"><img class="product-primary" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"><img class="product-hover" src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt=""></div>
                     <div class="product-details">
-                        <h3><?= htmlspecialchars($product[2]) ?></h3>
-                        <p><?= htmlspecialchars($product[3]) ?></p>
-                    </div><a href="product.php">View Product</a>
+                        <h3><?= htmlspecialchars($product['name']) ?></h3>
+                        <p><?= htmlspecialchars($product['price']) ?></p>
+                    </div><a href="<?= htmlspecialchars(catalog_product_url($product)) ?>">View Product</a>
                 </article><?php endforeach; ?>
         </div>
         <a class="products-view-all" href="category.php?category=all">View All Products</a>

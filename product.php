@@ -1,84 +1,173 @@
 <?php
-$related = [
-    ['web/diamond-halo-pendant.webp', 'Diamond Halo Pendant', '$82.00'],
-    ['web/sculpted-diamond-pendant.webp', 'Eternal Gold Necklace', '$74.00'],
-    ['web/diamond-halo-pendant.webp', 'Celestial Drop Pendant', '$88.00'],
-    ['web/sculpted-diamond-pendant.webp', 'Sculpted Diamond Pendant', '$79.00'],
-];
-$pageTitle = 'Necklace Sets — Carat Street';
-$pageDescription = "Discover Carat Street's handcrafted necklace set, designed with timeless stones and a modern silhouette.";
-$pageStyles = ['css/product.css'];
+require __DIR__ . '/includes/catalog.php';
+$requestedSlug = strtolower(trim($_GET['product'] ?? $catalogProducts[0]['slug']));
+$product = null;
+foreach ($catalogProducts as $catalogProduct) {
+    if ($catalogProduct['slug'] === $requestedSlug) {
+        $product = $catalogProduct;
+        break;
+    }
+}
+if ($product === null) {
+    http_response_code(404);
+    $product = $catalogProducts[0];
+}
+$related = array_slice(array_values(array_filter($catalogProducts, fn($item) => $item['slug'] !== $product['slug'])), 0, 4);
+$productCategoryName = ucfirst($product['category']);
+$productTypeName = $product['category'] === 'earrings' ? 'Earrings' : 'Pendant';
+$pageTitle = $product['name'] . ' — Carat Street';
+$pageDescription = $product['description'];
+$pageStyles = [];
+$pageStylesAfterResponsive = ['css/product-refined.css'];
 $pageScripts = ['js/product.js'];
 $bodyClass = 'product-page';
 $footerId = 'contact';
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>
 
-    <main>
-        <section class="pdp-hero">
-            <div class="pdp-gallery">
-                <div class="pdp-thumbnails" aria-label="Product views">
-                    <?php for ($i = 1; $i <= 4; $i++): ?><button class="pdp-thumb <?= $i === 1 ? 'is-active' : '' ?>" data-angle="<?= $i ?>" aria-label="View product angle <?= $i ?>"><span class="product-crop angle-<?= $i ?>"></span></button><?php endfor; ?>
-                </div>
-                <div class="pdp-main-image"><span class="product-crop angle-1" data-main-product-image role="img" aria-label="Gold and diamond necklace set"></span></div>
+<main>
+    <nav class="pdp-breadcrumb" aria-label="Breadcrumb"><a href="index.php">Home</a><span>›</span><a href="category.php?category=<?= rawurlencode($product['category']) ?>"><?= htmlspecialchars($productCategoryName) ?></a><span>›</span><span><?= htmlspecialchars($product['name']) ?></span></nav>
+    <section class="pdp-hero">
+        <div class="pdp-gallery">
+            <div class="pdp-thumbnails" aria-label="Product views">
+                <button class="pdp-thumb is-active" type="button" data-image="assets/<?= htmlspecialchars($product['image']) ?>" data-view="product" aria-label="View <?= htmlspecialchars($product['name']) ?> product image"><img src="assets/<?= htmlspecialchars($product['image']) ?>" alt=""></button>
+                <button class="pdp-thumb pdp-thumb-editorial" type="button" data-image="assets/<?= htmlspecialchars($product['hover_image']) ?>" data-view="editorial" aria-label="View <?= htmlspecialchars($product['name']) ?> styled"><img src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt=""></button>
+                <button class="pdp-thumb pdp-thumb-report" type="button" data-image="assets/<?= htmlspecialchars($product['report_image']) ?>" data-view="report" aria-label="View <?= htmlspecialchars($product['name']) ?> jewellery report"><img src="assets/<?= htmlspecialchars($product['report_image']) ?>" alt=""></button>
             </div>
-            <div class="pdp-summary">
-                <p class="pdp-kicker">Carat Street Signature</p>
-                <h1>Necklace Sets</h1>
-                <p class="pdp-price">82.00$</p>
-                <p class="pdp-description">A sculptural necklace set where luminous stones meet warm, polished gold. Each detail is placed by hand to make every celebration feel unforgettable. <button type="button" data-read-more>Read More</button><span class="pdp-more" hidden> Designed for lasting comfort and effortless brilliance from day into evening.</span></p>
-                <div class="pdp-buy-row">
-                    <div class="quantity" aria-label="Quantity selector"><button type="button" data-qty-minus aria-label="Decrease quantity">−</button><output data-quantity>1</output><button type="button" data-qty-plus aria-label="Increase quantity">+</button></div>
-                    <button class="add-cart" type="button">Add to Cart</button>
-                </div>
-                <div class="pdp-utilities"><button type="button">↗ Share</button></div>
-                <div class="pdp-promises">
-                    <div><img src="assets/web/icon-handcrafted.webp" alt=""><span>Hand Crafted</span></div>
-                    <div><img src="assets/web/icon-gold-plated.webp" alt=""><span>Gold-Plated</span></div>
-                    <div><img src="assets/web/icon-hypoallergenic.webp" alt=""><span>Hypoallergenic</span></div>
-                </div>
-                <div class="pdp-accordions">
-                    <details open><summary>Materials</summary><p>Diamond, Emerald, Turquoise</p></details>
-                    <details><summary>Metal Details</summary><p>18k gold-plated recycled brass with a high-polish finish.</p></details>
-                    <details><summary>Size Chart</summary><p>Adjustable 40–46 cm chain. Pendant measures 30 mm.</p></details>
-                    <details><summary>Shipping</summary><p>Complimentary insured delivery and easy 14-day returns.</p></details>
-                </div>
+            <div class="pdp-main-image">
+                <img src="assets/<?= htmlspecialchars($product['image']) ?>" data-main-product-image data-view="product" alt="<?= htmlspecialchars($product['name']) ?>">
+                <button class="pdp-fullscreen" type="button" aria-label="View product image fullscreen">&#x26F6;</button>
+                <span class="pdp-image-caption">Product view</span>
             </div>
-        </section>
+        </div>
+        <div class="pdp-summary">
+            <p class="pdp-kicker">Carat Street <?= htmlspecialchars($productTypeName) ?></p>
+            <h1><?= htmlspecialchars($product['name']) ?></h1>
+            <div class="pdp-diamond-divider" aria-hidden="true"><span>&#9671;</span></div>
+            <p class="pdp-description"><?= htmlspecialchars($product['description']) ?></p>
+            <div class="pdp-material-facts"><span>&#9671; <?= htmlspecialchars($product['specs']['Metal']) ?></span><span>&#9671; Natural Diamonds</span></div>
+            <div class="pdp-acquisition">
+                <div class="pdp-price-wrap"><span>Price</span>
+                    <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
+                </div>
+                <a class="indikonnect-cta" href="https://www.indiekonnect.com/" target="_blank" rel="noopener noreferrer"><span>View on IndieKonnect</span><b aria-hidden="true">↗</b></a>
+            </div>
+            <p class="pdp-purchase-notes">Secure checkout <span>•</span> Insured delivery <span>•</span> Lifetime care</p>
+            <div class="pdp-promises" id="product-standard" aria-label="The Carat Street standard">
+                <article><i aria-hidden="true">&#9998;</i><span>01</span>
+                    <h3>Thoughtful Design</h3>
+                    <p>Balanced proportions shaped for graceful, effortless wear.</p>
+                </article>
+                <article><i aria-hidden="true">&#9671;</i><span>02</span>
+                    <h3>Refined Finish</h3>
+                    <p>Every visible detail is considered from every angle.</p>
+                </article>
+                <article><i aria-hidden="true">&#9825;</i><span>03</span>
+                    <h3>Personal Guidance</h3>
+                    <p>Specialist support for styling, selection and care.</p>
+                </article>
+            </div>
+        </div>
+    </section>
 
-        <section class="design-story">
+    <section class="pdp-assurances" aria-label="Carat Street purchase assurances">
+        <article><i aria-hidden="true">&#9651;</i><p><strong>BIS Hallmarked</strong><span>Certified gold you can trust</span></p></article>
+        <article><i aria-hidden="true">&#9671;</i><p><strong>Certified Diamonds</strong><span>Natural and conflict free</span></p></article>
+        <article><i aria-hidden="true">&#9825;</i><p><strong>Lifetime Care</strong><span>Cleaning and care guidance</span></p></article>
+        <article><i aria-hidden="true">&#9635;</i><p><strong>Secure Purchase</strong><span>Completed through IndieKonnect</span></p></article>
+    </section>
+
+    <section class="pdp-secondary-details pdp-reveal" id="product-notes" aria-label="Product details">
+        <section class="pdp-specifications" aria-labelledby="specification-title">
+            <p id="specification-title">Product Details</p>
+            <dl><?php foreach ($product['specs'] as $label => $value): ?><div><dt><?= htmlspecialchars($label) ?></dt><dd><?= htmlspecialchars($value) ?></dd></div><?php endforeach; ?>
+                <div><dt>Diamond type</dt><dd>Natural Diamonds</dd></div>
+                <div><dt>Setting</dt><dd>Precision Prong Setting</dd></div>
+                <div><dt>Finish</dt><dd>High Polish</dd></div>
+            </dl>
+        </section>
+        <div class="pdp-accordions">
+            <details open>
+                <summary>Product Notes</summary>
+                <p>Diamond <?= htmlspecialchars(strtolower($productTypeName)) ?> crafted in <?= htmlspecialchars($product['specs']['Metal']) ?>.</p>
+            </details>
+            <details>
+                <summary>Jewellery Care</summary>
+                <p>Store separately in a soft pouch and avoid direct contact with fragrance, moisture and abrasive surfaces.</p>
+            </details>
+            <details>
+                <summary>Availability &amp; Purchase</summary>
+                <p>Current availability, delivery and transaction details are provided by IndieKonnect, our external retail portal.</p>
+            </details>
+            <details>
+                <summary>Shipping &amp; Returns</summary>
+                <p>Shipping timelines, insurance and return eligibility are confirmed on IndieKonnect before purchase.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="pdp-brand-statement pdp-reveal" aria-label="The Carat Street philosophy">
+        <p>Carat Street · House of Fine Jewellery</p>
+        <h2>Designed To Be Worn.<br><em>Created To Be Remembered.</em></h2>
+        <div><span>01</span><p>Natural brilliance, selected with discernment.</p><span>02</span><p>Contemporary form, finished with enduring craft.</p><span>03</span><p>Personal service, from first discovery to lifetime care.</p></div>
+    </section>
+
+    <section class="design-story pdp-reveal">
+        <div class="design-story-visual"><img src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> design detail"></div>
+        <div class="design-story-copy">
             <p class="section-label">About The Design</p>
-            <h2>A Modern Heirloom, Made To Be Remembered</h2>
-            <p>The necklace draws its rhythm from delicate floral geometry. Brilliant stones, hand-set in warm gold, create a softly sculpted silhouette that catches light from every direction.</p>
-            <div class="collection-notes">
-                <article><span>01</span><h3>Pearl Intuition</h3><p>Organic curves and luminous details celebrate confidence, grace and the beauty of following your own instinct.</p></article>
-                <article><span>02</span><h3>Serenity Blue Sandstone</h3><p>A calm blue accent brings depth to the composition, balancing the brilliance of diamonds with a quiet celestial glow.</p></article>
-            </div>
-        </section>
+            <h2><?= htmlspecialchars($product['design_title']) ?></h2>
+            <p><?= htmlspecialchars($product['design_story']) ?></p>
+            <div class="design-metrics"><span><b><?= htmlspecialchars($product['specs']['Diamond stones']) ?></b>Diamonds</span><span><b><?= htmlspecialchars($product['specs']['Diamond weight']) ?></b>Total Diamond Weight</span><span><b>Natural</b>Diamond Quality</span><span><b>Refined</b>Finish</span></div>
+        </div>
+    </section>
 
-        <section class="exclusive-services">
-            <div class="services-copy">
-                <p class="section-label">Made Personal</p><h2>Rose’s Exclusive Services</h2>
-                <article><span>01</span><div><h3>Book An Appointment</h3><p>Enjoy an intimate one-to-one jewellery consultation, online or in our boutique.</p><a href="#contact">Book now</a></div></article>
-                <article><span>02</span><div><h3>Expert Advice</h3><p>Our specialists will guide you through styling, sizing and selecting the right piece.</p><a href="#contact">Speak to an expert</a></div></article>
-                <article><span>03</span><div><h3>Repairs &amp; Servicing</h3><p>Preserve the brilliance of your jewellery with thoughtful care from our craftspeople.</p><a href="#contact">Discover our care</a></div></article>
-            </div>
-            <div class="services-image"><img src="assets/web/exclusive-services-models.webp" alt="Two women wearing Carat Street jewellery"></div>
-        </section>
+    <section class="exclusive-services pdp-reveal">
+        <div class="services-copy">
+            <p class="section-label">Carat Street Privé</p>
+            <h2>Our Private Services</h2>
+            <p class="services-intro">Because every piece of jewellery deserves personal attention.</p>
+            <article><span>01</span>
+                <div>
+                    <h3>Book An Appointment</h3>
+                    <p>Enjoy an intimate one-to-one jewellery consultation, online or in our boutique.</p><a href="#contact">Book now</a>
+                </div>
+            </article>
+            <article><span>02</span>
+                <div>
+                    <h3>Expert Advice</h3>
+                    <p>Our specialists will guide you through styling, sizing and selecting the right piece.</p><a href="#contact">Speak to an expert</a>
+                </div>
+            </article>
+            <article><span>03</span>
+                <div>
+                    <h3>Repairs &amp; Servicing</h3>
+                    <p>Preserve the brilliance of your jewellery with thoughtful care from our craftspeople.</p><a href="#contact">Discover our care</a>
+                </div>
+            </article>
+        </div>
+        <div class="services-image"><img src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt="Carat Street jewellery styling"></div>
+    </section>
 
-        <section class="pdp-related">
-            <p class="section-label">Chosen For You</p><h2>You May Also Like</h2>
-            <div class="related-grid">
-                <?php foreach ($related as $item): ?><article><div class="related-image"><img src="assets/<?= $item[0] ?>" alt="<?= htmlspecialchars($item[1]) ?>"></div><h3><?= htmlspecialchars($item[1]) ?></h3><p><?= htmlspecialchars($item[2]) ?></p><a href="product.php">View Product</a></article><?php endforeach; ?>
-            </div>
-            <a class="view-all" href="index.php#jewellery">View All Products</a>
-        </section>
+    <section class="pdp-related pdp-reveal">
+        <p class="section-label">Chosen For You</p>
+        <h2>You May Also Like</h2>
+        <div class="related-grid">
+            <?php foreach ($related as $item): ?><article>
+                    <div class="related-image"><img src="assets/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>"></div>
+                    <span class="related-type">Carat Street · Fine <?= htmlspecialchars($item['category'] === 'earrings' ? 'Earrings' : 'Pendant') ?></span>
+                    <h3><?= htmlspecialchars($item['name']) ?></h3>
+                    <p><?= htmlspecialchars($item['price']) ?></p><a href="<?= htmlspecialchars(catalog_product_url($item)) ?>">View Product</a>
+                </article><?php endforeach; ?>
+        </div>
+        <a class="view-all" href="category.php?category=pendants">View All Products</a>
+    </section>
 
-        <section class="pdp-categories" aria-label="Shop jewellery categories">
-            <a href="category.php?category=pendants"><img src="assets/web/category-pendants-model.webp" alt=""><span>All Pendants</span></a>
-            <a href="category.php?category=rings"><img src="assets/web/category-rings-hand.webp" alt=""><span>All Rings</span></a>
-            <a href="category.php?category=earrings"><img src="assets/web/category-earrings-model.webp" alt=""><span>All Earrings</span></a>
-        </section>
-    </main>
+    <section class="pdp-categories pdp-reveal" aria-label="Shop jewellery categories">
+        <a href="category.php?category=pendants"><img src="assets/web/category-pendants-model.webp" alt=""><span><b>Pendants</b><small>Explore Collection</small></span></a>
+        <a href="category.php?category=rings"><img src="assets/web/category-rings-hand.webp" alt=""><span><b>Rings</b><small>Explore Collection</small></span></a>
+        <a href="category.php?category=earrings"><img src="assets/web/category-earrings-model.webp" alt=""><span><b>Earrings</b><small>Explore Collection</small></span></a>
+    </section>
+</main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

@@ -17,7 +17,7 @@
     <main class="launch">
         <section class="launch-copy" aria-labelledby="page-title">
             <header class="header">
-                <h3><span>Carat Street</span></h3>
+                <a class="brand" href="./" aria-label="Carat Street"><img src="assets/carat-street-brand-logo.png" alt="Carat Street"></a>
                 <span class="edition">Est. 2026 · Fine Jewellery</span>
             </header>
 

@@ -265,41 +265,6 @@ img {
     width: auto !important
   }
 
-  .pdp-hero {
-    width: 90% !important;
-    grid-template-columns: minmax(0, 1.15fr) minmax(460px, .85fr) !important;
-    gap: 45px !important;
-    padding: 75px 0 95px !important
-  }
-
-  .pdp-gallery {
-    grid-template-columns: 135px 1fr !important;
-    gap: 22px !important
-  }
-
-  .pdp-thumb {
-    height: 120px !important
-  }
-
-  .pdp-summary {
-    padding-top: 30px !important
-  }
-
-  .pdp-summary h1 {
-    font-size: 88px !important
-  }
-
-  .pdp-description {
-    font-size: 21px !important
-  }
-
-  .exclusive-services {
-    grid-template-columns: 1fr 43% !important
-  }
-
-  .related-image {
-    height: 340px !important
-  }
 }
 
 @media(max-width:1024px) {
@@ -657,70 +622,6 @@ img {
     text-align: center !important;
   }
 
-  .pdp-hero {
-    width: calc(100% - 40px) !important;
-    grid-template-columns: 1fr !important;
-    gap: 45px !important;
-    padding: 55px 0 80px !important
-  }
-
-  .pdp-gallery {
-    grid-template-columns: 120px 1fr !important
-  }
-
-  .pdp-thumbnails {
-    gap: 12px !important
-  }
-
-  .pdp-thumb {
-    height: 105px !important
-  }
-
-  .pdp-summary {
-    padding-top: 0 !important
-  }
-
-  .pdp-summary h1 {
-    font-size: clamp(65px, 11vw, 100px) !important;
-    margin-bottom: 40px !important
-  }
-
-  .pdp-description {
-    font-size: 21px !important
-  }
-
-  .design-story {
-    padding: 80px 35px !important
-  }
-
-  .collection-notes {
-    gap: 45px !important
-  }
-
-  .exclusive-services {
-    grid-template-columns: 1fr !important
-  }
-
-  .services-copy {
-    padding: 80px 35px !important
-  }
-
-  .services-image {
-    height: 650px !important
-  }
-
-  .related-grid {
-    grid-template-columns: repeat(2, 1fr) !important
-  }
-
-  .pdp-categories {
-    height: auto !important;
-    grid-template-columns: 1fr !important
-  }
-
-  .pdp-categories a {
-    height: 520px !important
-  }
 
   .contact-hero,
   .contact-main {
@@ -1006,116 +907,6 @@ img {
     text-align: center !important;
   }
 
-  .pdp-hero {
-    width: calc(100% - 24px) !important;
-    padding-top: 35px !important
-  }
-
-  .pdp-gallery {
-    grid-template-columns: 1fr !important
-  }
-
-  .pdp-main-image {
-    grid-row: 1
-  }
-
-  .pdp-thumbnails {
-    grid-template-columns: repeat(4, 1fr) !important
-  }
-
-  .pdp-thumb {
-    height: auto !important
-  }
-
-  .pdp-summary h1 {
-    font-size: 59px !important
-  }
-
-  .pdp-price {
-    font-size: 34px !important
-  }
-
-  .pdp-description {
-    font-size: 18px !important
-  }
-
-  .pdp-buy-row {
-    display: grid !important;
-    grid-template-columns: 120px 1fr !important;
-    gap: 12px !important
-  }
-
-  .quantity,
-  .add-cart {
-    width: 100% !important;
-    height: 60px !important
-  }
-
-  .pdp-utilities {
-    gap: 25px !important
-  }
-
-  .pdp-promises img {
-    width: 48px !important;
-    height: 48px !important
-  }
-
-  .pdp-promises span {
-    font-size: 10px !important
-  }
-
-  .design-story {
-    padding: 65px 18px !important
-  }
-
-  .design-story>h2,
-  .exclusive-services h2,
-  .pdp-related>h2 {
-    font-size: 45px !important
-  }
-
-  .design-story>p:not(.section-label) {
-    font-size: 20px !important
-  }
-
-  .collection-notes {
-    grid-template-columns: 1fr !important;
-    margin-top: 55px !important
-  }
-
-  .services-copy {
-    padding: 65px 18px !important
-  }
-
-  .services-image {
-    height: 430px !important
-  }
-
-  .pdp-related {
-    padding: 70px 10px !important
-  }
-
-  .related-grid {
-    gap: 12px !important
-  }
-
-  .related-image {
-    height: 230px !important
-  }
-
-  .related-grid h3 {
-    font-size: 20px !important
-  }
-
-  .pdp-categories a {
-    height: 420px !important
-  }
-
-  .pdp-categories span {
-    left: 25px !important;
-    bottom: 25px !important;
-    font-size: 38px !important
-  }
 }
 
 @media(hover:none) {
@@ -2361,4 +2152,167 @@ img {
     height:100%!important;
     transform:translate(-50%,-50%)!important
   }
+}
+
+/* Keep the shared header crest identical to the homepage on every laptop
+   inner page. The source artwork also contains a wordmark; this exact crop
+   shows the crest cleanly instead of exposing a cut-off line of text. */
+@media(min-width:1025px) and (max-width:1899px) {
+  .site-header .brand {
+    top:10px!important;
+    width:81px!important;
+    height:72px!important;
+    overflow:hidden!important;
+    background-image:url('../assets/web/decorative-jewellery-model.webp')!important;
+    background-repeat:no-repeat!important;
+    background-size:202px auto!important;
+    background-position:center -6px!important
+  }
+
+  .site-header .brand img {
+    display:none!important
+  }
+}
+
+@media(min-width:901px) and (max-width:1024px) {
+  .site-header .brand {
+    top:13px!important;
+    width:108px!important;
+    height:96px!important;
+    overflow:hidden!important;
+    background-size:270px auto!important;
+    background-position:center -8px!important
+  }
+}
+
+/* Final phone controls: keep the menu glyph optically balanced in both
+   states and give the consultation service matrix an even 2 x 2 rhythm. */
+@media(max-width:600px) {
+  .site-header .menu-toggle {
+    position:absolute!important;
+    top:23px!important;
+    left:18px!important;
+    display:block!important;
+    width:30px!important;
+    height:24px!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important
+  }
+
+  .site-header .menu-toggle span,
+  .site-header .menu-toggle span:nth-child(1),
+  .site-header .menu-toggle span:nth-child(2),
+  .site-header .menu-toggle span:nth-child(3) {
+    position:absolute!important;
+    left:0!important;
+    display:block!important;
+    width:30px!important;
+    height:2px!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:2px!important;
+    background:#111!important;
+    transform-origin:50% 50%!important;
+    transition:top .25s ease, transform .25s ease, opacity .18s ease!important
+  }
+
+  .site-header .menu-toggle span:nth-child(1) {
+    top:1px!important
+  }
+
+  .site-header .menu-toggle span:nth-child(2) {
+    top:11px!important
+  }
+
+  .site-header .menu-toggle span:nth-child(3) {
+    top:21px!important
+  }
+
+  .site-header .menu-toggle.is-open span:nth-child(1) {
+    top:11px!important;
+    transform:rotate(45deg)!important
+  }
+
+  .site-header .menu-toggle.is-open span:nth-child(2) {
+    opacity:0!important;
+    transform:scaleX(0)!important
+  }
+
+  .site-header .menu-toggle.is-open span:nth-child(3) {
+    top:11px!important;
+    transform:rotate(-45deg)!important
+  }
+
+  .home-page .consultation-services {
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    width:100%!important;
+    margin-top:42px!important;
+    border-top:1px solid rgba(79,68,55,.24)!important
+  }
+
+  .home-page .consultation-services div,
+  .home-page .consultation-services div:first-child,
+  .home-page .consultation-services div:last-child,
+  .home-page .consultation-services div:nth-child(2),
+  .home-page .consultation-services div:nth-child(n+3) {
+    box-sizing:border-box!important;
+    min-width:0!important;
+    min-height:116px!important;
+    padding:25px 14px 20px!important;
+    border:0!important
+  }
+
+  .home-page .consultation-services div:nth-child(odd) {
+    padding-left:0!important;
+    padding-right:18px!important;
+    border-right:1px solid rgba(79,68,55,.22)!important
+  }
+
+  .home-page .consultation-services div:nth-child(even) {
+    padding-left:18px!important;
+    padding-right:0!important
+  }
+
+  .home-page .consultation-services div:nth-child(n+3) {
+    border-top:1px solid rgba(79,68,55,.22)!important
+  }
+
+  .home-page .consultation-services strong {
+    display:block!important;
+    color:var(--gold)!important;
+    font:400 15px/1 var(--sans)!important
+  }
+
+  .home-page .consultation-services span {
+    display:block!important;
+    margin-top:14px!important;
+    overflow-wrap:normal!important;
+    font:400 clamp(19px,5.3vw,24px)/1.18 var(--serif)!important
+  }
+}
+
+/* The supplied Carat Street mark is shared by every page. Keep this last so
+   legacy page-specific crest crops cannot hide or replace the real logo. */
+.site-header .brand.brand {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  background:none!important
+}
+
+.site-header .brand.brand img {
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important
+}
+
+body>footer .footer-logo {
+  object-fit:contain!important;
+  object-position:left center!important;
+  filter:none!important
 }

@@ -2,6 +2,7 @@
 $pageTitle = $pageTitle ?? 'Carat Street — Fine Jewellery';
 $pageDescription = $pageDescription ?? "Timeless jewellery for life's most meaningful moments.";
 $pageStyles = $pageStyles ?? [];
+$pageStylesAfterResponsive = $pageStylesAfterResponsive ?? [];
 $bodyClass = $bodyClass ?? '';
 $baseStyleVersion = @filemtime(__DIR__ . '/../css/style.css') ?: 1;
 $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
@@ -22,13 +23,16 @@ $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
         <link rel="stylesheet" href="<?= htmlspecialchars($stylesheet) ?>">
     <?php endforeach; ?>
     <link rel="stylesheet" href="css/responsive.css?v=<?= $responsiveStyleVersion ?>">
+    <?php foreach ($pageStylesAfterResponsive as $stylesheet): ?>
+        <link rel="stylesheet" href="<?= htmlspecialchars($stylesheet) ?>?v=<?= @filemtime(__DIR__ . '/../' . $stylesheet) ?: 1 ?>">
+    <?php endforeach; ?>
 </head>
 <body<?= $bodyClass !== '' ? ' class="' . htmlspecialchars($bodyClass) . '"' : '' ?>>
     <header class="site-header">
         <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        <a class="brand" href="index.php"><img src="assets/header-logo.svg" alt="Carat Street"></a>
+        <a class="brand" href="index.php"><img src="assets/web/carat-street-brand-logo.png" alt="Carat Street"></a>
         <nav class="nav" aria-label="Main navigation">
-            <a href="index.php#story">Our Story</a><a href="category.php">Collections</a><a href="category.php">Jewellery</a><a href="contact.php">Contact</a>
+            <a href="house-of-carat-street.php">The House</a><a href="category.php">Collections</a><a href="diamond-guide.php">Guides</a><a href="contact.php">Contact</a>
         </nav>
         <div class="header-actions"><button class="header-search" type="button" aria-label="Search" data-open-search><img src="assets/search.svg" alt=""><span>Search</span></button></div>
     </header>
@@ -36,7 +40,7 @@ $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
         <div class="menu-panel-inner">
             <p>Explore Carat Street</p>
             <nav><a href="category.php"><span>01</span>All Jewellery</a><a href="category.php?category=necklaces"><span>02</span>Necklaces</a><a href="category.php?category=rings"><span>03</span>Rings</a><a href="category.php?category=earrings"><span>04</span>Earrings</a><a href="category.php?category=pendants"><span>05</span>Pendants</a></nav>
-            <div class="menu-secondary"><a href="index.php#story">Our Story</a><a href="contact.php">Private Consultation</a><a href="search.php">Search</a></div>
+            <div class="menu-secondary"><a href="house-of-carat-street.php">The House</a><a href="craftsmanship.php">Craftsmanship</a><a href="diamond-guide.php">Diamond Guide</a></div>
         </div>
         <div class="menu-panel-visual"><img src="assets/web/category-earrings-model.webp" alt="Carat Street jewellery editorial"><span>Jewels as unique as you</span></div>
     </aside>

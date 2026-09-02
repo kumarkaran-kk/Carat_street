@@ -1,6 +1,7 @@
 :root {
   --ivory: #fbf5eb;
   --gold: #9f7c4e;
+  --brand-gold: #b49612;
   --ink: #2f2f2f;
   --white: #fff;
   --serif: "Baskervville", Georgia, serif;
@@ -718,6 +719,65 @@ footer a {
 
   .newsletter>img {
     order: 2
+  }
+}
+
+/* Logo-linked accent system. The exact supplied mark colour is reserved for
+   fine rules, labels and interactive details so it reads as premium rather
+   than becoming another large background colour. */
+.site-header {
+  box-shadow:inset 0 3px 0 var(--brand-gold),0 1px 0 rgba(180,150,18,.12)!important
+}
+
+.nav a:hover,
+.eyebrow,
+.section-label,
+.consultation .eyebrow,
+.consultation-services strong,
+.listing-intro>p,
+.search-intro>p,
+.product-page .pdp-kicker,
+.product-page .pdp-price-wrap>span,
+.product-page .pdp-specifications>p {
+  color:var(--brand-gold)!important
+}
+
+.category-tabs a:hover,
+.category-tabs a.is-active {
+  color:var(--brand-gold)!important;
+  border-color:var(--brand-gold)!important
+}
+
+.product-page .pdp-thumb:is(.is-active,:hover) {
+  border-color:var(--brand-gold)!important
+}
+
+.product-page .indikonnect-cta b {
+  color:var(--brand-gold)!important
+}
+
+body>footer h3,
+body>footer .footer-cta,
+body>footer .footer-social a,
+body>footer .footer-social a:not(.footer-cta) {
+  color:var(--brand-gold)!important
+}
+
+body>footer .footer-cta {
+  border-color:rgba(180,150,18,.65)!important
+}
+
+body>footer .footer-social a,
+body>footer .footer-social a:not(.footer-cta) {
+  border-color:rgba(180,150,18,.58)!important
+}
+
+@media(hover:hover) {
+  body>footer .footer-social a:hover,
+  body>footer .footer-social a:not(.footer-cta):hover {
+    border-color:var(--brand-gold)!important;
+    background:var(--brand-gold)!important;
+    color:#17130f!important
   }
 }
 
@@ -3365,7 +3425,6 @@ body {
 .gold-dish .orbit>img {
   display: block;
   position: absolute;
-  z-index: 1;
   inset: 0;
   width: 85%;
   height: 100%;
@@ -4140,142 +4199,6 @@ footer a:not(.footer-cta):hover {
     display: none
   }
 
-  /* Shared editorial menu */
-  .menu-panel {
-    position: fixed;
-    z-index: 9;
-    inset: 124px 0 0;
-    display: grid;
-    grid-template-columns: 1.45fr .55fr;
-    background: #f8f2e9;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-18px);
-    transition: opacity .35s, transform .35s, visibility .35s
-  }
-
-  .menu-panel.is-open {
-    opacity: 1;
-    visibility: visible;
-    transform: none
-  }
-
-  .menu-panel-inner {
-    padding: 70px 9vw
-  }
-
-  .menu-panel-inner>p {
-    font: 500 12px var(--sans);
-    text-transform: uppercase;
-    letter-spacing: .22em;
-    color: #9f7c4e;
-    margin: 0 0 35px
-  }
-
-  .menu-panel nav {
-    display: grid
-  }
-
-  .menu-panel nav a {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    border-bottom: 1px solid #cfc6ba;
-    padding: 13px 0;
-    font-size: clamp(39px, 3.1vw, 60px);
-    line-height: 1.1;
-    transition: padding-left .25s
-  }
-
-  .menu-panel nav a:first-child {
-    border-top: 1px solid #cfc6ba
-  }
-
-  .menu-panel nav a:hover {
-    padding-left: 15px
-  }
-
-  .menu-panel nav span {
-    font: 12px var(--sans);
-    color: #a47f52
-  }
-
-  .menu-secondary {
-    display: flex;
-    gap: 35px;
-    margin-top: 36px;
-    font: 12px var(--sans);
-    text-transform: uppercase;
-    letter-spacing: .1em
-  }
-
-  .menu-panel-visual {
-    position: relative;
-    overflow: hidden
-  }
-
-  .menu-panel-visual img {
-    height: 100%;
-    object-fit: cover
-  }
-
-  .menu-panel-visual:after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, .42))
-  }
-
-  .menu-panel-visual span {
-    position: absolute;
-    z-index: 1;
-    bottom: 45px;
-    left: 35px;
-    color: #fff;
-    font-size: 31px
-  }
-
-  .menu-toggle.is-open span:first-child {
-    transform: translateY(11px) rotate(45deg)
-  }
-
-  .menu-toggle.is-open span:nth-child(2) {
-    opacity: 0
-  }
-
-  .menu-toggle.is-open span:nth-child(3) {
-    width: 42px !important;
-    margin-left: 0 !important;
-    transform: translateY(-11px) rotate(-45deg)
-  }
-
-  body.menu-visible {
-    overflow: hidden
-  }
-
-  @media(max-width:900px) {
-    .menu-panel {
-      inset: 76px 0 0;
-      grid-template-columns: 1fr
-    }
-
-    .menu-panel-inner {
-      padding: 45px 25px
-    }
-
-    .menu-panel nav a {
-      font-size: 38px
-    }
-
-    .menu-panel-visual {
-      display: none
-    }
-
-    .menu-secondary {
-      flex-wrap: wrap
-    }
-  }
-
   .site-header .header-bag {
     font-size: 0
   }
@@ -4525,6 +4448,140 @@ footer a:not(.footer-cta):hover {
 
 body.menu-visible {
   overflow: hidden
+}
+
+/* One shared desktop footer geometry. The homepage canvas is scaled as a
+   whole on laptops, while inner pages are native-width; these explicit
+   component dimensions keep the common footer identical on both paths. */
+@media(min-width:1400px) {
+  body>footer {
+    height:auto!important;
+    min-height:610px!important;
+    padding:72px 88px 28px!important
+  }
+
+  body>footer .footer-grid {
+    grid-template-columns:520px repeat(3,minmax(0,1fr))!important;
+    gap:74px!important;
+    min-height:405px!important
+  }
+
+  body>footer .footer-grid>div:first-child {
+    padding-right:72px!important
+  }
+
+  body>footer .footer-logo {
+    width:305px!important;
+    height:190px!important
+  }
+}
+
+@media(min-width:1025px) and (max-width:1399px) {
+  body>footer {
+    height:auto!important;
+    min-height:560px!important;
+    padding:60px 5vw 26px!important
+  }
+
+  body>footer .footer-grid {
+    grid-template-columns:1.35fr repeat(3,minmax(0,1fr))!important;
+    gap:35px!important;
+    min-height:365px!important
+  }
+
+  body>footer .footer-grid>div:first-child {
+    padding-right:40px!important;
+    border-right:1px solid rgba(255,255,255,.14)!important
+  }
+
+  body>footer .footer-logo {
+    width:240px!important;
+    height:150px!important
+  }
+}
+
+/* Shared supplied brand mark. This intentionally clears the old decorative
+   crest crops while preserving each breakpoint's approved logo box. */
+.site-header .brand.brand {
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:visible!important;
+  background:none!important
+}
+
+.site-header .brand.brand img {
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important
+}
+
+body>footer .footer-logo {
+  object-fit:contain!important;
+  object-position:left center!important;
+  filter:none!important
+}
+
+footer .footer-social {
+  display:flex;
+  gap:11px;
+  margin-top:30px
+}
+
+footer .footer-social a,
+footer .footer-social a:not(.footer-cta) {
+  display:flex;
+  width:39px;
+  height:39px;
+  margin:0;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(225,189,137,.52);
+  border-radius:50%;
+  color:#e1bd89;
+  transition:background-color .3s ease,border-color .3s ease,color .3s ease,transform .3s ease
+}
+
+footer .footer-social svg {
+  width:17px;
+  height:17px;
+  overflow:visible;
+  fill:currentColor;
+  stroke:currentColor;
+  stroke-width:1.6
+}
+
+footer .footer-social svg path {
+  stroke:none
+}
+
+footer .footer-social .social-dot {
+  fill:currentColor;
+  stroke:none
+}
+
+footer .footer-social a[aria-label="Instagram"] rect,
+footer .footer-social a[aria-label="Instagram"] circle:not(.social-dot) {
+  fill:none
+}
+
+@media(hover:hover) {
+  footer .footer-social a:hover,
+  footer .footer-social a:not(.footer-cta):hover {
+    border-color:#e1bd89;
+    background:#e1bd89;
+    color:#17130f;
+    transform:translateY(-3px)
+  }
+}
+
+@media(max-width:600px) {
+  footer .footer-social {
+    justify-content:center;
+    margin-top:26px
+  }
 }
 
 /* Final CTA corrections: preserve the approved layouts while using real links. */
