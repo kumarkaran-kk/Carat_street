@@ -1,0 +1,43 @@
+:root {
+  --site-header-height: 127px
+}
+
+body {
+  padding-top: var(--site-header-height)
+}
+
+.site-header {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 1000 !important;
+  transition: box-shadow .28s ease
+}
+
+.site-header.is-scrolled {
+  box-shadow: inset 0 3px 0 var(--brand-gold), 0 10px 28px rgba(35, 27, 20, .1) !important
+}
+
+.menu-panel {
+  z-index: 999 !important
+}
+
+@media (min-width: 1025px) and (max-width: 1899px) {
+  :root {
+    --site-header-height: 100px
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  :root {
+    --site-header-height: 78px
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --site-header-height: 70px
+  }
+}

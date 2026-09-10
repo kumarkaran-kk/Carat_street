@@ -26,6 +26,7 @@ $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
     <?php foreach ($pageStylesAfterResponsive as $stylesheet): ?>
         <link rel="stylesheet" href="<?= htmlspecialchars($stylesheet) ?>?v=<?= @filemtime(__DIR__ . '/../' . $stylesheet) ?: 1 ?>">
     <?php endforeach; ?>
+    <link rel="stylesheet" href="css/header-sticky.css?v=<?= @filemtime(__DIR__ . '/../css/header-sticky.css') ?: 1 ?>">
 </head>
 <body<?= $bodyClass !== '' ? ' class="' . htmlspecialchars($bodyClass) . '"' : '' ?>>
     <header class="site-header">

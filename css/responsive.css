@@ -1,8 +1,7 @@
-/* Final responsive layer shared by every public page. */
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden
+  overflow-x: clip
 }
 
 img {
@@ -936,7 +935,6 @@ img {
   }
 }
 
-/* Homepage coordinate resets after visual viewport review. */
 @media(max-width:1899px) {
   .site-header {
     background-image: none !important
@@ -1325,7 +1323,6 @@ img {
   }
 }
 
-/* Fluid laptop canvas: the Figma desktop rules use a fixed 1900px stage. */
 @media(min-width:1025px) and (max-width:1899px) {
 
   body,
@@ -1429,7 +1426,6 @@ img {
   }
 }
 
-/* Mobile hero alignment and explicit hamburger open/closed geometry. */
 @media(max-width:600px) {
   .home-page .hero-copy {
     left: 50% !important;
@@ -1484,7 +1480,6 @@ img {
   }
 }
 
-/* Compact laptop pass: preserve the desktop composition without collisions. */
 @media(min-width:1025px) and (max-width:1399px) {
   .site-header .brand {
     width: 145px !important;
@@ -1576,7 +1571,6 @@ img {
   }
 }
 
-/* The absolute Figma countdown positions collide only in narrow laptop widths. */
 @media(min-width:1025px) and (max-width:1240px) {
   .deal {
     display: grid !important;
@@ -1648,7 +1642,6 @@ img {
   }
 }
 
-/* Phone logo uses the same complete artwork instead of cropping its wordmark. */
 @media(max-width:600px) {
   .site-header .brand {
     width: 106px !important;
@@ -1658,7 +1651,6 @@ img {
   }
 }
 
-/* Native tablet/phone layout for the original homepage newsletter and footer. */
 @media(max-width:1024px) {
   .home-page .nature-description {
     max-width: none;
@@ -1751,8 +1743,6 @@ img {
   }
 }
 
-/* Structural responsive guards for the inner pages. These do not affect the
-   established laptop/desktop composition. */
 @media(max-width:1024px) {
   .site-header .menu-toggle {
     display: block !important;
@@ -1910,7 +1900,6 @@ img {
   }
 }
 
-/* Final phone alignment pass for homepage content groups. */
 @media(max-width:600px) {
   .home-page .collection-card>div {
     position: absolute !important;
@@ -2024,9 +2013,6 @@ img {
   }
 }
 
-/* Showcase-only header: menu, brand and search remain evenly balanced after
-   removing ecommerce account and bag actions. Kept last to win the legacy
-   Figma coordinate rules without changing the desktop canvas. */
 @media(max-width:1024px) {
   .site-header .menu-toggle {
     left: 18px !important
@@ -2094,7 +2080,6 @@ img {
   }
 }
 
-/* Match the homepage's cropped crest treatment on laptop-sized inner pages. */
 @media(min-width:1025px) and (max-width:1899px) {
 
   .storefront-page .site-header .brand,
@@ -2115,7 +2100,6 @@ img {
   }
 }
 
-/* Full-screen cave on tablet landscape, laptop and desktop. */
 @media(min-width:901px) {
   .cave-scene {
     height: 100vh !important;
@@ -2142,8 +2126,6 @@ img {
   }
 }
 
-/* Fill the taller mobile reveal panel. Preserve the artwork ratio and crop
-   only the far left/right edges instead of exposing the black stage. */
 @media(max-width:900px) {
   .cave-stage {
     left:50%!important;
@@ -2154,9 +2136,6 @@ img {
   }
 }
 
-/* Keep the shared header crest identical to the homepage on every laptop
-   inner page. The source artwork also contains a wordmark; this exact crop
-   shows the crest cleanly instead of exposing a cut-off line of text. */
 @media(min-width:1025px) and (max-width:1899px) {
   .site-header .brand {
     top:10px!important;
@@ -2185,8 +2164,6 @@ img {
   }
 }
 
-/* Final phone controls: keep the menu glyph optically balanced in both
-   states and give the consultation service matrix an even 2 x 2 rhythm. */
 @media(max-width:600px) {
   .site-header .menu-toggle {
     position:absolute!important;
@@ -2293,8 +2270,6 @@ img {
   }
 }
 
-/* The supplied Carat Street mark is shared by every page. Keep this last so
-   legacy page-specific crest crops cannot hide or replace the real logo. */
 .site-header .brand.brand {
   display:flex!important;
   align-items:center!important;

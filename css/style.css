@@ -722,9 +722,6 @@ footer a {
   }
 }
 
-/* Logo-linked accent system. The exact supplied mark colour is reserved for
-   fine rules, labels and interactive details so it reads as premium rather
-   than becoming another large background colour. */
 .site-header {
   box-shadow:inset 0 3px 0 var(--brand-gold),0 1px 0 rgba(180,150,18,.12)!important
 }
@@ -925,7 +922,6 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 }
 
-/* Exact desktop geometry from Figma frame 1:2 (1900 × 10213). */
 @media(min-width:901px) {
   .site-header {
     height: 118px;
@@ -1258,7 +1254,6 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 }
 
-/* Figma section 2 — exact node geometry at the 1900px reference width. */
 @media(min-width:901px) {
   .occasion {
     display: block;
@@ -1408,7 +1403,6 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 }
 
-/* Figma Collections component 14:258 — exact 1900 × 1067 desktop geometry. */
 .collections-background {
   display: none
 }
@@ -1533,7 +1527,6 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 }
 
-/* Header logo: display the complete CS emblem without clipping. */
 .site-header .brand {
   display: block;
   width: 92px;
@@ -1634,7 +1627,6 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 }
 
-/* Final second-section override: exact Figma 1900px coordinates. */
 @media(min-width:901px) {
   .occasion {
     display: block;
@@ -1885,7 +1877,6 @@ body {
   }
 }
 
-/* Figma hero component 40:204: horizontal images + vertically clipped titles. */
 .hero-slide {
   opacity: 1;
   transform: translateX(calc(100% + 59px));
@@ -1990,7 +1981,6 @@ body {
   }
 }
 
-/* Final desktop coordinates from the Figma node hierarchy. */
 @media(min-width:901px) {
   .hero {
     height: 886px;
@@ -2122,7 +2112,6 @@ body {
   }
 }
 
-/* Corrections traced from the full-resolution exported frame. */
 @media(min-width:901px) {
   body {
     background: #fff
@@ -2882,7 +2871,6 @@ body {
   }
 }
 
-/* Final Collections override kept last to win the legacy cascade. */
 @media(min-width:901px) {
   .collections {
     position: relative;
@@ -2984,7 +2972,6 @@ body {
   }
 }
 
-/* Full-canvas collection hover states from the Figma component assets. */
 .collections-backgrounds {
   position: absolute;
   inset: 0;
@@ -3022,8 +3009,6 @@ body {
   }
 }
 
-/* The laptop homepage is zoomed from its 1900px master canvas. Counter that
-   zoom for this section so the cave still occupies the physical viewport. */
 .desktop-fitted .cave-scene {
   height: var(--cave-full-height, 100vh) !important;
   min-height: 0 !important;
@@ -3038,7 +3023,6 @@ body {
   transform: translate(-50%, -50%) !important
 }
 
-/* Freshly Arrived product swap and ecommerce hover treatment. */
 .products {
   position: relative;
   isolation: isolate;
@@ -3190,7 +3174,6 @@ body {
   }
 }
 
-/* Three-stage cave reveal translated from the supplied Figma variant brief. */
 .cave-scene {
   isolation: isolate;
   position: relative;
@@ -3410,7 +3393,6 @@ body {
   }
 }
 
-/* Gold-Dish pointer-controlled circular lettering. */
 .gold-dish .orbit {
   position: absolute;
   left: 50%;
@@ -3506,7 +3488,6 @@ body {
   }
 }
 
-/* Final countdown banner placement from the supplied 1900px reference. */
 @media(min-width:901px) {
   .deal {
     position: relative;
@@ -3608,7 +3589,6 @@ body {
   }
 }
 
-/* Story banner: soft blackout with a restrained cursor-following glow. */
 .story-banner {
   --story-light-x: 50%;
   --story-light-y: 50%;
@@ -3660,7 +3640,6 @@ body {
   }
 }
 
-/* High-intent consultation section replacing the newsletter. */
 .consultation {
   position: relative;
   display: grid;
@@ -3889,7 +3868,6 @@ body {
   }
 }
 
-/* Refined luxury footer. */
 footer {
   position: relative;
   height: auto;
@@ -4053,7 +4031,6 @@ footer a:not(.footer-cta):hover {
   }
 }
 
-/* Final header geometry from the supplied 1900px Figma capture. */
 @media(min-width:901px) {
   .site-header {
     position: relative;
@@ -4204,7 +4181,6 @@ footer a:not(.footer-cta):hover {
   }
 }
 
-/* Light top fade for Occasion image-heading readability. */
 .occasion-visual:before {
   content: '';
   position: absolute;
@@ -4219,7 +4195,6 @@ footer a:not(.footer-cta):hover {
   z-index: 2
 }
 
-/* Unified black/white CTA hover language. */
 .button,
 .occasion .text-link,
 .collection-card a,
@@ -4256,7 +4231,6 @@ footer a:not(.footer-cta):hover {
 
 }
 
-/* Original homepage closing sections from the approved 1900px master frame. */
 .home-page .nature-description {
   max-width: 640px;
   margin: 30px 0 0 auto;
@@ -4337,7 +4311,6 @@ footer a:not(.footer-cta):hover {
   text-align: right
 }
 
-/* Shared editorial menu — global placement */
 .menu-panel {
   position: fixed;
   z-index: 9;
@@ -4450,9 +4423,6 @@ body.menu-visible {
   overflow: hidden
 }
 
-/* One shared desktop footer geometry. The homepage canvas is scaled as a
-   whole on laptops, while inner pages are native-width; these explicit
-   component dimensions keep the common footer identical on both paths. */
 @media(min-width:1400px) {
   body>footer {
     height:auto!important;
@@ -4500,8 +4470,6 @@ body.menu-visible {
   }
 }
 
-/* Shared supplied brand mark. This intentionally clears the old decorative
-   crest crops while preserving each breakpoint's approved logo box. */
 .site-header .brand.brand {
   display:flex!important;
   align-items:center!important;
@@ -4584,7 +4552,6 @@ footer .footer-social a[aria-label="Instagram"] circle:not(.social-dot) {
   }
 }
 
-/* Final CTA corrections: preserve the approved layouts while using real links. */
 .products:after {
   display: none !important
 }

@@ -1,12 +1,59 @@
-const menuButton=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');const menuPanel=document.querySelector('.menu-panel');const closeMenu=()=>{menuPanel?.classList.remove('is-open');menuButton?.classList.remove('is-open');menuButton?.setAttribute('aria-expanded','false');menuPanel?.setAttribute('aria-hidden','true');document.body.classList.remove('menu-visible')};menuButton?.addEventListener('click',()=>{const open=!menuPanel?.classList.contains('is-open');menuPanel?.classList.toggle('is-open',open);menuButton.classList.toggle('is-open',open);menuButton.setAttribute('aria-expanded',String(open));menuPanel?.setAttribute('aria-hidden',String(!open));document.body.classList.toggle('menu-visible',open)});menuPanel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});document.querySelector('[data-open-search]')?.addEventListener('click',()=>{window.location.href='search.php'});
-const clock=document.querySelector('.countdown');if(clock){const deadline=new Date(clock.dataset.deadline).getTime();const render=()=>{const remaining=Math.max(0,deadline-Date.now());const values={days:Math.floor(remaining/864e5),hours:Math.floor(remaining/36e5)%24,minutes:Math.floor(remaining/6e4)%60,seconds:Math.floor(remaining/1e3)%60};Object.entries(values).forEach(([key,value])=>{clock.querySelector(`[data-${key}]`).textContent=String(value).padStart(2,'0')})};render();setInterval(render,1000)}
+const menuButton = document.querySelector('.menu-toggle');
+const menuPanel = document.querySelector('.menu-panel');
+
+const closeMenu = () => {
+  menuPanel?.classList.remove('is-open');
+  menuButton?.classList.remove('is-open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuPanel?.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('menu-visible');
+};
+
+menuButton?.addEventListener('click', () => {
+  const open = !menuPanel?.classList.contains('is-open');
+  menuPanel?.classList.toggle('is-open', open);
+  menuButton.classList.toggle('is-open', open);
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuPanel?.setAttribute('aria-hidden', String(!open));
+  document.body.classList.toggle('menu-visible', open);
+});
+
+menuPanel?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeMenu();
+});
+document.querySelector('[data-open-search]')?.addEventListener('click', () => {
+  window.location.href = 'search.php';
+});
+
+const siteHeader = document.querySelector('.site-header');
+const updateStickyHeader = () => siteHeader?.classList.toggle('is-scrolled', window.scrollY > 8);
+updateStickyHeader();
+window.addEventListener('scroll', updateStickyHeader, {passive: true});
+
+const clock = document.querySelector('.countdown');
+if (clock) {
+  const deadline = new Date(clock.dataset.deadline).getTime();
+  const render = () => {
+    const remaining = Math.max(0, deadline - Date.now());
+    const values = {
+      days: Math.floor(remaining / 864e5),
+      hours: Math.floor(remaining / 36e5) % 24,
+      minutes: Math.floor(remaining / 6e4) % 60,
+      seconds: Math.floor(remaining / 1e3) % 60,
+    };
+    Object.entries(values).forEach(([key, value]) => {
+      clock.querySelector(`[data-${key}]`).textContent = String(value).padStart(2, '0');
+    });
+  };
+  render();
+  setInterval(render, 1000);
+}
 const heroSlides=[...document.querySelectorAll('.hero-slide')],heroTitleTrack=document.querySelector('.hero-title-track');
 let heroIndex=0;
 const positionHeroTitle=()=>{
   if(!heroTitleTrack) return;
   const titleRow=heroTitleTrack.firstElementChild;
-  // offsetHeight stays in layout pixels. getBoundingClientRect() is already
-  // multiplied by the laptop canvas zoom and caused every slide to stop short.
   const titleHeight=titleRow?.offsetHeight||parseFloat(getComputedStyle(titleRow).height)||100;
   heroTitleTrack.style.transform=`translate3d(0,-${heroIndex*titleHeight}px,0)`;
 };
@@ -23,9 +70,6 @@ if(heroSlides.length>1){
   },4500);
 }
 
-// The homepage artwork is authored on the original 1900px Figma canvas.
-// Preserve that exact composition on laptops by scaling the canvas as one unit;
-// internal storefront pages continue to use their native responsive layouts.
 const fitHomeCanvas=()=>{
   const isHome=document.body.classList.contains('home-page');
   const shouldFit=isHome&&window.innerWidth>1024&&window.innerWidth<1900;
