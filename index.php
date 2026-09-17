@@ -1,36 +1,47 @@
 <?php
 require __DIR__ . '/includes/catalog.php';
-$products = array_slice($catalogProducts, 0, 4);
+$featuredProductSlugs = ['faye', 'layla', 'maya', 'nora'];
+$productsBySlug = [];
+foreach ($catalogProducts as $catalogProduct) {
+    $productsBySlug[$catalogProduct['slug']] = $catalogProduct;
+}
+$products = [];
+foreach ($featuredProductSlugs as $slug) {
+    if (isset($productsBySlug[$slug])) $products[] = $productsBySlug[$slug];
+}
+foreach ($catalogProducts as $catalogProduct) {
+    if (!in_array($catalogProduct['slug'], $featuredProductSlugs, true)) $products[] = $catalogProduct;
+}
 $pageTitle = 'Carat Street — Fine Jewellery';
 $pageDescription = "Timeless jewellery for life's most meaningful moments.";
 $bodyClass = 'home-page';
+$pageStylesAfterResponsive = ['css/home.css'];
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>
 
 <main id="home">
     <section class="hero">
         <div class="hero-slides" aria-label="Featured jewellery collections">
-            <img class="hero-slide active" src="assets/web/hero-diamond-models.webp" alt="Models wearing diamond jewellery">
-            <img class="hero-slide" src="assets/web/hero-statement-earrings.webp" alt="Model wearing statement earrings">
-            <img class="hero-slide" src="assets/web/hero-pearl-editorial.webp" alt="Pearl jewellery editorial">
-            <img class="hero-slide" src="assets/web/hero-charm-editorial.webp" alt="Charm jewellery editorial">
-        </div>
-        <div class="hero-copy">
-            <p>Adorn your story with</p>
-            <div class="hero-title-window">
-                <div class="hero-title-track"><span>Diamonds</span><span>Heart stone</span><span>Pearls</span><span>Charms</span></div>
-            </div>
-            <a class="button button-dark" href="#collections">Shop Now</a>
+            <picture class="hero-slide hero-slide-product active"><source media="(max-width:600px)" srcset="assets/web/carat-banner-pendant-mobile.jpg"><img src="assets/web/carat-banner-pendant.jpg" alt="Model wearing a Carat Street diamond pendant" fetchpriority="high"></picture>
+            <picture class="hero-slide hero-slide-product"><source media="(max-width:600px)" srcset="assets/web/carat-banner-earrings-mobile.jpg"><img src="assets/web/carat-banner-earrings.jpg" alt="Model wearing Carat Street diamond earrings"></picture>
+            <picture class="hero-slide hero-slide-product"><source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Model wearing a Carat Street signature pendant"></picture>
         </div>
     </section>
 
     <section class="occasion section-pad" id="story">
-        <div class="occasion-visual"><img src="assets/web/birthstone-occasion-model.webp" alt="Woman wearing fine jewellery"><span class="occasion-title">Embrace Your Birthstone's<br>Power And Beauty</span><span class="seal">Know<br>More</span></div>
+        <div class="occasion-kicker" aria-hidden="true"><span></span><p>Everyday Brilliance</p><span></span></div>
+        <div class="occasion-visual">
+            <img src="assets/web/birthstone-occasion-model.webp" alt="Woman wearing a Carat Street diamond pendant">
+            <span class="occasion-title">Embrace<br>Your Birthstone's<br>Power And Beauty</span>
+        </div>
         <div class="occasion-copy">
             <p class="eyebrow">Born to Shine, Crafted to Last</p>
             <h2>A Gem for Every Birthday,<br>A Story for Every Stone</h2>
-            <p>Every birthstone carries a meaning as individual as the person who wears it. Set in refined silhouettes and finished with thoughtful detail, our birthstone jewellery transforms colour, character and personal milestones into modern keepsakes—pieces chosen for today and treasured for years to come.</p><a class="text-link" href="#jewellery">Shop Now <span aria-hidden="true">→</span></a>
+            <p>Every birthstone carries a meaning as individual as the person who wears it. Set in refined silhouettes and finished with thoughtful detail, our birthstone jewellery transforms colour, character and personal milestones into modern keepsakes—pieces chosen for today and treasured for years to come.</p>
+            <a class="text-link" href="#jewellery">Shop Now <span aria-hidden="true">→</span></a>
+            <div class="occasion-inset"><img src="assets/web/models/nora-model.jpg" alt="Carat Street Nora pendant worn with fine jewellery"></div>
         </div>
+        <div class="occasion-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><p>Fine jewellery for a brighter you</p><span></span></div>
     </section>
 
     <section class="collections" id="collections">
@@ -69,15 +80,34 @@ $bodyClass = 'home-page';
     <section class="products section-pad" id="jewellery">
         <p class="eyebrow center">Freshly Arrived</p>
         <h2 class="center">Shine Brighter With Every Diamond</h2>
-        <div class="product-grid">
-            <?php foreach ($products as $product): ?><article class="product">
-                    <div class="product-image"><img class="product-primary" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"><img class="product-hover" src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt=""></div>
-                    <div class="product-details">
-                        <h3><?= htmlspecialchars($product['name']) ?></h3>
-                        <p><?= htmlspecialchars($product['price']) ?></p>
-                    </div><a href="<?= htmlspecialchars(catalog_product_url($product)) ?>">View Product</a>
-                </article><?php endforeach; ?>
+        <div class="home-product-carousel" data-home-product-carousel>
+            <div class="home-product-slider-controls">
+                <button type="button" data-home-product-prev aria-label="Show previous products" disabled><span aria-hidden="true">←</span></button>
+                <p aria-live="polite"><b data-home-product-current>01</b><i></i><span><?= str_pad((string) count($products), 2, '0', STR_PAD_LEFT) ?></span></p>
+                <button type="button" data-home-product-next aria-label="Show next products"><span aria-hidden="true">→</span></button>
+            </div>
+            <div class="home-product-viewport" data-home-product-viewport tabindex="0" aria-label="Freshly arrived jewellery products">
+                <div class="home-product-grid">
+                    <?php foreach ($products as $product):
+                        $productUrl = catalog_product_url($product);
+                    ?><article class="home-product-card">
+                            <a class="home-product-image" href="<?= htmlspecialchars($productUrl) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?>">
+                                <img loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                            </a>
+                            <div class="home-product-content">
+                                <p class="home-product-category"><?= htmlspecialchars($product['category']) ?></p>
+                                <h3><a href="<?= htmlspecialchars($productUrl) ?>"><?= htmlspecialchars($product['name']) ?></a></h3>
+                                <p class="home-product-price"><?= htmlspecialchars($product['price']) ?></p>
+                                <div class="home-product-actions">
+                                    <a class="home-product-primary-action" href="<?= htmlspecialchars($productUrl) ?>">View Details <span aria-hidden="true">→</span></a>
+                                    <a class="home-product-quick-view" href="<?= htmlspecialchars($productUrl) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?> details"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 12s3.6-6 9.8-6 9.8 6 9.8 6-3.6 6-9.8 6-9.8-6-9.8-6Z"/><circle cx="12" cy="12" r="3"/></svg></a>
+                                </div>
+                            </div>
+                        </article><?php endforeach; ?>
+                </div>
+            </div>
         </div>
+        <div class="home-product-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><p>Fine jewellery for a brighter you</p><span></span></div>
         <a class="products-view-all" href="category.php?category=all">View All Products</a>
     </section>
 

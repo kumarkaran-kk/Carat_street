@@ -7,7 +7,7 @@ $bodyClass = 'storefront-page contact-page';
 require __DIR__ . '/includes/header.php';
 ?>
 <main>
-    <section class="contact-hero"><div><p>We’re Here For You</p><h1>Contact Us</h1><span>Whether you are choosing a meaningful gift or finding a piece for your own story, our jewellery specialists would be delighted to help.</span></div><img src="assets/web/exclusive-services-models.webp" alt="Carat Street jewellery specialists"></section>
+    <section class="contact-hero"><div><p>We’re Here For You</p><h1>Contact Us</h1><span>Whether you are choosing a meaningful gift or finding a piece for your own story, our jewellery specialists would be delighted to help.</span></div><picture class="contact-hero-media"><source media="(max-width:600px)" srcset="assets/web/carat-banner-earrings-mobile.jpg"><img src="assets/web/carat-banner-earrings.jpg" alt="Carat Street jewellery specialist wearing diamond earrings"></picture></section>
     <section class="contact-main">
         <div class="contact-details"><p class="contact-label">Personal Assistance</p><h2>Let’s Find Something<br>Beautiful Together</h2><p>Tell us what you are looking for and a member of our team will respond personally.</p><dl><div><dt>Email</dt><dd><a href="mailto:care@caratstreet.com">care@caratstreet.com</a></dd></div><div><dt>Telephone</dt><dd><a href="tel:+911234567890">+91 12345 67890</a></dd></div><div><dt>Client Services</dt><dd>Monday–Saturday<br>10:00 AM–7:00 PM IST</dd></div></dl></div>
         <div class="contact-form-wrap">

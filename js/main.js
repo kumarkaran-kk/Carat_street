@@ -49,14 +49,8 @@ if (clock) {
   render();
   setInterval(render, 1000);
 }
-const heroSlides=[...document.querySelectorAll('.hero-slide')],heroTitleTrack=document.querySelector('.hero-title-track');
+const heroSlides=[...document.querySelectorAll('.hero-slide')];
 let heroIndex=0;
-const positionHeroTitle=()=>{
-  if(!heroTitleTrack) return;
-  const titleRow=heroTitleTrack.firstElementChild;
-  const titleHeight=titleRow?.offsetHeight||parseFloat(getComputedStyle(titleRow).height)||100;
-  heroTitleTrack.style.transform=`translate3d(0,-${heroIndex*titleHeight}px,0)`;
-};
 if(heroSlides.length>1){
   setInterval(()=>{
     const previous=heroIndex;
@@ -65,7 +59,6 @@ if(heroSlides.length>1){
     heroSlides[previous].classList.add('past');
     heroSlides[heroIndex].classList.remove('past');
     heroSlides[heroIndex].classList.add('active');
-    positionHeroTitle();
     setTimeout(()=>heroSlides[previous].classList.remove('past'),1100);
   },4500);
 }
@@ -84,7 +77,6 @@ const fitHomeCanvas=()=>{
     sharedFooter.style.width=shouldFit?`${window.innerWidth}px`:'';
   }
   if(responsiveStylesheet) responsiveStylesheet.disabled=shouldFit;
-  requestAnimationFrame(positionHeroTitle);
 };
 fitHomeCanvas();
 window.addEventListener('resize',fitHomeCanvas);
@@ -184,3 +176,44 @@ newsletterForm?.addEventListener('submit',event=>{
   if(status) status.textContent='Thank you for joining Carat Street.';
   newsletterForm.reset();
 });
+
+const homeProductCarousel=document.querySelector('[data-home-product-carousel]');
+if(homeProductCarousel){
+  const viewport=homeProductCarousel.querySelector('[data-home-product-viewport]');
+  const cards=[...homeProductCarousel.querySelectorAll('.home-product-card')];
+  const previousButton=homeProductCarousel.querySelector('[data-home-product-prev]');
+  const nextButton=homeProductCarousel.querySelector('[data-home-product-next]');
+  const currentLabel=homeProductCarousel.querySelector('[data-home-product-current]');
+  let carouselFrame=null;
+  const cardStep=()=>{
+    if(!cards.length) return 0;
+    const styles=getComputedStyle(homeProductCarousel.querySelector('.home-product-grid'));
+    return cards[0].getBoundingClientRect().width+(parseFloat(styles.columnGap)||0);
+  };
+  const updateCarousel=()=>{
+    const maximum=Math.max(0,viewport.scrollWidth-viewport.clientWidth);
+    const atStart=viewport.scrollLeft<=2;
+    const atEnd=viewport.scrollLeft>=maximum-2;
+    previousButton.disabled=atStart;
+    nextButton.disabled=atEnd;
+    const step=cardStep();
+    let current=step?Math.round(viewport.scrollLeft/step)+1:1;
+    if(atEnd) current=cards.length;
+    if(currentLabel) currentLabel.textContent=String(Math.min(cards.length,current)).padStart(2,'0');
+    carouselFrame=null;
+  };
+  const moveCarousel=direction=>viewport.scrollBy({left:direction*cardStep(),behavior:'smooth'});
+  previousButton?.addEventListener('click',()=>moveCarousel(-1));
+  nextButton?.addEventListener('click',()=>moveCarousel(1));
+  viewport?.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+      event.preventDefault();
+      moveCarousel(event.key==='ArrowLeft'?-1:1);
+    }
+  });
+  viewport?.addEventListener('scroll',()=>{
+    if(!carouselFrame) carouselFrame=requestAnimationFrame(updateCarousel);
+  },{passive:true});
+  window.addEventListener('resize',updateCarousel,{passive:true});
+  updateCarousel();
+}

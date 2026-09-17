@@ -40,10 +40,15 @@
   color: #fff
 }
 
-.editorial-page .editorial-hero>img {
+.editorial-page .editorial-hero-media {
   position: absolute;
   z-index: -2;
   inset: 0;
+  width: 100%;
+  height: 100%
+}
+
+.editorial-page .editorial-hero-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -466,7 +471,7 @@
     min-height: 610px
   }
 
-  .editorial-page .editorial-hero>img {
+  .editorial-page .editorial-hero-media img {
     object-position: center !important
   }
 
@@ -495,6 +500,7 @@
   }
 
   .editorial-page .editorial-hero-copy>span {
+    width: 100%;
     max-width: 520px;
     font-size: 14px;
     line-height: 1.6
@@ -648,7 +654,7 @@
 }
 
 @media(prefers-reduced-motion:reduce) {
-  .editorial-page .editorial-hero>img {
+  .editorial-page .editorial-hero-media img {
     animation: none
   }
 

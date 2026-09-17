@@ -169,15 +169,50 @@
     overflow: hidden
 }
 
+.catalog-card>div>a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%
+}
+
 .catalog-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
     height: 100%;
     object-fit: contain;
     padding: 35px;
-    transition: transform .55s
+    transition: opacity .45s ease, transform .65s cubic-bezier(.22, .61, .36, 1)
 }
 
-.catalog-card:hover img {
+.catalog-card .catalog-model-image {
+    padding: 0;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.04)
+}
+
+.catalog-card:hover .catalog-product-image,
+.catalog-card:focus-within .catalog-product-image {
+    opacity: 0;
+    transform: scale(1.025)
+}
+
+.catalog-card:hover .catalog-model-image,
+.catalog-card:focus-within .catalog-model-image {
+    opacity: 1;
+    transform: scale(1)
+}
+
+.catalog-card:hover .catalog-product-image {
     transform: scale(1.035)
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .catalog-card img {
+        transition: none
+    }
 }
 
 .catalog-card>p {
@@ -310,6 +345,7 @@
 }
 
 .contact-hero>div {
+    min-width: 0;
     padding: 130px 8vw;
     display: flex;
     flex-direction: column;
@@ -332,6 +368,7 @@
 }
 
 .contact-hero span {
+    width: 100%;
     font-size: 24px;
     line-height: 1.55;
     max-width: 700px;
@@ -339,8 +376,15 @@
 }
 
 .contact-hero img {
+    width: 100%;
     height: 100%;
     object-fit: cover
+}
+
+.contact-hero-media {
+    display: block;
+    min-width: 0;
+    height: 100%
 }
 
 .contact-main {
@@ -630,6 +674,7 @@
     }
 
     .contact-hero span {
+        max-width: 100%;
         font-size: 19px
     }
 

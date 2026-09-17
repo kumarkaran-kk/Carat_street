@@ -30,7 +30,10 @@ require __DIR__ . '/header.php';
 ?>
 <main class="editorial-main">
     <section class="editorial-hero">
-        <img src="<?= htmlspecialchars($page['hero']) ?>" alt="" style="object-position:<?= htmlspecialchars($page['hero_position']) ?>">
+        <picture class="editorial-hero-media">
+            <source media="(max-width:600px)" srcset="<?= htmlspecialchars($page['hero_mobile']) ?>">
+            <img src="<?= htmlspecialchars($page['hero']) ?>" alt="" style="object-position:<?= htmlspecialchars($page['hero_position']) ?>" fetchpriority="high">
+        </picture>
         <div class="editorial-hero-shade"></div>
         <div class="editorial-hero-copy">
             <p><?= htmlspecialchars($page['eyebrow']) ?></p>

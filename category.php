@@ -14,6 +14,7 @@ $categoryName = $category === 'all' ? 'Fine Jewellery' : ucfirst($category);
 $pageTitle = $categoryName . ' — Carat Street';
 $pageDescription = 'Explore ' . strtolower($categoryName) . ' selected with the timeless Carat Street sensibility.';
 $pageStyles = ['css/storefront.css'];
+$pageStylesAfterResponsive = ['css/catalog-cards.css'];
 $bodyClass = 'storefront-page';
 require __DIR__ . '/includes/header.php';
 ?>
@@ -40,7 +41,25 @@ require __DIR__ . '/includes/header.php';
             <div class="catalog-heading"><p><strong><?= count($visibleProducts) ?></strong> pieces</p><button type="button" data-filter-toggle>Filter &amp; Sort <span>+</span></button></div>
             <div class="filter-drawer" data-filter-drawer hidden><span>Sort by</span><button data-sort="featured">Featured</button><button data-sort="low">Price: Low to High</button><button data-sort="high">Price: High to Low</button></div>
             <div class="catalog-grid" data-catalog-grid>
-                <?php foreach ($visibleProducts as $product): ?><article class="catalog-card" data-price="<?= $product['price_value'] ?? 999999999 ?>"><div><a href="<?= htmlspecialchars(catalog_product_url($product)) ?>"><img loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>"></a></div><p><?= htmlspecialchars(ucfirst($product['category'])) ?></p><h2><a href="<?= htmlspecialchars(catalog_product_url($product)) ?>"><?= htmlspecialchars($product['name']) ?></a></h2><strong><?= htmlspecialchars($product['price']) ?></strong></article><?php endforeach; ?>
+                <?php foreach ($visibleProducts as $product):
+                    $productUrl = catalog_product_url($product);
+                ?><article class="catalog-card collection-product-card" data-price="<?= $product['price_value'] ?? 999999999 ?>">
+                        <div class="collection-card-media">
+                            <a href="<?= htmlspecialchars($productUrl) ?>">
+                                <img class="catalog-product-image" loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                                <img class="catalog-model-image" loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> worn by a model">
+                            </a>
+                            <span class="collection-new-badge">New</span>
+                        </div>
+                        <section class="collection-card-content">
+                            <p class="collection-card-category"><?= htmlspecialchars($product['category']) ?></p>
+                            <h2><a href="<?= htmlspecialchars($productUrl) ?>"><?= htmlspecialchars($product['name']) ?></a></h2>
+                            <p class="collection-card-description"><?= htmlspecialchars($product['description']) ?></p>
+                            <p class="collection-card-facts"><span>Natural Diamonds</span><span><?= htmlspecialchars($product['specs']['Metal']) ?></span></p>
+                            <strong class="collection-card-price"><?= htmlspecialchars($product['price']) ?></strong>
+                            <a class="collection-card-cta" href="<?= htmlspecialchars($productUrl) ?>">View Details <span aria-hidden="true">→</span></a>
+                        </section>
+                    </article><?php endforeach; ?>
             </div>
         <?php endif; ?>
     </section>

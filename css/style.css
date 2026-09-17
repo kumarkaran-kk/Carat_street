@@ -1805,6 +1805,7 @@ body {
 }
 
 .hero-slide {
+  display: block;
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1814,6 +1815,17 @@ body {
   opacity: 0;
   transition: opacity 1s ease;
   pointer-events: none
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: inherit
+}
+
+.hero-slide-product img {
+  object-position: center bottom
 }
 
 .hero-slide.active {
@@ -1917,6 +1929,26 @@ body {
 }
 
 @media(min-width:901px) {
+  .home-page .hero-copy {
+    left: 110px;
+    width: 690px;
+    color: #2f251f;
+    text-align: left;
+    transform: none
+  }
+
+  .home-page .hero-title-window {
+    width: 690px
+  }
+
+  .home-page .hero-title-track span {
+    justify-content: flex-start
+  }
+
+  .home-page .hero-copy .button {
+    left: 0
+  }
+
   .hero-copy {
     top: 359px;
     width: 787px
