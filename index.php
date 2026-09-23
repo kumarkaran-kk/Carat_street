@@ -133,23 +133,23 @@ $pageStylesAfterResponsive = ['css/home.css'];
         <div class="wordmark"><span>GOL</span><span>DISH</span></div>
     </section>
 
-    <section class="deal">
-        <div class="countdown" data-deadline="2026-12-31T23:59:59">
-            <div><strong data-seconds>00</strong><span>Secs</span></div>
-            <div><strong data-minutes>00</strong><span>Mins</span></div>
-            <div><strong data-hours>00</strong><span>Hrs</span></div>
-            <div><strong data-days>00</strong><span>Days</span></div>
-        </div><img src="assets/web/countdown-statement-necklace.webp" alt="Statement necklace">
-        <div>
-            <p>Shop Now, Save Big</p>
-            <h2>Hurry, Deals Ends Soon</h2>
+    <section class="craftsmanship-feature" aria-labelledby="craftsmanship-title">
+        <div class="craftsmanship-visual">
+            <div class="craftsmanship-arch" aria-hidden="true"></div>
+            <img src="assets/web/carat-street-maya-display.png" alt="Carat Street Maya diamond pendant displayed on a jewellery bust">
+        </div>
+        <div class="craftsmanship-copy">
+            <p>Our Standard Of Quality</p>
+            <h2 id="craftsmanship-title">Crafted with Excellence</h2>
+            <div class="craftsmanship-divider" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><span></span></div>
+            <p class="craftsmanship-assurances"><span>Certified Diamonds</span><b aria-hidden="true">•</b><span>Hallmarked Gold</span></p>
         </div>
     </section>
 
     <section class="nature">
         <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal"><div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring"><div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true"></div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button></div>
         <div class="nature-panel">
-            <div class="video-card"><img src="assets/web/diamond-pendant-product.webp" alt="Diamond pendant"><button aria-label="Play story video">▶</button></div>
+            <div class="video-card"><img src="assets/web/diamond-pendant-product.webp" alt="Diamond pendant"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
             <div>
                 <p class="eyebrow">The Art of Adornment</p>
                 <h2>A Symbol Of Love, Beauty, And Sophistication, Beautifully Showcased Around Your Neck</h2>

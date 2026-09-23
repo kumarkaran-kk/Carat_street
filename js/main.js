@@ -31,24 +31,6 @@ const updateStickyHeader = () => siteHeader?.classList.toggle('is-scrolled', win
 updateStickyHeader();
 window.addEventListener('scroll', updateStickyHeader, {passive: true});
 
-const clock = document.querySelector('.countdown');
-if (clock) {
-  const deadline = new Date(clock.dataset.deadline).getTime();
-  const render = () => {
-    const remaining = Math.max(0, deadline - Date.now());
-    const values = {
-      days: Math.floor(remaining / 864e5),
-      hours: Math.floor(remaining / 36e5) % 24,
-      minutes: Math.floor(remaining / 6e4) % 60,
-      seconds: Math.floor(remaining / 1e3) % 60,
-    };
-    Object.entries(values).forEach(([key, value]) => {
-      clock.querySelector(`[data-${key}]`).textContent = String(value).padStart(2, '0');
-    });
-  };
-  render();
-  setInterval(render, 1000);
-}
 const heroSlides=[...document.querySelectorAll('.hero-slide')];
 let heroIndex=0;
 if(heroSlides.length>1){
@@ -161,6 +143,22 @@ if(caveScene){
   caveScene.addEventListener('pointerleave',event=>{if(event.pointerType==='mouse')closeCave()});
   caveToggle?.addEventListener('click',event=>{event.stopPropagation();if(caveScene.classList.contains('is-mid')||caveScene.classList.contains('is-revealed'))closeCave();else openCave()});
 }
+
+const storyVideoButton=document.querySelector('[data-story-video]');
+storyVideoButton?.addEventListener('click',()=>{
+  const videoCard=storyVideoButton.closest('.video-card');
+  const videoId=storyVideoButton.dataset.storyVideo;
+  if(!videoCard||!videoId) return;
+  const player=document.createElement('iframe');
+  player.src=`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
+  player.title='Carat Street jewellery video';
+  player.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  player.allowFullscreen=true;
+  player.referrerPolicy='strict-origin-when-cross-origin';
+  videoCard.classList.add('is-playing');
+  videoCard.append(player);
+  storyVideoButton.remove();
+});
 
 const goldDish=document.querySelector('.gold-dish');
 const orbitText=goldDish?.querySelector('.orbit-text');
