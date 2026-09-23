@@ -51,30 +51,39 @@ $pageStylesAfterResponsive = ['css/home.css'];
             <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.webp" alt="">
             <img class="collections-background" data-collection-bg="pendant" src="assets/web/collection-pendants.webp" alt="">
         </div>
-        <article class="collection-card rings">
-            <div>
-                <h3>Rings</h3>
-                <p>From delicate diamond bands to bold modern silhouettes,<br>discover rings crafted to celebrate promises, milestones<br>and the beauty of everyday moments</p><a href="category.php?category=rings">Know More</a>
+        <div class="collection-carousel-viewport" data-collection-viewport tabindex="0" aria-label="Jewellery collections carousel">
+            <div class="collection-carousel-track">
+                <article class="collection-card rings">
+                    <div>
+                        <h3>Rings</h3>
+                        <p>From delicate diamond bands to bold modern silhouettes,<br>discover rings crafted to celebrate promises, milestones<br>and the beauty of everyday moments</p><a href="category.php?category=rings">Know More</a>
+                    </div>
+                </article>
+                <article class="collection-card earrings">
+                    <div>
+                        <h3>Earrings</h3>
+                        <p>From refined studs to expressive drops, discover earrings<br>shaped to frame the face with light, movement<br>and effortless elegance</p><a href="category.php?category=earrings">Know More</a>
+                    </div>
+                </article>
+                <article class="collection-card pendant">
+                    <div>
+                        <h3>Pendants</h3>
+                        <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
+                    </div>
+                </article>
+                <article class="collection-card bracelet">
+                    <div>
+                        <h3>Bracelets</h3>
+                        <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="product.php">Know More</a>
+                    </div>
+                </article>
             </div>
-        </article>
-        <article class="collection-card earrings">
-            <div>
-                <h3>Earrings</h3>
-                <p>From refined studs to expressive drops, discover earrings<br>shaped to frame the face with light, movement<br>and effortless elegance</p><a href="category.php?category=earrings">Know More</a>
-            </div>
-        </article>
-        <article class="collection-card pendant">
-            <div>
-                <h3>Pendants</h3>
-                <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
-            </div>
-        </article>
-        <article class="collection-card bracelet">
-            <div>
-                <h3>Bracelets</h3>
-                <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="product.php">Know More</a>
-            </div>
-        </article>
+        </div>
+        <div class="collection-carousel-controls" aria-label="Collection carousel controls">
+            <button type="button" data-collection-prev aria-label="Previous collection">←</button>
+            <p><span data-collection-current>01</span><i></i><span>04</span></p>
+            <button type="button" data-collection-next aria-label="Next collection">→</button>
+        </div>
     </section>
 
     <section class="products section-pad" id="jewellery">
@@ -152,23 +161,23 @@ $pageStylesAfterResponsive = ['css/home.css'];
 
     <section class="story-banner"><img src="assets/web/story-celebration-banner.webp" alt="Women celebrating with jewellery">
         <div>
-            <p>Jewels as Unique as You</p>
+            <p>Made For Every Celebration</p>
             <h2>Jewels as Unique as You</h2><a class="button button-light" href="#story">Know More</a>
         </div>
     </section>
 
-    <section class="consultation" id="contact">
-        <div class="consultation-visual"><img src="assets/web/jewellery-styling-model.webp" alt="Indian woman wearing fine jewellery"><span>Personal Jewellery Styling</span></div>
-        <div class="consultation-copy">
+    <section class="collection-showcase" id="collection-story">
+        <div class="collection-showcase-visual"><img src="assets/web/jewellery-styling-model.webp" alt="Indian woman wearing fine jewellery"><span>Jewellery For Every Moment</span></div>
+        <div class="collection-showcase-copy">
             <p class="eyebrow">Your Jewellery, Your Story</p>
-            <h2>Find the Piece Made for Your Moment</h2>
-            <p class="consultation-intro">From wedding celebrations and meaningful gifts to sizing and personal selections, our jewellery specialists are here to help you choose with confidence.</p>
-            <div class="consultation-actions"><a class="button consultation-primary" href="contact.php">Book a Consultation</a><a class="consultation-link" href="#jewellery">Explore Jewellery <span aria-hidden="true">→</span></a></div>
-            <div class="consultation-services" aria-label="Consultation services">
-                <div><strong>01</strong><span>Personal Styling</span></div>
-                <div><strong>02</strong><span>Occasion Guidance</span></div>
-                <div><strong>03</strong><span>Sizing Support</span></div>
-                <div><strong>04</strong><span>Dedicated Aftercare</span></div>
+            <h2>Discover the Piece Made for Your Moment</h2>
+            <p class="collection-showcase-intro">From wedding celebrations and meaningful gifts to everyday expressions of style, explore jewellery designed to make every moment feel distinctly yours.</p>
+            <div class="collection-showcase-actions"><a class="button collection-showcase-primary" href="category.php">Explore The Collection</a><a class="collection-showcase-link" href="category.php?category=pendants">View Pendants <span aria-hidden="true">→</span></a></div>
+            <div class="collection-showcase-services" aria-label="Collection highlights">
+                <div><strong>01</strong><span>Everyday Elegance</span></div>
+                <div><strong>02</strong><span>Meaningful Gifts</span></div>
+                <div><strong>03</strong><span>Certified Materials</span></div>
+                <div><strong>04</strong><span>Thoughtful Craft</span></div>
             </div>
         </div>
     </section>

@@ -723,58 +723,59 @@ footer a {
 }
 
 .site-header {
-  box-shadow:inset 0 3px 0 var(--brand-gold),0 1px 0 rgba(180,150,18,.12)!important
+  box-shadow: inset 0 3px 0 var(--brand-gold), 0 1px 0 rgba(180, 150, 18, .12) !important
 }
 
 .nav a:hover,
 .eyebrow,
 .section-label,
-.consultation .eyebrow,
-.consultation-services strong,
+.collection-showcase .eyebrow,
+.collection-showcase-services strong,
 .listing-intro>p,
 .search-intro>p,
 .product-page .pdp-kicker,
 .product-page .pdp-price-wrap>span,
 .product-page .pdp-specifications>p {
-  color:var(--brand-gold)!important
+  color: var(--brand-gold) !important
 }
 
 .category-tabs a:hover,
 .category-tabs a.is-active {
-  color:var(--brand-gold)!important;
-  border-color:var(--brand-gold)!important
+  color: var(--brand-gold) !important;
+  border-color: var(--brand-gold) !important
 }
 
-.product-page .pdp-thumb:is(.is-active,:hover) {
-  border-color:var(--brand-gold)!important
+.product-page .pdp-thumb:is(.is-active, :hover) {
+  border-color: var(--brand-gold) !important
 }
 
 .product-page .indikonnect-cta b {
-  color:var(--brand-gold)!important
+  color: var(--brand-gold) !important
 }
 
 body>footer h3,
 body>footer .footer-cta,
 body>footer .footer-social a,
 body>footer .footer-social a:not(.footer-cta) {
-  color:var(--brand-gold)!important
+  color: var(--brand-gold) !important
 }
 
 body>footer .footer-cta {
-  border-color:rgba(180,150,18,.65)!important
+  border-color: rgba(180, 150, 18, .65) !important
 }
 
 body>footer .footer-social a,
 body>footer .footer-social a:not(.footer-cta) {
-  border-color:rgba(180,150,18,.58)!important
+  border-color: rgba(180, 150, 18, .58) !important
 }
 
 @media(hover:hover) {
+
   body>footer .footer-social a:hover,
   body>footer .footer-social a:not(.footer-cta):hover {
-    border-color:var(--brand-gold)!important;
-    background:var(--brand-gold)!important;
-    color:#17130f!important
+    border-color: var(--brand-gold) !important;
+    background: var(--brand-gold) !important;
+    color: #17130f !important
   }
 }
 
@@ -3672,7 +3673,7 @@ body {
   }
 }
 
-.consultation {
+.collection-showcase {
   position: relative;
   display: grid;
   grid-template-columns: 760px minmax(0, 1fr);
@@ -3685,7 +3686,7 @@ body {
   color: #292725
 }
 
-.consultation:after {
+.collection-showcase:after {
   content: '';
   position: absolute;
   right: -105px;
@@ -3697,7 +3698,7 @@ body {
   pointer-events: none
 }
 
-.consultation-visual {
+.collection-showcase-visual {
   position: relative;
   z-index: 1;
   height: 640px;
@@ -3705,14 +3706,14 @@ body {
   background: #8c674d
 }
 
-.consultation-visual:after {
+.collection-showcase-visual:after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 52%, rgba(0, 0, 0, .48))
 }
 
-.consultation-visual img {
+.collection-showcase-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3720,11 +3721,11 @@ body {
   transition: transform 1.1s cubic-bezier(.22, .61, .36, 1)
 }
 
-.consultation:hover .consultation-visual img {
+.collection-showcase:hover .collection-showcase-visual img {
   transform: scale(1.025)
 }
 
-.consultation-visual span {
+.collection-showcase-visual span {
   position: absolute;
   z-index: 2;
   left: 40px;
@@ -3734,13 +3735,13 @@ body {
   letter-spacing: .02em
 }
 
-.consultation-copy {
+.collection-showcase-copy {
   position: relative;
   z-index: 1;
   padding: 36px 0 0
 }
 
-.consultation .eyebrow {
+.collection-showcase .eyebrow {
   margin: 0 0 18px;
   color: var(--gold);
   font: 400 32px/1.2 var(--serif);
@@ -3748,27 +3749,27 @@ body {
   text-transform: none
 }
 
-.consultation h2 {
+.collection-showcase h2 {
   max-width: 790px;
   margin: 0;
   font: 400 67px/1.08 var(--serif)
 }
 
-.consultation-intro {
+.collection-showcase-intro {
   max-width: 735px;
   margin: 28px 0 0;
   color: #716c66;
   font: 400 23px/1.55 var(--sans)
 }
 
-.consultation-actions {
+.collection-showcase-actions {
   display: flex;
   align-items: center;
   gap: 42px;
   margin-top: 36px
 }
 
-.consultation .consultation-primary {
+.collection-showcase .collection-showcase-primary {
   width: 265px;
   height: 68px;
   border: 1px solid #262421;
@@ -3779,12 +3780,12 @@ body {
   text-transform: none
 }
 
-.consultation .consultation-primary:hover {
+.collection-showcase .collection-showcase-primary:hover {
   background: var(--gold);
   border-color: var(--gold)
 }
 
-.consultation-link {
+.collection-showcase-link {
   display: inline-flex;
   align-items: center;
   gap: 16px;
@@ -3794,108 +3795,108 @@ body {
   font: 400 23px/1 var(--serif)
 }
 
-.consultation-link span {
+.collection-showcase-link span {
   font-size: 28px;
   transition: transform .25s ease
 }
 
-.consultation-link:hover span {
+.collection-showcase-link:hover span {
   transform: translateX(6px)
 }
 
-.consultation-services {
+.collection-showcase-services {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 62px;
   border-top: 1px solid rgba(79, 68, 55, .28)
 }
 
-.consultation-services div {
+.collection-showcase-services div {
   min-height: 105px;
   padding: 22px 18px 0;
   border-right: 1px solid rgba(79, 68, 55, .22)
 }
 
-.consultation-services div:first-child {
+.collection-showcase-services div:first-child {
   padding-left: 0
 }
 
-.consultation-services div:last-child {
+.collection-showcase-services div:last-child {
   border-right: 0
 }
 
-.consultation-services strong {
+.collection-showcase-services strong {
   display: block;
   color: var(--gold);
   font: 400 17px/1 var(--sans)
 }
 
-.consultation-services span {
+.collection-showcase-services span {
   display: block;
   margin-top: 12px;
   font: 400 19px/1.25 var(--serif)
 }
 
 @media(max-width:900px) {
-  .consultation {
+  .collection-showcase {
     display: block;
     min-height: 0;
     padding: 45px 20px 55px
   }
 
-  .consultation-visual {
+  .collection-showcase-visual {
     height: min(118vw, 590px)
   }
 
-  .consultation-visual span {
+  .collection-showcase-visual span {
     left: 24px;
     bottom: 24px;
     font-size: 22px
   }
 
-  .consultation-copy {
+  .collection-showcase-copy {
     padding-top: 38px
   }
 
-  .consultation .eyebrow {
+  .collection-showcase .eyebrow {
     font-size: 25px
   }
 
-  .consultation h2 {
+  .collection-showcase h2 {
     font-size: clamp(42px, 12vw, 60px)
   }
 
-  .consultation-intro {
+  .collection-showcase-intro {
     font-size: 17px
   }
 
-  .consultation-actions {
+  .collection-showcase-actions {
     align-items: flex-start;
     flex-direction: column;
     gap: 27px
   }
 
-  .consultation .consultation-primary {
+  .collection-showcase .collection-showcase-primary {
     width: 245px;
     height: 60px;
     font-size: 21px
   }
 
-  .consultation-services {
+  .collection-showcase-services {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 48px
   }
 
-  .consultation-services div {
+  .collection-showcase-services div {
     min-height: 92px;
     padding-left: 0
   }
 
-  .consultation-services div:nth-child(2) {
+  .collection-showcase-services div:nth-child(2) {
     border-right: 0
   }
 
-  .consultation-services div:nth-child(n+3) {
+  .collection-showcase-services div:nth-child(n+3) {
     border-top: 1px solid rgba(79, 68, 55, .22)
   }
 }
@@ -4231,7 +4232,7 @@ footer a:not(.footer-cta):hover {
 .occasion .text-link,
 .collection-card a,
 .product>a,
-.consultation .consultation-primary {
+.collection-showcase .collection-showcase-primary {
   transition: background-color .32s ease, color .32s ease, border-color .32s ease, transform .32s ease, box-shadow .32s ease
 }
 
@@ -4254,7 +4255,7 @@ footer a:not(.footer-cta):hover {
   }
 
   .button-dark:hover,
-  .consultation .consultation-primary:hover {
+  .collection-showcase .collection-showcase-primary:hover {
     background: #fff !important;
     color: #111 !important;
     border-color: #111 !important;
@@ -4457,130 +4458,135 @@ body.menu-visible {
 
 @media(min-width:1400px) {
   body>footer {
-    height:auto!important;
-    min-height:610px!important;
-    padding:72px 88px 28px!important
+    height: auto !important;
+    min-height: 610px !important;
+    padding: 72px 88px 28px !important
   }
 
   body>footer .footer-grid {
-    grid-template-columns:520px repeat(3,minmax(0,1fr))!important;
-    gap:74px!important;
-    min-height:405px!important
+    grid-template-columns: 520px repeat(3, minmax(0, 1fr)) !important;
+    gap: 74px !important;
+    min-height: 405px !important
   }
 
   body>footer .footer-grid>div:first-child {
-    padding-right:72px!important
+    padding-right: 72px !important
   }
 
   body>footer .footer-logo {
-    width:305px!important;
-    height:190px!important
+    width: 305px !important;
+    height: 190px !important
   }
 }
 
 @media(min-width:1025px) and (max-width:1399px) {
   body>footer {
-    height:auto!important;
-    min-height:560px!important;
-    padding:60px 5vw 26px!important
+    height: auto !important;
+    min-height: 560px !important;
+    padding: 60px 5vw 26px !important
   }
 
   body>footer .footer-grid {
-    grid-template-columns:1.35fr repeat(3,minmax(0,1fr))!important;
-    gap:35px!important;
-    min-height:365px!important
+    grid-template-columns: 1.35fr repeat(3, minmax(0, 1fr)) !important;
+    gap: 35px !important;
+    min-height: 365px !important
   }
 
   body>footer .footer-grid>div:first-child {
-    padding-right:40px!important;
-    border-right:1px solid rgba(255,255,255,.14)!important
+    padding-right: 40px !important;
+    border-right: 1px solid rgba(255, 255, 255, .14) !important
   }
 
   body>footer .footer-logo {
-    width:240px!important;
-    height:150px!important
+    width: 240px !important;
+    height: 150px !important
   }
 }
 
 .site-header .brand.brand {
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-  overflow:visible!important;
-  background:none!important
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  background: none !important
 }
 
 .site-header .brand.brand img {
-  display:block!important;
-  width:100%!important;
-  height:100%!important;
-  object-fit:contain!important;
-  object-position:center!important
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important
 }
 
 body>footer .footer-logo {
-  object-fit:contain!important;
-  object-position:left center!important;
-  filter:none!important
+  object-fit: contain !important;
+  object-position: left center !important;
+  filter: none !important
 }
 
 footer .footer-social {
-  display:flex;
-  gap:11px;
-  margin-top:30px
+  display: flex;
+  gap: 11px;
+  margin-top: 30px
 }
 
 footer .footer-social a,
 footer .footer-social a:not(.footer-cta) {
-  display:flex;
-  width:39px;
-  height:39px;
-  margin:0;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(225,189,137,.52);
-  border-radius:50%;
-  color:#e1bd89;
-  transition:background-color .3s ease,border-color .3s ease,color .3s ease,transform .3s ease
+  display: flex;
+  width: 39px;
+  height: 39px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(225, 189, 137, .52);
+  border-radius: 50%;
+  color: #e1bd89;
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease, transform .3s ease
 }
 
 footer .footer-social svg {
-  width:17px;
-  height:17px;
-  overflow:visible;
-  fill:currentColor;
-  stroke:currentColor;
-  stroke-width:1.6
+  width: 17px;
+  height: 17px;
+  overflow: visible;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.6
 }
 
 footer .footer-social svg path {
-  stroke:none
+  stroke: none
 }
 
 footer .footer-social .social-dot {
-  fill:currentColor;
-  stroke:none
+  fill: currentColor;
+  stroke: none
 }
 
 footer .footer-social a[aria-label="Instagram"] rect,
 footer .footer-social a[aria-label="Instagram"] circle:not(.social-dot) {
-  fill:none
+  fill: none
 }
 
 @media(hover:hover) {
+
   footer .footer-social a:hover,
   footer .footer-social a:not(.footer-cta):hover {
-    border-color:#e1bd89;
-    background:#e1bd89;
-    color:#17130f;
-    transform:translateY(-3px)
+    border-color: #e1bd89;
+    background: #e1bd89;
+    color: #17130f;
+    transform: translateY(-3px)
   }
 }
 
 @media(max-width:600px) {
   footer .footer-social {
-    justify-content:center;
-    margin-top:26px
+    /* max-width:190px; */
+    /* margin-right:auto; */
+    /* margin-left:auto; */
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-top: 26px
   }
 }
 

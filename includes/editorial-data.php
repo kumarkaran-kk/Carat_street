@@ -289,7 +289,7 @@ $editorialPages = [
         'quote' => 'A hallmark communicates metal purity; stone quality and product details require their own documentation.',
         'notes_title' => 'A confident purchase',
         'notes' => [
-            ['Inspect the article', 'Ask the jewellery specialist to help you locate and read the marks.'],
+            ['Inspect the article', 'Ask the retailer to help you locate and read the marks.'],
             ['Verify the HUID', 'Use the official BIS Care app and its Verify HUID feature.'],
             ['Keep your invoice', 'Retain the purchase record and all accompanying product documents.'],
         ],

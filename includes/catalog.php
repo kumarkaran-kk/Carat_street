@@ -137,8 +137,29 @@ $defaultSpecs = [
     'Metal' => '18K Yellow Gold',
 ];
 
+$catalogRetailUrls = [
+    'ada' => 'https://www.indiekonnect.com/shop/product/3',
+    'amelia' => 'https://www.indiekonnect.com/shop/product/9',
+    'amora' => 'https://www.indiekonnect.com/shop/product/1',
+    'cora' => 'https://www.indiekonnect.com/shop/product/10',
+    'darlene' => 'https://www.indiekonnect.com/shop/product/16',
+    'della' => 'https://www.indiekonnect.com/shop/product/11',
+    'dua' => 'https://www.indiekonnect.com/shop/product/7',
+    'eva' => 'https://www.indiekonnect.com/shop/product/15',
+    'faye' => 'https://www.indiekonnect.com/shop/product/17',
+    'layla' => 'https://www.indiekonnect.com/shop/product/13',
+    'maya' => 'https://www.indiekonnect.com/shop/product/2',
+    'nora' => 'https://www.indiekonnect.com/shop/product/12',
+    'ray' => 'https://www.indiekonnect.com/shop/product/6',
+    'stella' => 'https://www.indiekonnect.com/shop/product/14',
+    'tara' => 'https://www.indiekonnect.com/shop/product/4',
+    'zaina' => 'https://www.indiekonnect.com/shop/product/8',
+    'zoha' => 'https://www.indiekonnect.com/shop/product/5',
+];
+
 foreach ($catalogProducts as &$catalogProduct) {
     $catalogProduct['specs'] = $catalogProduct['specs'] ?? $defaultSpecs;
+    $catalogProduct['retail_url'] = $catalogRetailUrls[$catalogProduct['slug']] ?? 'https://www.indiekonnect.com/';
 }
 unset($catalogProduct);
 

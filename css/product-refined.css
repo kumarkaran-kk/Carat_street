@@ -264,6 +264,12 @@
   font-size: 16px
 }
 
+.pdp-tax-note {
+  margin: 12px 0 0;
+  color: #665f56;
+  font: 400 11px/1.55 var(--sans)
+}
+
 .pdp-purchase-notes {
   margin: 14px 0 24px;
   color: #7b746b;

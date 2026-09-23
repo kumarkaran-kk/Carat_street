@@ -354,7 +354,7 @@
 
 .contact-hero p,
 .contact-label,
-.contact-appointment>p {
+.contact-discovery>p {
     font: 500 12px var(--sans);
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -493,7 +493,7 @@
 
 .contact-form>button,
 .contact-success a,
-.contact-appointment a {
+.contact-discovery a {
     border: 1px solid #111;
     background: #111;
     color: #fff;
@@ -507,7 +507,7 @@
 
 .contact-form>button:hover,
 .contact-success a:hover,
-.contact-appointment a:hover {
+.contact-discovery a:hover {
     background: #fff;
     color: #111
 }
@@ -535,24 +535,24 @@
     margin-bottom: 45px
 }
 
-.contact-appointment {
+.contact-discovery {
     text-align: center;
     background: #ad895c;
     color: #fff;
     padding: 105px 20px
 }
 
-.contact-appointment>p {
+.contact-discovery>p {
     color: #fff
 }
 
-.contact-appointment h2 {
+.contact-discovery h2 {
     font-size: 62px;
     font-weight: 400;
     margin: 20px 0 40px
 }
 
-.contact-appointment a {
+.contact-discovery a {
     display: inline-flex;
     background: #fff;
     color: #111;
@@ -687,7 +687,7 @@
     }
 
     .contact-details h2,
-    .contact-appointment h2 {
+    .contact-discovery h2 {
         font-size: 45px
     }
 
@@ -703,7 +703,7 @@
         grid-template-columns: 1fr
     }
 
-    .contact-appointment {
+    .contact-discovery {
         padding: 75px 18px
     }
 }

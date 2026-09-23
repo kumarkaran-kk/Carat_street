@@ -85,18 +85,56 @@ const collectionsSection=document.querySelector('.collections');
 if(collectionsSection){
   const collectionCards=[...collectionsSection.querySelectorAll('.collection-card')];
   const collectionBackgrounds=[...collectionsSection.querySelectorAll('[data-collection-bg]')];
+  const collectionViewport=collectionsSection.querySelector('[data-collection-viewport]');
+  const collectionTrack=collectionsSection.querySelector('.collection-carousel-track');
+  const collectionPrevious=collectionsSection.querySelector('[data-collection-prev]');
+  const collectionNext=collectionsSection.querySelector('[data-collection-next]');
+  const collectionCurrent=collectionsSection.querySelector('[data-collection-current]');
+  let collectionFrame=null;
   const showCollectionBackground=name=>{
     const available=collectionBackgrounds.some(image=>image.dataset.collectionBg===name);
     const selected=available?name:'default';
     collectionBackgrounds.forEach(image=>image.classList.toggle('is-active',image.dataset.collectionBg===selected));
   };
+  const collectionName=card=>[...card.classList].find(className=>['rings','earrings','pendant','bracelet'].includes(className));
+  const collectionStep=()=>{
+    if(!collectionCards.length||!collectionTrack) return 0;
+    return collectionCards[0].getBoundingClientRect().width+(parseFloat(getComputedStyle(collectionTrack).columnGap)||0);
+  };
+  const updateCollectionCarousel=()=>{
+    if(!collectionViewport||!collectionCards.length) return;
+    const step=collectionStep();
+    const atEnd=collectionViewport.scrollLeft+collectionViewport.clientWidth>=collectionViewport.scrollWidth-2;
+    let current=step?Math.round(collectionViewport.scrollLeft/step):0;
+    if(atEnd) current=collectionCards.length-1;
+    current=Math.max(0,Math.min(collectionCards.length-1,current));
+    if(collectionCurrent) collectionCurrent.textContent=String(current+1).padStart(2,'0');
+    if(collectionPrevious) collectionPrevious.disabled=current===0;
+    if(collectionNext) collectionNext.disabled=atEnd;
+    if(window.matchMedia('(max-width: 600px)').matches) showCollectionBackground(collectionName(collectionCards[current]));
+    collectionFrame=null;
+  };
+  const moveCollectionCarousel=direction=>collectionViewport?.scrollBy({left:direction*collectionStep(),behavior:'smooth'});
   collectionCards.forEach(card=>{
-    const name=[...card.classList].find(className=>['rings','earrings','pendant','bracelet'].includes(className));
+    const name=collectionName(card);
     card.addEventListener('mouseenter',()=>showCollectionBackground(name));
     card.addEventListener('focusin',()=>showCollectionBackground(name));
   });
   collectionsSection.addEventListener('mouseleave',()=>showCollectionBackground('default'));
   collectionsSection.addEventListener('focusout',event=>{if(!collectionsSection.contains(event.relatedTarget))showCollectionBackground('default')});
+  collectionPrevious?.addEventListener('click',()=>moveCollectionCarousel(-1));
+  collectionNext?.addEventListener('click',()=>moveCollectionCarousel(1));
+  collectionViewport?.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+      event.preventDefault();
+      moveCollectionCarousel(event.key==='ArrowLeft'?-1:1);
+    }
+  });
+  collectionViewport?.addEventListener('scroll',()=>{
+    if(!collectionFrame) collectionFrame=requestAnimationFrame(updateCollectionCarousel);
+  },{passive:true});
+  window.addEventListener('resize',updateCollectionCarousel,{passive:true});
+  updateCollectionCarousel();
 }
 
 const caveScene=document.querySelector('.cave-scene');

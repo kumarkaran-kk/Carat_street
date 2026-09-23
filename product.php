@@ -50,8 +50,9 @@ $footerId = 'contact';
                 <div class="pdp-price-wrap"><span>Price</span>
                     <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
                 </div>
-                <a class="indikonnect-cta" href="https://www.indiekonnect.com/" target="_blank" rel="noopener noreferrer"><span>View on IndieKonnect</span><b aria-hidden="true">↗</b></a>
+                <a class="indikonnect-cta" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener noreferrer"><span>View on IndieKonnect</span><b aria-hidden="true">↗</b></a>
             </div>
+            <p class="pdp-tax-note">Inclusive of all applicable taxes. Shipping charges are calculated separately at checkout.</p>
             <p class="pdp-purchase-notes">Secure checkout <span>•</span> Insured delivery <span>•</span> Lifetime care</p>
             <div class="pdp-promises" id="product-standard" aria-label="The Carat Street standard">
                 <article><i aria-hidden="true">&#9998;</i><span>01</span>
@@ -63,8 +64,8 @@ $footerId = 'contact';
                     <p>Every visible detail is considered from every angle.</p>
                 </article>
                 <article><i aria-hidden="true">&#9825;</i><span>03</span>
-                    <h3>Personal Guidance</h3>
-                    <p>Specialist support for styling, selection and care.</p>
+                    <h3>Complete Details</h3>
+                    <p>Clear information about materials, finish and jewellery care.</p>
                 </article>
             </div>
         </div>
@@ -109,7 +110,7 @@ $footerId = 'contact';
     <section class="pdp-brand-statement pdp-reveal" aria-label="The Carat Street philosophy">
         <p>Carat Street · House of Fine Jewellery</p>
         <h2>Designed To Be Worn.<br><em>Created To Be Remembered.</em></h2>
-        <div><span>01</span><p>Natural brilliance, selected with discernment.</p><span>02</span><p>Contemporary form, finished with enduring craft.</p><span>03</span><p>Personal service, from first discovery to lifetime care.</p></div>
+        <div><span>01</span><p>Natural brilliance, selected with discernment.</p><span>02</span><p>Contemporary form, finished with enduring craft.</p><span>03</span><p>Considered details, from first discovery to lifetime care.</p></div>
     </section>
 
     <section class="design-story pdp-reveal">
@@ -124,29 +125,29 @@ $footerId = 'contact';
 
     <section class="exclusive-services pdp-reveal">
         <div class="services-copy">
-            <p class="section-label">Carat Street Privé</p>
-            <h2>Our Private Services</h2>
-            <p class="services-intro">Because every piece of jewellery deserves personal attention.</p>
+            <p class="section-label">The Carat Street Standard</p>
+            <h2>Designed With Every Detail In Mind</h2>
+            <p class="services-intro">Discover the details, craftsmanship and care behind every piece.</p>
             <article><span>01</span>
                 <div>
-                    <h3>Book An Appointment</h3>
-                    <p>Enjoy an intimate one-to-one jewellery consultation, online or in our boutique.</p><a href="#contact">Book now</a>
+                    <h3>Explore The Collection</h3>
+                    <p>Discover fine jewellery shaped for everyday elegance and meaningful occasions.</p><a href="category.php?category=<?= rawurlencode($product['category']) ?>">View the collection</a>
                 </div>
             </article>
             <article><span>02</span>
                 <div>
-                    <h3>Expert Advice</h3>
-                    <p>Our specialists will guide you through styling, sizing and selecting the right piece.</p><a href="#contact">Speak to an expert</a>
+                    <h3>Product Information</h3>
+                    <p>Review materials, diamond details, weights and finish before choosing your piece.</p><a href="#product-notes">View product details</a>
                 </div>
             </article>
             <article><span>03</span>
                 <div>
                     <h3>Repairs &amp; Servicing</h3>
-                    <p>Preserve the brilliance of your jewellery with thoughtful care from our craftspeople.</p><a href="#contact">Discover our care</a>
+                    <p>Preserve the brilliance of your jewellery with thoughtful everyday care.</p><a href="jewellery-care.php">Read the care guide</a>
                 </div>
             </article>
         </div>
-        <div class="services-image"><img src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt="Carat Street jewellery styling"></div>
+        <div class="services-image"><img src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> worn by a model"></div>
     </section>
 
     <section class="pdp-related pdp-reveal">

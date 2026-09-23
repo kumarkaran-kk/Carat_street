@@ -6,6 +6,16 @@ $pageStylesAfterResponsive = $pageStylesAfterResponsive ?? [];
 $bodyClass = $bodyClass ?? '';
 $baseStyleVersion = @filemtime(__DIR__ . '/../css/style.css') ?: 1;
 $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
+$forwardedProto = strtolower(trim(explode(',', $_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')[0]));
+$isHttps = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') || $forwardedProto === 'https';
+$requestScheme = $isHttps ? 'https' : 'http';
+$requestHost = preg_replace('/[^a-z0-9.\-:\[\]]/i', '', $_SERVER['HTTP_HOST'] ?? 'www.caratstreet.com');
+$scriptDirectory = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
+$scriptDirectory = in_array($scriptDirectory, ['/', '.'], true) ? '' : rtrim($scriptDirectory, '/');
+$siteBaseUrl = $siteBaseUrl ?? $requestScheme . '://' . $requestHost . $scriptDirectory;
+$pageUrl = $pageUrl ?? $requestScheme . '://' . $requestHost . ($_SERVER['REQUEST_URI'] ?? $scriptDirectory . '/');
+$ogImageUrl = $ogImageUrl ?? $siteBaseUrl . '/assets/web/carat-street-social-share.jpg';
+$ogImageAlt = $ogImageAlt ?? 'Carat Street fine jewellery for meaningful moments';
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,6 +28,28 @@ $responsiveStyleVersion = @filemtime(__DIR__ . '/../css/responsive.css') ?: 1;
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title><?= htmlspecialchars($pageTitle) ?></title>
     <meta name="description" content="<?= htmlspecialchars($pageDescription) ?>">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/web/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/web/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/web/apple-touch-icon.png">
+    <meta name="theme-color" content="#b99b08">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Carat Street">
+    <meta property="og:title" content="<?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:description" content="<?= htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:url" content="<?= htmlspecialchars($pageUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($ogImageUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:image:secure_url" content="<?= htmlspecialchars(preg_replace('/^http:/', 'https:', $ogImageUrl), ENT_QUOTES, 'UTF-8') ?>">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="<?= htmlspecialchars($ogImageAlt, ENT_QUOTES, 'UTF-8') ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') ?>">
+    <meta name="twitter:description" content="<?= htmlspecialchars($pageDescription, ENT_QUOTES, 'UTF-8') ?>">
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogImageUrl, ENT_QUOTES, 'UTF-8') ?>">
+    <meta name="twitter:image:alt" content="<?= htmlspecialchars($ogImageAlt, ENT_QUOTES, 'UTF-8') ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
