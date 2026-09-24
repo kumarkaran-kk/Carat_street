@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/includes/catalog.php';
-$allowedCategories = ['all', 'necklaces', 'pendants', 'rings', 'earrings'];
+$allowedCategories = ['all', 'necklaces', 'pendants', 'rings', 'earrings', 'bracelets'];
 $category = strtolower($_GET['category'] ?? 'all');
 if (!in_array($category, $allowedCategories, true)) $category = 'all';
 $categoryCounts = [];

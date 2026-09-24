@@ -187,24 +187,6 @@ if(goldDish&&orbitText){
   goldDish.addEventListener('pointerleave',()=>{lastX=null;lastY=null});
 }
 
-const storyBanner=document.querySelector('.story-banner');
-if(storyBanner){
-  let storyLightFrame=null;
-  let storyLightX=50;
-  let storyLightY=50;
-  storyBanner.addEventListener('pointermove',event=>{
-    const bounds=storyBanner.getBoundingClientRect();
-    storyLightX=((event.clientX-bounds.left)/bounds.width)*100;
-    storyLightY=((event.clientY-bounds.top)/bounds.height)*100;
-    if(storyLightFrame) return;
-    storyLightFrame=requestAnimationFrame(()=>{
-      storyBanner.style.setProperty('--story-light-x',`${storyLightX.toFixed(2)}%`);
-      storyBanner.style.setProperty('--story-light-y',`${storyLightY.toFixed(2)}%`);
-      storyLightFrame=null;
-    });
-  });
-}
-
 const newsletterForm=document.querySelector('.newsletter-form');
 newsletterForm?.addEventListener('submit',event=>{
   event.preventDefault();

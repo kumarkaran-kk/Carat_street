@@ -1214,3 +1214,45 @@
     transition: none;
   }
 }
+
+/* Lower homepage section rhythm */
+.home-page .nature {
+  margin-top: 0;
+  border-top: clamp(28px, 5vw, 70px) solid #fff;
+  padding-top: 0;
+  background: #fff;
+}
+
+.home-page .nature .cave-scene {
+  width: 100%;
+  margin: clamp(40px, 4.5vw, 86px) auto 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.home-page .nature-panel {
+  margin-top: 0 !important;
+  background: #fff;
+}
+
+.home-page .collection-showcase {
+  margin-top: 0;
+  border-top: 0;
+  background: #f2e5d3;
+}
+
+@media (max-width:600px) {
+  .home-page .nature {
+    margin-top: 0;
+    border-top-width: 18px;
+  }
+
+  .home-page .nature-panel {
+    margin-top: 0 !important;
+  }
+
+  .home-page .collection-showcase {
+    margin-top: 0;
+  }
+}

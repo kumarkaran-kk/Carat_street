@@ -38,7 +38,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
             <p class="eyebrow">Born to Shine, Crafted to Last</p>
             <h2>A Gem for Every Birthday,<br>A Story for Every Stone</h2>
             <p>Every birthstone carries a meaning as individual as the person who wears it. Set in refined silhouettes and finished with thoughtful detail, our birthstone jewellery transforms colour, character and personal milestones into modern keepsakes—pieces chosen for today and treasured for years to come.</p>
-            <a class="text-link" href="#jewellery">Shop Now <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="category.php?category=all">Shop Now <span aria-hidden="true">→</span></a>
             <div class="occasion-inset"><img src="assets/web/models/nora-model.jpg" alt="Carat Street Nora pendant worn with fine jewellery"></div>
         </div>
         <div class="occasion-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><p>Fine jewellery for a brighter you</p><span></span></div>
@@ -74,7 +74,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
                 <article class="collection-card bracelet">
                     <div>
                         <h3>Bracelets</h3>
-                        <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="product.php">Know More</a>
+                        <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="category.php?category=bracelets">Know More</a>
                     </div>
                 </article>
             </div>
@@ -133,37 +133,17 @@ $pageStylesAfterResponsive = ['css/home.css'];
         <div class="wordmark"><span>GOL</span><span>DISH</span></div>
     </section>
 
-    <section class="craftsmanship-feature" aria-labelledby="craftsmanship-title">
-        <div class="craftsmanship-visual">
-            <div class="craftsmanship-arch" aria-hidden="true"></div>
-            <img src="assets/web/carat-street-maya-display.png" alt="Carat Street Maya diamond pendant displayed on a jewellery bust">
-        </div>
-        <div class="craftsmanship-copy">
-            <p>Our Standard Of Quality</p>
-            <h2 id="craftsmanship-title">Crafted with Excellence</h2>
-            <div class="craftsmanship-divider" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><span></span></div>
-            <p class="craftsmanship-assurances"><span>Certified Diamonds</span><b aria-hidden="true">•</b><span>Hallmarked Gold</span></p>
-        </div>
-    </section>
-
     <section class="nature">
-        <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal"><div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring"><div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true"></div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button></div>
         <div class="nature-panel">
             <div class="video-card"><img src="assets/web/diamond-pendant-product.webp" alt="Diamond pendant"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
             <div>
                 <p class="eyebrow">The Art of Adornment</p>
                 <h2>A Symbol Of Love, Beauty, And Sophistication, Beautifully Showcased Around Your Neck</h2>
                 <p class="nature-description">Inspired by nature's enduring forms, each pendant balances sculpted gold with a luminous centre stone. Meticulous setting and a graceful silhouette create a piece that feels intimate, distinctive and effortless to wear—an expression of beauty made personal.</p>
-                <a class="button button-light" href="#story">Know More</a>
+                <a class="button button-light" href="category.php?category=pendants">Know More</a>
             </div>
         </div>
-    </section>
-
-    <section class="story-banner"><img src="assets/web/story-celebration-banner.webp" alt="Women celebrating with jewellery">
-        <div>
-            <p>Made For Every Celebration</p>
-            <h2>Jewels as Unique as You</h2><a class="button button-light" href="#story">Know More</a>
-        </div>
+        <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal"><div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring"><div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true"></div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button></div>
     </section>
 
     <section class="collection-showcase" id="collection-story">
