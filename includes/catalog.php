@@ -121,9 +121,9 @@ $catalogProducts = [
         'design_story' => 'Zaina builds visual depth through a sequence of polished radial structures. Diamonds define the centre and outer rhythm, creating a piece with architectural clarity.',
     ],
     [
-        'slug' => 'zoha', 'name' => 'Carat Street Zoha', 'category' => 'earrings', 'price' => '₹1,26,036', 'price_value' => 126036,
+        'slug' => 'zoha', 'name' => 'Carat Street Zoha', 'category' => 'pendants', 'price' => '₹1,26,036', 'price_value' => 126036,
         'image' => 'products/zoha-product.jpg', 'hover_image' => 'web/models/zoha-model.jpg', 'report_image' => 'products/zoha-report.jpg',
-        'description' => 'The Zoha Earrings cross polished gold with diamond-set lines in a sculptural knot. Their compact form captures movement while remaining refined and versatile.',
+        'description' => 'The Zoha Pendant crosses polished gold with diamond-set lines in a sculptural knot. Its compact form captures movement while remaining refined and versatile.',
         'design_title' => 'A Knot Of Gold And Light',
         'design_story' => 'Zoha brings two contrasting paths together in a poised crossing form. The diamonds illuminate one line while polished gold gives the other warmth and definition.',
     ],
