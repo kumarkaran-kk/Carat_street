@@ -486,18 +486,20 @@ img {
   }
 
   .gold-dish .orbit>img {
-    width: 85% !important;
-    transform: translateX(-3%) scale(.94) !important
+    top: 34% !important;
+    width: min(48%, 340px) !important;
+    height: min(37%, 240px) !important;
+    object-position: center 20% !important;
+    transform: translate(-50%, -50%) !important
   }
 
   .gold-dish .orbit-text {
-    width: 90% !important;
-    height: 90% !important
+    display: none !important
   }
 
   .gold-dish .wordmark {
     bottom: 75px !important;
-    font-size: clamp(95px, 16vw, 160px) !important
+    font-size: clamp(88px, 14vw, 135px) !important
   }
 
   .gold-dish .wordmark span:last-child {
@@ -798,7 +800,7 @@ img {
   }
 
   .gold-dish .orbit-text {
-    top: 39% !important;
+    top: 48% !important;
     width: 98% !important;
     height: 98% !important
   }
@@ -812,7 +814,13 @@ img {
     bottom: 55px !important;
     left: 2% !important;
     right: 2% !important;
-    font-size: 19vw !important
+    font-size: 15vw !important
+  }
+
+  .gold-dish .orbit>img {
+    top: 34% !important;
+    width: 52% !important;
+    height: min(38vw, 170px) !important
   }
 
   .deal {
@@ -1078,7 +1086,7 @@ img {
 
 @media(max-width:1899px) {
   .site-header .brand {
-    background: url('../assets/web/decorative-jewellery-model.webp') center -5px/210px auto no-repeat !important
+    background: url('../assets/web/jewellery-styling-model.jpg') center -5px/210px auto no-repeat !important
   }
 
   .site-header .brand img {
@@ -1086,7 +1094,7 @@ img {
   }
 
   .occasion-visual {
-    background: #e9dfd4 url('../assets/web/birthstone-occasion-model.webp') center/cover no-repeat !important
+    background: #e9dfd4 url('../assets/web/birthstone-occasion-model.jpg') center/cover no-repeat !important
   }
 
   .occasion-visual>img {
@@ -2088,7 +2096,7 @@ img {
     width: 80px !important;
     height: 76px !important;
     overflow: hidden !important;
-    background-image: url('../assets/web/decorative-jewellery-model.webp') !important;
+    background-image: url('../assets/web/jewellery-styling-model.jpg') !important;
     background-repeat: no-repeat !important;
     background-size: 200px auto !important;
     background-position: center -6px !important
@@ -2126,6 +2134,12 @@ img {
   }
 }
 
+@media(max-width:1024px) {
+  .home-page .gold-dish {
+    display: none !important
+  }
+}
+
 @media(max-width:900px) {
   .cave-stage {
     left: 50% !important;
@@ -2142,7 +2156,7 @@ img {
     width: 81px !important;
     height: 72px !important;
     overflow: hidden !important;
-    background-image: url('../assets/web/decorative-jewellery-model.webp') !important;
+    background-image: url('../assets/web/jewellery-styling-model.jpg') !important;
     background-repeat: no-repeat !important;
     background-size: 202px auto !important;
     background-position: center -6px !important

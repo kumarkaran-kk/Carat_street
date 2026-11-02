@@ -22,16 +22,24 @@ $pageStylesAfterResponsive = ['css/home.css'];
 <main id="home">
     <section class="hero">
         <div class="hero-slides" aria-label="Featured jewellery collections">
-            <picture class="hero-slide hero-slide-product active"><source media="(max-width:600px)" srcset="assets/web/carat-banner-pendant-mobile.jpg"><img src="assets/web/carat-banner-pendant.jpg" alt="Model wearing a Carat Street diamond pendant" fetchpriority="high"></picture>
-            <picture class="hero-slide hero-slide-product"><source media="(max-width:600px)" srcset="assets/web/carat-banner-earrings-mobile.jpg"><img src="assets/web/carat-banner-earrings.jpg" alt="Model wearing Carat Street diamond earrings"></picture>
-            <picture class="hero-slide hero-slide-product"><source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Model wearing a Carat Street signature pendant"></picture>
+            <picture class="hero-slide hero-slide-product active">
+                <source media="(max-width:600px)" srcset="assets/web/carat-banner-pendant-mobile.jpg"><img src="assets/web/carat-banner-pendant.jpg" alt="Model wearing a Carat Street diamond pendant" fetchpriority="high">
+            </picture>
+            <picture class="hero-slide hero-slide-product">
+                <source media="(max-width:600px)" srcset="assets/web/carat-banner-earrings-mobile.jpg"><img src="assets/web/carat-banner-earrings.jpg" alt="Model wearing Carat Street diamond earrings">
+            </picture>
+            <picture class="hero-slide hero-slide-product">
+                <source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Model wearing a Carat Street signature pendant">
+            </picture>
         </div>
     </section>
 
     <section class="occasion section-pad" id="story">
-        <div class="occasion-kicker" aria-hidden="true"><span></span><p>Everyday Brilliance</p><span></span></div>
+        <div class="occasion-kicker" aria-hidden="true"><span></span>
+            <p>Everyday Brilliance</p><span></span>
+        </div>
         <div class="occasion-visual">
-            <img src="assets/web/birthstone-occasion-model.webp" alt="Woman wearing a Carat Street diamond pendant">
+            <img src="assets/web/birthstone-occasion-model.jpg" alt="Woman wearing a Carat Street diamond pendant">
             <span class="occasion-title">Embrace<br>Your Birthstone's<br>Power And Beauty</span>
         </div>
         <div class="occasion-copy">
@@ -41,24 +49,22 @@ $pageStylesAfterResponsive = ['css/home.css'];
             <a class="text-link" href="category.php?category=all">Shop Now <span aria-hidden="true">→</span></a>
             <div class="occasion-inset"><img src="assets/web/models/nora-model.jpg" alt="Carat Street Nora pendant worn with fine jewellery"></div>
         </div>
-        <div class="occasion-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><p>Fine jewellery for a brighter you</p><span></span></div>
+        <div class="occasion-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28">
+                <path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15" />
+            </svg>
+            <p>Fine jewellery for a brighter you</p><span></span>
+        </div>
     </section>
 
     <section class="collections" id="collections">
         <div class="collections-backgrounds" aria-hidden="true">
-            <img class="collections-background collections-background-default is-active" data-collection-bg="default" src="assets/web/collections-overview.webp" alt="">
-            <img class="collections-background" data-collection-bg="rings" src="assets/web/collection-rings.webp" alt="">
-            <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.webp" alt="">
-            <img class="collections-background" data-collection-bg="pendant" src="assets/web/collection-pendants.webp" alt="">
+            <img class="collections-background collections-background-default is-active" data-collection-bg="default" src="assets/web/collections-overview.jpg" alt="">
+            <img class="collections-background" data-collection-bg="rings" src="assets/web/collection-rings.jpg" alt="">
+            <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.jpg" alt="">
+            <img class="collections-background" data-collection-bg="pendant" src="assets/web/collection-pendants.jpg" alt="">
         </div>
         <div class="collection-carousel-viewport" data-collection-viewport tabindex="0" aria-label="Jewellery collections carousel">
             <div class="collection-carousel-track">
-                <article class="collection-card rings">
-                    <div>
-                        <h3>Rings</h3>
-                        <p>From delicate diamond bands to bold modern silhouettes,<br>discover rings crafted to celebrate promises, milestones<br>and the beauty of everyday moments</p><a href="category.php?category=rings">Know More</a>
-                    </div>
-                </article>
                 <article class="collection-card earrings">
                     <div>
                         <h3>Earrings</h3>
@@ -69,6 +75,12 @@ $pageStylesAfterResponsive = ['css/home.css'];
                     <div>
                         <h3>Pendants</h3>
                         <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
+                    </div>
+                </article>
+                <article class="collection-card rings">
+                    <div>
+                        <h3>Rings</h3>
+                        <p>From delicate diamond bands to bold modern silhouettes,<br>discover rings crafted to celebrate promises, milestones<br>and the beauty of everyday moments</p><a href="category.php?category=rings">Know More</a>
                     </div>
                 </article>
                 <article class="collection-card bracelet">
@@ -109,19 +121,26 @@ $pageStylesAfterResponsive = ['css/home.css'];
                                 <p class="home-product-price"><?= htmlspecialchars($product['price']) ?></p>
                                 <div class="home-product-actions">
                                     <a class="home-product-primary-action" href="<?= htmlspecialchars($productUrl) ?>">View Details <span aria-hidden="true">→</span></a>
-                                    <a class="home-product-quick-view" href="<?= htmlspecialchars($productUrl) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?> details"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.2 12s3.6-6 9.8-6 9.8 6 9.8 6-3.6 6-9.8 6-9.8-6-9.8-6Z"/><circle cx="12" cy="12" r="3"/></svg></a>
+                                    <a class="home-product-quick-view" href="<?= htmlspecialchars($productUrl) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?> details"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                            <path d="M2.2 12s3.6-6 9.8-6 9.8 6 9.8 6-3.6 6-9.8 6-9.8-6-9.8-6Z" />
+                                            <circle cx="12" cy="12" r="3" />
+                                        </svg></a>
                                 </div>
                             </div>
                         </article><?php endforeach; ?>
                 </div>
             </div>
         </div>
-        <div class="home-product-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28"><path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15"/></svg><p>Fine jewellery for a brighter you</p><span></span></div>
+        <div class="home-product-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28">
+                <path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15" />
+            </svg>
+            <p>Fine jewellery for a brighter you</p><span></span>
+        </div>
         <a class="products-view-all" href="category.php?category=all">View All Products</a>
     </section>
 
     <section class="gold-dish">
-        <div class="orbit"><img src="assets/web/gold-dish-model.webp" alt="Model wearing Carat Street earrings"><svg class="orbit-text" viewBox="0 0 700 700" aria-hidden="true">
+        <div class="orbit"><img src="assets/web/gold-dish-stella-portrait.jpg" alt="Model wearing Carat Street Stella earrings"><svg class="orbit-text" viewBox="0 0 700 700" aria-hidden="true">
                 <defs>
                     <path id="gold-dish-text-path" d="M350,60a290,290 0 1,1 0,580a290,290 0 1,1 0,-580"></path>
                 </defs><text textLength="620" lengthAdjust="spacing">
@@ -135,7 +154,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
 
     <section class="nature">
         <div class="nature-panel">
-            <div class="video-card"><img src="assets/web/diamond-pendant-product.webp" alt="Diamond pendant"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
+            <div class="video-card"><img src="assets/web/art-of-adornment-shoot.jpg" alt="Carat Street diamond pendant from the final jewellery shoot"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
             <div>
                 <p class="eyebrow">The Art of Adornment</p>
                 <h2>A Symbol Of Love, Beauty, And Sophistication, Beautifully Showcased Around Your Neck</h2>
@@ -143,11 +162,15 @@ $pageStylesAfterResponsive = ['css/home.css'];
                 <a class="button button-light" href="category.php?category=pendants">Know More</a>
             </div>
         </div>
-        <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal"><div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring"><div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true"></div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button></div>
+        <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal">
+            <div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring">
+                <div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true">
+            </div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button>
+        </div>
     </section>
 
     <section class="collection-showcase" id="collection-story">
-        <div class="collection-showcase-visual"><img src="assets/web/jewellery-styling-model.webp" alt="Indian woman wearing fine jewellery"><span>Jewellery For Every Moment</span></div>
+        <div class="collection-showcase-visual"><img src="assets/web/jewellery-styling-model.jpg" alt="Indian woman wearing fine jewellery"><span>Jewellery For Every Moment</span></div>
         <div class="collection-showcase-copy">
             <p class="eyebrow">Your Jewellery, Your Story</p>
             <h2>Discover the Piece Made for Your Moment</h2>

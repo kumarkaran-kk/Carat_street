@@ -952,7 +952,7 @@ body>footer .footer-social a:not(.footer-cta) {
     width: 90px;
     height: 105px;
     overflow: hidden;
-    background: url('../assets/web/decorative-jewellery-model.webp') center top/225px auto no-repeat
+    background: url('../assets/web/jewellery-styling-model.jpg') center top/225px auto no-repeat
   }
 
   .brand img {
@@ -1548,7 +1548,7 @@ body>footer .footer-social a:not(.footer-cta) {
   width: 92px;
   height: 68px;
   overflow: visible;
-  background-image: url('../assets/web/decorative-jewellery-model.webp');
+  background-image: url('../assets/web/jewellery-styling-model.jpg');
   background-repeat: no-repeat;
   background-size: 185px auto;
   background-position: center -6px
@@ -1619,23 +1619,23 @@ body>footer .footer-social a:not(.footer-cta) {
   }
 
   .video-card {
-    background-image: url('../assets/web/gold-texture-background.webp')
+    background: none
   }
 
   .product-grid .product:nth-child(1) .product-image {
-    background: #fff url('../assets/web/gold-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/zaina-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(2) .product-image {
-    background: #fff url('../assets/web/pearl-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/amelia-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(3) .product-image {
-    background: #fff url('../assets/web/gold-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/zaina-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(4) .product-image {
-    background: #fff url('../assets/web/pearl-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/amelia-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product-image img {
@@ -2196,14 +2196,6 @@ body {
     background-image: url('../assets/search.svg')
   }
 
-  .site-header .header-actions button:nth-child(2) {
-    background-image: url('../assets/user.svg')
-  }
-
-  .site-header .header-actions button:nth-child(3) {
-    background-image: url('../assets/bag.svg')
-  }
-
   .site-header .header-actions small {
     font-size: 11px
   }
@@ -2344,7 +2336,7 @@ body {
 
   .collections {
     position: relative;
-    background: url('../assets/web/jewellery-styling-model.webp') center 42%/cover no-repeat
+    background: url('../assets/web/jewellery-styling-model.jpg') center 42%/cover no-repeat
   }
 
   .collection-card>img {
@@ -2444,7 +2436,7 @@ body {
   }
 
   .orbit {
-    background: url('../assets/web/gold-dish-model.webp') center/contain no-repeat;
+    background: url('../assets/web/gold-dish-stella-portrait.jpg') center/contain no-repeat;
     width: 900px;
     height: 790px
   }
@@ -2532,11 +2524,11 @@ body {
 
   .video-card {
     height: 830px;
-    background: url('../assets/web/jewellery-banner-background.webp') center/cover no-repeat
+    background: none
   }
 
   .video-card img {
-    opacity: 0
+    opacity: 1
   }
 
   .video-card button {
@@ -2710,7 +2702,7 @@ body {
 
   .video-card {
     height: 871px;
-    background-image: url('../assets/web/gold-texture-background.webp')
+    background: none
   }
 
   .nature-panel>div:last-child {
@@ -2750,19 +2742,19 @@ body {
   }
 
   .product-grid .product:nth-child(1) .product-image {
-    background: #fff url('../assets/web/gold-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/zaina-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(2) .product-image {
-    background: #fff url('../assets/web/pearl-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/amelia-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(3) .product-image {
-    background: #fff url('../assets/web/gold-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/zaina-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product:nth-child(4) .product-image {
-    background: #fff url('../assets/web/pearl-necklace-product.webp') center/contain no-repeat
+    background: #fff url('../assets/products/amelia-product.jpg') center/contain no-repeat
   }
 
   .product-grid .product-image img {
@@ -3455,15 +3447,18 @@ body {
 .gold-dish .orbit>img {
   display: block;
   position: absolute;
-  inset: 0;
-  width: 85%;
-  height: 100%;
+  inset: 40% auto auto 50%;
+  width: min(70%, 630px);
+  height: min(60%, 620px);
   object-fit: cover;
-  object-position: center bottom;
-  transform: translateX(-28px) scale(.94);
-  transform-origin: center bottom;
+  object-position: center 20%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
   filter: none;
-  z-index: 999;
+  -webkit-mask-image: radial-gradient(circle at center, #000 67%, transparent 100%);
+  mask-image: radial-gradient(circle at center, #000 67%, transparent 100%);
+  z-index: 1;
 }
 
 .gold-dish .orbit-text {
@@ -4133,7 +4128,7 @@ footer a:not(.footer-cta):hover {
     height: 96px;
     transform: translateX(-50%);
     overflow: hidden;
-    background-image: url('../assets/web/decorative-jewellery-model.webp');
+    background-image: url('../assets/web/jewellery-styling-model.jpg');
     background-repeat: no-repeat;
     background-size: 270px auto;
     background-position: center -8px

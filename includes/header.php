@@ -96,5 +96,5 @@ $ogImageAlt = $ogImageAlt ?? 'Carat Street fine jewellery for meaningful moments
             <nav><a href="category.php"><span>01</span>All Jewellery</a><a href="category.php?category=necklaces"><span>02</span>Necklaces</a><a href="category.php?category=rings"><span>03</span>Rings</a><a href="category.php?category=earrings"><span>04</span>Earrings</a><a href="category.php?category=pendants"><span>05</span>Pendants</a></nav>
             <div class="menu-secondary"><a href="house-of-carat-street.php">The House</a><a href="craftsmanship.php">Craftsmanship</a><a href="diamond-guide.php">Diamond Guide</a></div>
         </div>
-        <div class="menu-panel-visual"><img src="assets/web/category-earrings-model.webp" alt="Carat Street jewellery editorial"><span>Jewels as unique as you</span></div>
+        <div class="menu-panel-visual"><img src="assets/web/category-earrings-model.jpg" alt="Carat Street jewellery editorial"><span>Jewels as unique as you</span></div>
     </aside>

@@ -165,9 +165,9 @@ $footerId = 'contact';
     </section>
 
     <section class="pdp-categories pdp-reveal" aria-label="Shop jewellery categories">
-        <a href="category.php?category=pendants"><img src="assets/web/category-pendants-model.webp" alt=""><span><b>Pendants</b><small>Explore Collection</small></span></a>
-        <a href="category.php?category=rings"><img src="assets/web/category-rings-hand.webp" alt=""><span><b>Rings</b><small>Explore Collection</small></span></a>
-        <a href="category.php?category=earrings"><img src="assets/web/category-earrings-model.webp" alt=""><span><b>Earrings</b><small>Explore Collection</small></span></a>
+        <a href="category.php?category=pendants"><img src="assets/web/category-pendants-model.jpg" alt=""><span><b>Pendants</b><small>Explore Collection</small></span></a>
+        <a href="category.php?category=rings"><img src="assets/web/category-rings-hand.jpg" alt=""><span><b>Rings</b><small>Explore Collection</small></span></a>
+        <a href="category.php?category=earrings"><img src="assets/web/category-earrings-model.jpg" alt=""><span><b>Earrings</b><small>Explore Collection</small></span></a>
     </section>
 </main>
 

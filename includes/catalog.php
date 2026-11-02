@@ -68,7 +68,7 @@ $catalogProducts = [
     ],
     [
         'slug' => 'faye', 'name' => 'Carat Street Faye', 'category' => 'earrings', 'price' => '₹1,91,704', 'price_value' => 191704,
-        'image' => 'products/faye-product.png', 'hover_image' => 'web/models/faye-model.jpg', 'report_image' => 'products/faye-report.jpg',
+        'image' => 'products/faye-product.jpg', 'hover_image' => 'web/models/faye-model.jpg', 'report_image' => 'products/faye-report.jpg',
         'description' => 'The Faye Earrings weave polished gold and diamond-set curves into an expressive open form. Alternating surfaces create contrast, depth and brilliance from every angle.',
         'design_title' => 'Interwoven Brilliance',
         'design_story' => 'Faye explores the beauty of two lines moving together. Smooth gold and diamond light cross and separate in a balanced composition designed for confident everyday wear.',
