@@ -78,7 +78,7 @@ if(collectionsSection){
     const selected=available?name:'default';
     collectionBackgrounds.forEach(image=>image.classList.toggle('is-active',image.dataset.collectionBg===selected));
   };
-  const collectionName=card=>[...card.classList].find(className=>['rings','earrings','pendant','bracelet'].includes(className));
+  const collectionName=card=>card.dataset.collectionBackground||[...card.classList].find(className=>['rings','earrings','pendant','bracelet'].includes(className));
   const collectionStep=()=>{
     if(!collectionCards.length||!collectionTrack) return 0;
     return collectionCards[0].getBoundingClientRect().width+(parseFloat(getComputedStyle(collectionTrack).columnGap)||0);

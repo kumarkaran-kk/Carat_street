@@ -26,7 +26,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
                 <source media="(max-width:600px)" srcset="assets/web/carat-banner-pendant-mobile.jpg"><img src="assets/web/carat-banner-pendant.jpg" alt="Model wearing a Carat Street diamond pendant" fetchpriority="high">
             </picture>
             <picture class="hero-slide hero-slide-product">
-                <source media="(max-width:600px)" srcset="assets/web/carat-banner-earrings-mobile.jpg"><img src="assets/web/carat-banner-earrings.jpg" alt="Model wearing Carat Street diamond earrings">
+                <source media="(max-width:600px)" srcset="assets/web/carat-banner-editorial-mobile.jpg"><img src="assets/web/carat-banner-editorial.jpg" alt="Model wearing a Carat Street diamond pendant">
             </picture>
             <picture class="hero-slide hero-slide-product">
                 <source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Model wearing a Carat Street signature pendant">
@@ -59,31 +59,30 @@ $pageStylesAfterResponsive = ['css/home.css'];
     <section class="collections" id="collections">
         <div class="collections-backgrounds" aria-hidden="true">
             <img class="collections-background collections-background-default is-active" data-collection-bg="default" src="assets/web/collections-overview.jpg" alt="">
-            <img class="collections-background" data-collection-bg="rings" src="assets/web/collection-rings.jpg" alt="">
             <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.jpg" alt="">
             <img class="collections-background" data-collection-bg="pendant" src="assets/web/collection-pendants.jpg" alt="">
         </div>
         <div class="collection-carousel-viewport" data-collection-viewport tabindex="0" aria-label="Jewellery collections carousel">
             <div class="collection-carousel-track">
-                <article class="collection-card earrings">
+                <article class="collection-card earrings" data-collection-background="earrings">
                     <div>
                         <h3>Earrings</h3>
                         <p>From refined studs to expressive drops, discover earrings<br>shaped to frame the face with light, movement<br>and effortless elegance</p><a href="category.php?category=earrings">Know More</a>
                     </div>
                 </article>
-                <article class="collection-card pendant">
+                <article class="collection-card pendant" data-collection-background="pendant">
                     <div>
                         <h3>Pendants</h3>
                         <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
                     </div>
                 </article>
-                <article class="collection-card rings">
+                <article class="collection-card rings" data-collection-background="earrings">
                     <div>
                         <h3>Rings</h3>
                         <p>From delicate diamond bands to bold modern silhouettes,<br>discover rings crafted to celebrate promises, milestones<br>and the beauty of everyday moments</p><a href="category.php?category=rings">Know More</a>
                     </div>
                 </article>
-                <article class="collection-card bracelet">
+                <article class="collection-card bracelet" data-collection-background="pendant">
                     <div>
                         <h3>Bracelets</h3>
                         <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="category.php?category=bracelets">Know More</a>

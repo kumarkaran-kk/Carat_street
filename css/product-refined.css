@@ -113,6 +113,11 @@
   mix-blend-mode: normal
 }
 
+.product-page:is(.product-ray, .product-tara, .product-zaina) .pdp-main-image>img[data-view="editorial"],
+.product-page:is(.product-ray, .product-tara, .product-zaina) .pdp-thumb-editorial img {
+  object-position: center bottom
+}
+
 .pdp-main-image>img[data-view="report"] {
   width: 92%;
   height: 92%;
