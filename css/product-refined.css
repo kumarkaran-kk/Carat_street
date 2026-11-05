@@ -48,7 +48,12 @@
 .pdp-thumbnails {
   display: grid;
   align-content: start;
-  gap: 12px
+  gap: 12px;
+  max-height: 640px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pdp-gold) transparent
 }
 
 .pdp-thumb {
@@ -113,9 +118,14 @@
   mix-blend-mode: normal
 }
 
-.product-page:is(.product-ray, .product-tara, .product-zaina) .pdp-main-image>img[data-view="editorial"],
-.product-page:is(.product-ray, .product-tara, .product-zaina) .pdp-thumb-editorial img {
-  object-position: center bottom
+.pdp-main-image>img[data-view="gallery"] {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: translate(-50%, -50%);
+  clip-path: none;
+  mix-blend-mode: normal
 }
 
 .pdp-main-image>img[data-view="report"] {
@@ -962,13 +972,19 @@
   .pdp-thumbnails {
     order: 2;
     padding: 0 15px;
-    display: grid;
-    grid-template-columns: repeat(3, 70px);
-    gap: 9px
+    display: flex;
+    gap: 9px;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin
   }
 
   .pdp-thumb {
-    width: 70px
+    width: 70px;
+    flex: 0 0 70px;
+    scroll-snap-align: start
   }
 
   .pdp-fullscreen {

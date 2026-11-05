@@ -160,8 +160,56 @@ $catalogRetailUrls = [
     'zoha' => 'https://www.indiekonnect.com/shop/product/5',
 ];
 
+$catalogVisuals = [
+    'ada' => ['card_image' => 'products/ada-card.jpg'],
+    'amelia' => ['card_image' => 'products/amelia-card.jpg'],
+    'amora' => ['card_image' => 'products/amora-card.jpg'],
+    'cora' => ['card_image' => 'products/cora-card.jpg'],
+    'darlene' => ['card_image' => 'products/darlene-card.jpg'],
+    'della' => ['card_image' => 'products/della-card.jpg'],
+    'dua' => ['card_image' => 'products/dua-card.jpg'],
+    'eva' => ['card_image' => 'products/eva-card.jpg'],
+    'faye' => ['card_image' => 'products/faye-card.jpg', 'home_image' => 'products/faye-home.jpg'],
+    'layla' => ['card_image' => 'products/layla-card.jpg', 'home_image' => 'products/layla-home.jpg'],
+    'maya' => ['card_image' => 'products/maya-card.jpg', 'home_image' => 'products/maya-home.jpg'],
+    'nora' => ['card_image' => 'products/nora-card.jpg', 'home_image' => 'products/nora-home.jpg'],
+    'ray' => ['card_image' => 'products/ray-card.jpg'],
+    'stella' => ['card_image' => 'products/stella-card.jpg'],
+    'tara' => ['card_image' => 'products/tara-card.jpg'],
+    'zaina' => ['card_image' => 'products/zaina-card.jpg'],
+    'zoha' => ['card_image' => 'products/zoha-card.jpg'],
+];
+
+$catalogGalleryCounts = [
+    'ada' => 6,
+    'amelia' => 5,
+    'amora' => 5,
+    'cora' => 6,
+    'darlene' => 6,
+    'della' => 6,
+    'dua' => 5,
+    'eva' => 6,
+    'faye' => 6,
+    'layla' => 5,
+    'maya' => 7,
+    'nora' => 7,
+    'ray' => 4,
+    'stella' => 6,
+    'tara' => 5,
+    'zaina' => 5,
+    'zoha' => 7,
+];
+
 foreach ($catalogProducts as &$catalogProduct) {
     $catalogProduct['retail_url'] = $catalogRetailUrls[$catalogProduct['slug']] ?? 'https://www.indiekonnect.com/';
+    $visuals = $catalogVisuals[$catalogProduct['slug']] ?? [];
+    $catalogProduct['card_image'] = $visuals['card_image'] ?? $catalogProduct['image'];
+    $catalogProduct['home_image'] = $visuals['home_image'] ?? $catalogProduct['card_image'];
+    $galleryCount = $catalogGalleryCounts[$catalogProduct['slug']] ?? 0;
+    $catalogProduct['gallery_images'] = [];
+    for ($galleryIndex = 1; $galleryIndex <= $galleryCount; $galleryIndex++) {
+        $catalogProduct['gallery_images'][] = 'products/gallery/' . $catalogProduct['slug'] . '-' . str_pad((string) $galleryIndex, 2, '0', STR_PAD_LEFT) . '.jpg';
+    }
 }
 unset($catalogProduct);
 

@@ -13,6 +13,8 @@ if ($product === null) {
     $product = $catalogProducts[0];
 }
 $related = array_slice(array_values(array_filter($catalogProducts, fn($item) => $item['slug'] !== $product['slug'])), 0, 4);
+$galleryImages = $product['gallery_images'] ?: [$product['image'], $product['hover_image']];
+$primaryGalleryImage = $galleryImages[0];
 $productCategoryName = ucfirst($product['category']);
 $productTypeName = $product['category'] === 'earrings' ? 'Earrings' : 'Pendant';
 $pageTitle = $product['name'] . ' — Carat Street';
@@ -30,12 +32,14 @@ $footerId = 'contact';
     <section class="pdp-hero">
         <div class="pdp-gallery">
             <div class="pdp-thumbnails" aria-label="Product views">
-                <button class="pdp-thumb is-active" type="button" data-image="assets/<?= htmlspecialchars($product['image']) ?>" data-view="product" aria-label="View <?= htmlspecialchars($product['name']) ?> product image"><img src="assets/<?= htmlspecialchars($product['image']) ?>" alt=""></button>
-                <button class="pdp-thumb pdp-thumb-editorial" type="button" data-image="assets/<?= htmlspecialchars($product['hover_image']) ?>" data-view="editorial" aria-label="View <?= htmlspecialchars($product['name']) ?> styled"><img src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt=""></button>
+                <?php foreach ($galleryImages as $galleryIndex => $galleryImage):
+                    $galleryView = $galleryIndex === 0 ? 'product' : 'gallery';
+                    $galleryLabel = $galleryIndex === 0 ? 'Product view' : 'Gallery view ' . ($galleryIndex + 1);
+                ?><button class="pdp-thumb<?= $galleryIndex === 0 ? ' is-active' : '' ?>" type="button" data-image="assets/<?= htmlspecialchars($galleryImage) ?>" data-view="<?= htmlspecialchars($galleryView) ?>" data-label="<?= htmlspecialchars($galleryLabel) ?>" aria-label="View <?= htmlspecialchars($product['name'] . ' ' . strtolower($galleryLabel)) ?>"><img src="assets/<?= htmlspecialchars($galleryImage) ?>" alt=""></button><?php endforeach; ?>
                 <button class="pdp-thumb pdp-thumb-report" type="button" data-image="assets/<?= htmlspecialchars($product['report_image']) ?>" data-view="report" aria-label="View <?= htmlspecialchars($product['name']) ?> jewellery report"><img src="assets/<?= htmlspecialchars($product['report_image']) ?>" alt=""></button>
             </div>
             <div class="pdp-main-image">
-                <img src="assets/<?= htmlspecialchars($product['image']) ?>" data-main-product-image data-view="product" alt="<?= htmlspecialchars($product['name']) ?>">
+                <img src="assets/<?= htmlspecialchars($primaryGalleryImage) ?>" data-main-product-image data-view="product" alt="<?= htmlspecialchars($product['name']) ?>">
                 <button class="pdp-fullscreen" type="button" aria-label="View product image fullscreen">&#x26F6;</button>
                 <span class="pdp-image-caption">Product view</span>
             </div>
@@ -114,7 +118,7 @@ $footerId = 'contact';
     </section>
 
     <section class="design-story pdp-reveal">
-        <div class="design-story-visual"><img src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> design detail"></div>
+        <div class="design-story-visual"><img src="assets/<?= htmlspecialchars($product['card_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> design detail"></div>
         <div class="design-story-copy">
             <p class="section-label">About The Design</p>
             <h2><?= htmlspecialchars($product['design_title']) ?></h2>
@@ -155,7 +159,7 @@ $footerId = 'contact';
         <h2>You May Also Like</h2>
         <div class="related-grid">
             <?php foreach ($related as $item): ?><article>
-                    <div class="related-image"><img src="assets/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>"></div>
+                    <div class="related-image"><img src="assets/<?= htmlspecialchars($item['card_image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>"></div>
                     <span class="related-type">Carat Street · Fine <?= htmlspecialchars($item['category'] === 'earrings' ? 'Earrings' : 'Pendant') ?></span>
                     <h3><?= htmlspecialchars($item['name']) ?></h3>
                     <p><?= htmlspecialchars($item['price']) ?></p><a href="<?= htmlspecialchars(catalog_product_url($item)) ?>">View Product</a>

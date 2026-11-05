@@ -112,7 +112,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
                         $productUrl = catalog_product_url($product);
                     ?><article class="home-product-card">
                             <a class="home-product-image" href="<?= htmlspecialchars($productUrl) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?>">
-                                <img loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                                <img loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['home_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                             </a>
                             <div class="home-product-content">
                                 <p class="home-product-category"><?= htmlspecialchars($product['category']) ?></p>

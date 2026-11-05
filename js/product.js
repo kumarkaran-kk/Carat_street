@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mainImage.alt = thumb.getAttribute('aria-label') || '';
     if (caption) {
       const captions = {editorial: 'Styled view', report: 'Jewellery report', product: 'Product view'};
-      caption.textContent = captions[thumb.dataset.view] || 'Product view';
+      caption.textContent = thumb.dataset.label || captions[thumb.dataset.view] || 'Product view';
     }
   }));
 

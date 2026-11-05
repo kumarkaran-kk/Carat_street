@@ -46,7 +46,7 @@ require __DIR__ . '/includes/header.php';
                 ?><article class="catalog-card collection-product-card" data-price="<?= $product['price_value'] ?? 999999999 ?>">
                         <div class="collection-card-media">
                             <a href="<?= htmlspecialchars($productUrl) ?>">
-                                <img class="catalog-product-image" loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+                                <img class="catalog-product-image" loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['card_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
                                 <img class="catalog-model-image" loading="lazy" decoding="async" src="assets/<?= htmlspecialchars($product['hover_image']) ?>" alt="<?= htmlspecialchars($product['name']) ?> worn by a model">
                             </a>
                             <span class="collection-new-badge">New</span>
