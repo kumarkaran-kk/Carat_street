@@ -4,25 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const canvas = welcome?.querySelector('[data-diwali-fireworks]');
   if (!welcome || !enterButton || !canvas) return;
 
-  const previewRequested = new URLSearchParams(window.location.search).get('diwali') === '1';
-  const storageKey = 'caratStreetDiwaliSeen';
-  let alreadySeen = false;
-  try {
-    alreadySeen = sessionStorage.getItem(storageKey) === '1';
-  } catch (_) {
-    alreadySeen = false;
-  }
-
-  if (alreadySeen && !previewRequested) return;
-
   welcome.hidden = false;
   document.body.classList.add('diwali-welcome-open');
   enterButton.focus({preventScroll: true});
-  try {
-    sessionStorage.setItem(storageKey, '1');
-  } catch (_) {
-    // The welcome still works when storage is unavailable.
-  }
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const context = canvas.getContext('2d');
