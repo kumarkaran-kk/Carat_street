@@ -16,11 +16,33 @@ $pageTitle = 'Carat Street — Fine Jewellery';
 $pageDescription = "Timeless jewellery for life's most meaningful moments.";
 $bodyClass = 'home-page';
 $pageStylesAfterResponsive = ['css/home.css'];
+$pageScripts = ['js/diwali.js'];
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>
 
+<section class="diwali-welcome" data-diwali-welcome role="dialog" aria-modal="true" aria-labelledby="diwali-welcome-title" hidden>
+    <canvas class="diwali-fireworks" data-diwali-fireworks aria-hidden="true"></canvas>
+    <div class="diwali-welcome-glow" aria-hidden="true"></div>
+    <div class="diwali-welcome-content">
+        <p class="diwali-welcome-kicker">Carat Street Celebrates</p>
+        <div class="diwali-welcome-diya" aria-hidden="true"><i></i><span></span></div>
+        <h1 id="diwali-welcome-title">A Festival<br><em>Of Light</em></h1>
+        <p class="diwali-welcome-message">May every moment glow with joy, prosperity and timeless brilliance.</p>
+        <p class="diwali-welcome-wish">Wishing You A Luminous Diwali</p>
+        <button type="button" data-diwali-enter>Enter Carat Street <span aria-hidden="true">→</span></button>
+    </div>
+</section>
+
+<div class="diwali-page-sparkles" aria-hidden="true"><?php for ($sparkleIndex = 0; $sparkleIndex < 16; $sparkleIndex++): ?><i></i><?php endfor; ?></div>
+
 <main id="home">
     <section class="hero">
+        <div class="diwali-hero-decor" aria-hidden="true">
+            <div class="diwali-light-string"><?php for ($lightIndex = 0; $lightIndex < 11; $lightIndex++): ?><i></i><?php endfor; ?></div>
+            <div class="diwali-hero-diya diwali-hero-diya-left"><i></i><span></span></div>
+            <div class="diwali-hero-diya diwali-hero-diya-right"><i></i><span></span></div>
+            <p>Happy Diwali <b>•</b> A Season Of Light</p>
+        </div>
         <div class="hero-slides" aria-label="Featured jewellery collections">
             <picture class="hero-slide hero-slide-product active">
                 <source media="(max-width:600px)" srcset="assets/web/carat-banner-pendant-mobile.jpg"><img src="assets/web/carat-banner-pendant.jpg" alt="Model wearing a Carat Street diamond pendant" fetchpriority="high">
@@ -35,6 +57,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
     </section>
 
     <section class="occasion section-pad" id="story">
+        <div class="diwali-section-rangoli diwali-rangoli-right" aria-hidden="true"></div>
         <div class="occasion-kicker" aria-hidden="true"><span></span>
             <p>Everyday Brilliance</p><span></span>
         </div>
@@ -57,6 +80,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
     </section>
 
     <section class="collections" id="collections">
+        <div class="diwali-section-garland" aria-hidden="true"><?php for ($garlandIndex = 0; $garlandIndex < 13; $garlandIndex++): ?><i></i><?php endfor; ?></div>
         <div class="collections-backgrounds" aria-hidden="true">
             <img class="collections-background collections-background-default is-active" data-collection-bg="default" src="assets/web/collections-overview.jpg" alt="">
             <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.jpg" alt="">
@@ -100,6 +124,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
     <section class="products section-pad" id="jewellery">
         <p class="eyebrow center">Freshly Arrived</p>
         <h2 class="center">Shine Brighter With Every Diamond</h2>
+        <div class="diwali-diya-divider" aria-hidden="true"><i></i><span></span><i></i></div>
         <div class="home-product-carousel" data-home-product-carousel>
             <div class="home-product-slider-controls">
                 <button type="button" data-home-product-prev aria-label="Show previous products" disabled><span aria-hidden="true">←</span></button>
@@ -139,6 +164,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
     </section>
 
     <section class="gold-dish">
+        <div class="diwali-gold-stars" aria-hidden="true"></div>
         <div class="orbit"><img src="assets/web/gold-dish-stella-portrait.jpg" alt="Model wearing Carat Street Stella earrings"><svg class="orbit-text" viewBox="0 0 700 700" aria-hidden="true">
                 <defs>
                     <path id="gold-dish-text-path" d="M350,60a290,290 0 1,1 0,580a290,290 0 1,1 0,-580"></path>
@@ -152,6 +178,8 @@ $pageStylesAfterResponsive = ['css/home.css'];
     </section>
 
     <section class="nature">
+        <div class="diwali-section-rangoli diwali-rangoli-left" aria-hidden="true"></div>
+        <div class="diwali-section-garland diwali-nature-garland" aria-hidden="true"><?php for ($garlandIndex = 0; $garlandIndex < 11; $garlandIndex++): ?><i></i><?php endfor; ?></div>
         <div class="nature-panel">
             <div class="video-card"><img src="assets/web/art-of-adornment-shoot.jpg" alt="Carat Street diamond pendant from the final jewellery shoot"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
             <div>
@@ -169,6 +197,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
     </section>
 
     <section class="collection-showcase" id="collection-story">
+        <div class="diwali-section-rangoli diwali-rangoli-right" aria-hidden="true"></div>
         <div class="collection-showcase-visual"><img src="assets/web/jewellery-styling-model.jpg" alt="Indian woman wearing fine jewellery"><span>Jewellery For Every Moment</span></div>
         <div class="collection-showcase-copy">
             <p class="eyebrow">Your Jewellery, Your Story</p>
