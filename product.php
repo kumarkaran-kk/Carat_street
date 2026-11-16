@@ -54,7 +54,7 @@ $footerId = 'contact';
                 <div class="pdp-price-wrap"><span>Price</span>
                     <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
                 </div>
-                <a class="indikonnect-cta" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener noreferrer"><span>View on IndieKonnect</span><b aria-hidden="true">↗</b></a>
+                <a class="purchase-cta" href="#"><span>Buy Now</span><b aria-hidden="true">→</b></a>
             </div>
             <p class="pdp-tax-note">Inclusive of all applicable taxes. Shipping charges are calculated separately at checkout.</p>
             <p class="pdp-purchase-notes">Secure checkout <span>•</span> Insured delivery <span>•</span> Lifetime care</p>
@@ -79,7 +79,7 @@ $footerId = 'contact';
         <article><i aria-hidden="true">&#9651;</i><p><strong>BIS Hallmarked</strong><span>Certified gold you can trust</span></p></article>
         <article><i aria-hidden="true">&#9671;</i><p><strong>Certified Diamonds</strong><span>Natural and conflict free</span></p></article>
         <article><i aria-hidden="true">&#9825;</i><p><strong>Lifetime Care</strong><span>Cleaning and care guidance</span></p></article>
-        <article><i aria-hidden="true">&#9635;</i><p><strong>Secure Purchase</strong><span>Completed through IndieKonnect</span></p></article>
+        <article><i aria-hidden="true">&#9635;</i><p><strong>Secure Purchase</strong><span>A seamless and secure shopping experience.</span></p></article>
     </section>
 
     <section class="pdp-secondary-details pdp-reveal" id="product-notes" aria-label="Product details">
@@ -102,11 +102,11 @@ $footerId = 'contact';
             </details>
             <details>
                 <summary>Availability &amp; Purchase</summary>
-                <p>Current availability, delivery and transaction details are provided by IndieKonnect, our external retail portal.</p>
+                <p>Product availability, pricing and purchase details are provided at the time of ordering.</p>
             </details>
             <details>
                 <summary>Shipping &amp; Returns</summary>
-                <p>Shipping timelines, insurance and return eligibility are confirmed on IndieKonnect before purchase.</p>
+                <p>Shipping timelines, delivery details and applicable return policies are shared during the purchase process.</p>
             </details>
         </div>
     </section>

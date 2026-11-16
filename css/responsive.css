@@ -624,8 +624,7 @@ img {
   }
 
 
-  .contact-hero,
-  .contact-main {
+  .contact-hero {
     width: 100%
   }
 
@@ -1795,7 +1794,6 @@ img {
   .product-page main>section,
   .catalog-grid>*,
   .contact-hero>*,
-  .contact-main>*,
   .pdp-hero>*,
   .pdp-gallery>* {
     min-width: 0
@@ -1823,10 +1821,7 @@ img {
   }
 
   .storefront-page .search-intro form,
-  .storefront-page .search-intro input,
-  .storefront-page .contact-form input,
-  .storefront-page .contact-form select,
-  .storefront-page .contact-form textarea {
+  .storefront-page .search-intro input {
     min-width: 0;
     max-width: 100%
   }
@@ -1874,7 +1869,6 @@ img {
 
   .storefront-page .catalog-card h2,
   .product-page .related-grid h3,
-  .storefront-page .contact-details dd,
   footer a {
     overflow-wrap: anywhere
   }

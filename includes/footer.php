@@ -17,7 +17,7 @@ $mainScriptVersion = @filemtime(__DIR__ . '/../js/main.js') ?: 1;
                     <a href="https://www.linkedin.com/company/carat-street" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.4 7.8H2V22h3.4V7.8ZM3.7 2A2 2 0 1 0 3.7 6a2 2 0 0 0 0-4ZM22 13.9c0-4.3-2.3-6.3-5.4-6.3-2.5 0-3.6 1.4-4.2 2.3V7.8H9V22h3.4v-7c0-1.8.3-3.6 2.6-3.6 2.2 0 2.3 2.1 2.3 3.7V22H22v-8.1Z"></path></svg></a>
                 </nav>
             </div>
-            <div><h3>Discover</h3><a href="house-of-carat-street.php">The House</a><a href="philosophy.php">Our Philosophy</a><a href="craftsmanship.php">Craftsmanship</a><a href="category.php">Collections</a></div>
+            <div><h3>Discover</h3><a href="house-of-carat-street.php">The House</a><a href="philosophy.php">Our Philosophy</a><a href="craftsmanship.php">Craftsmanship</a><a href="category.php">Collections</a><a href="contact.php">Contact</a></div>
             <div><h3>Collections</h3><a href="category.php?category=pendants">Pendants</a><a href="category.php?category=earrings">Earrings</a><a href="everyday-luxury.php">Everyday Luxury</a><a href="signature-collection.php">Signature Collection</a></div>
             <div><h3>Guides</h3><a href="diamond-guide.php">Diamond Guide</a><a href="gold-guide.php">Gold Guide</a><a href="jewellery-care.php">Jewellery Care</a><a href="certification.php">Certification</a></div>
         </div>

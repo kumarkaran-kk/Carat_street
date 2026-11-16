@@ -353,7 +353,6 @@
 }
 
 .contact-hero p,
-.contact-label,
 .contact-discovery>p {
     font: 500 12px var(--sans);
     letter-spacing: .22em;
@@ -387,112 +386,6 @@
     height: 100%
 }
 
-.contact-main {
-    display: grid;
-    grid-template-columns: .82fr 1.18fr;
-    max-width: 1600px;
-    margin: auto;
-    padding: 130px 50px;
-    gap: 140px
-}
-
-.contact-details h2 {
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 1.08;
-    margin: 18px 0 28px
-}
-
-.contact-details>p:not(.contact-label) {
-    font: 17px/1.7 var(--sans);
-    color: #666;
-    max-width: 510px
-}
-
-.contact-details dl {
-    margin-top: 65px
-}
-
-.contact-details dl div {
-    border-top: 1px solid #d7d2cc;
-    padding: 20px 0;
-    display: grid;
-    grid-template-columns: 150px 1fr
-}
-
-.contact-details dt {
-    font: 500 11px var(--sans);
-    text-transform: uppercase;
-    letter-spacing: .14em;
-    color: #9f7c4e
-}
-
-.contact-details dd {
-    font: 16px/1.6 var(--sans);
-    margin: 0
-}
-
-.contact-form-wrap {
-    background: #faf8f4;
-    padding: 60px
-}
-
-.contact-form {
-    display: grid;
-    gap: 30px
-}
-
-.field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px
-}
-
-.contact-form label {
-    font: 500 11px var(--sans);
-    letter-spacing: .12em;
-    text-transform: uppercase
-}
-
-.contact-form label small {
-    float: right;
-    color: #888;
-    font-weight: 400
-}
-
-.contact-form input:not([type=checkbox]),
-.contact-form select,
-.contact-form textarea {
-    display: block;
-    width: 100%;
-    border: 0;
-    border-bottom: 1px solid #8d8984;
-    background: transparent;
-    padding: 14px 0;
-    font: 17px var(--serif);
-    outline: 0;
-    border-radius: 0
-}
-
-.contact-form textarea {
-    resize: vertical
-}
-
-.contact-consent {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    line-height: 1.5
-}
-
-.contact-consent input {
-    margin-top: 3px
-}
-
-.contact-form>button,
-.contact-success a,
 .contact-discovery a {
     border: 1px solid #111;
     background: #111;
@@ -505,34 +398,9 @@
     transition: .25s
 }
 
-.contact-form>button:hover,
-.contact-success a:hover,
 .contact-discovery a:hover {
     background: #fff;
     color: #111
-}
-
-.contact-success {
-    text-align: center;
-    padding: 70px 20px
-}
-
-.contact-success span {
-    font: 500 12px var(--sans);
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: #9f7c4e
-}
-
-.contact-success h2 {
-    font-size: 55px;
-    font-weight: 400
-}
-
-.contact-success p {
-    font: 17px var(--sans);
-    color: #666;
-    margin-bottom: 45px
 }
 
 .contact-discovery {
@@ -593,15 +461,6 @@
         height: 520px
     }
 
-    .contact-main {
-        grid-template-columns: 1fr;
-        gap: 70px;
-        padding: 90px 35px
-    }
-
-    .contact-details {
-        max-width: 700px
-    }
 }
 
 @media(max-width:600px) {
@@ -682,25 +541,8 @@
         height: 390px
     }
 
-    .contact-main {
-        padding: 70px 15px
-    }
-
-    .contact-details h2,
     .contact-discovery h2 {
         font-size: 45px
-    }
-
-    .contact-details dl div {
-        grid-template-columns: 110px 1fr
-    }
-
-    .contact-form-wrap {
-        padding: 35px 20px
-    }
-
-    .field-row {
-        grid-template-columns: 1fr
     }
 
     .contact-discovery {
