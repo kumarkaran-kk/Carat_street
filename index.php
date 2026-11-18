@@ -29,7 +29,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
                 <source media="(max-width:600px)" srcset="assets/web/carat-banner-editorial-mobile.jpg"><img src="assets/web/carat-banner-editorial.jpg" alt="Model wearing a Carat Street diamond pendant">
             </picture>
             <picture class="hero-slide hero-slide-product">
-                <source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Model wearing a Carat Street signature pendant">
+                <source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Carat Street diamond pendant styled on blue silk">
             </picture>
         </div>
     </section>
@@ -40,12 +40,12 @@ $pageStylesAfterResponsive = ['css/home.css'];
         </div>
         <div class="occasion-visual">
             <img src="assets/web/birthstone-occasion-model.jpg" alt="Woman wearing a Carat Street diamond pendant">
-            <span class="occasion-title">Embrace<br>Your Birthstone's<br>Power And Beauty</span>
+            <span class="occasion-title">Celebrate Your<br>Individuality Through<br>Timeless Jewellery</span>
         </div>
         <div class="occasion-copy">
             <p class="eyebrow">Born to Shine, Crafted to Last</p>
-            <h2>A Gem for Every Birthday,<br>A Story for Every Stone</h2>
-            <p>Every birthstone carries a meaning as individual as the person who wears it. Set in refined silhouettes and finished with thoughtful detail, our birthstone jewellery transforms colour, character and personal milestones into modern keepsakes—pieces chosen for today and treasured for years to come.</p>
+            <h2>Jewellery That Reflects Your Style,<br>A Story in Every Detail</h2>
+            <p>Every piece of jewellery carries its own character and charm. Thoughtfully designed with refined silhouettes and attention to detail, our creations celebrate individuality, personal expression and timeless elegance—pieces chosen for today and treasured for years to come.</p>
             <a class="text-link" href="category.php?category=all">Shop Now <span aria-hidden="true">→</span></a>
             <div class="occasion-inset"><img src="assets/web/models/nora-model.jpg" alt="Carat Street Nora pendant worn with fine jewellery"></div>
         </div>
@@ -76,6 +76,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
                         <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
                     </div>
                 </article>
+                <?php /* Rings and bracelets are retained here for a future collection launch.
                 <article class="collection-card rings" data-collection-background="earrings">
                     <div>
                         <h3>Rings</h3>
@@ -88,18 +89,19 @@ $pageStylesAfterResponsive = ['css/home.css'];
                         <p>Polished links, delicate details and brilliant stones create<br>bracelets that move beautifully with you from day<br>to evening, finished by hand</p><a href="category.php?category=bracelets">Know More</a>
                     </div>
                 </article>
+                */ ?>
             </div>
         </div>
         <div class="collection-carousel-controls" aria-label="Collection carousel controls">
             <button type="button" data-collection-prev aria-label="Previous collection">←</button>
-            <p><span data-collection-current>01</span><i></i><span>04</span></p>
+            <p><span data-collection-current>01</span><i></i><span>02</span></p>
             <button type="button" data-collection-next aria-label="Next collection">→</button>
         </div>
     </section>
 
     <section class="products section-pad" id="jewellery">
-        <p class="eyebrow center">Freshly Arrived</p>
-        <h2 class="center">Shine Brighter With Every Diamond</h2>
+        <p class="eyebrow center">New Arrivals</p>
+        <h2 class="center">Discover Jewellery That Reflects Your Style.</h2>
         <div class="home-product-carousel" data-home-product-carousel>
             <div class="home-product-slider-controls">
                 <button type="button" data-home-product-prev aria-label="Show previous products" disabled><span aria-hidden="true">←</span></button>
@@ -138,7 +140,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
         <a class="products-view-all" href="category.php?category=all">View All Products</a>
     </section>
 
-    <section class="gold-dish">
+    <section class="gold-dish" id="gold-dish">
         <div class="orbit"><img src="assets/web/gold-dish-stella-portrait.jpg" alt="Model wearing Carat Street Stella earrings"><svg class="orbit-text" viewBox="0 0 700 700" aria-hidden="true">
                 <defs>
                     <path id="gold-dish-text-path" d="M350,60a290,290 0 1,1 0,580a290,290 0 1,1 0,-580"></path>
@@ -148,38 +150,40 @@ $pageStylesAfterResponsive = ['css/home.css'];
                     <textPath href="#gold-dish-text-path" startOffset="52%">Jewels as Unique as You</textPath>
                 </text>
             </svg></div>
-        <div class="wordmark"><span>GOL</span><span>DISH</span></div>
+        <div class="wordmark gold-dish-headline">Elegance in Every Detail</div>
     </section>
 
-    <section class="nature">
+    <section class="nature" id="adornment">
         <div class="nature-panel">
             <div class="video-card"><img src="assets/web/art-of-adornment-shoot.jpg" alt="Carat Street diamond pendant from the final jewellery shoot"><button type="button" data-story-video="9Pazl1r8a5Q" aria-label="Play Carat Street jewellery video">▶</button></div>
             <div>
                 <p class="eyebrow">The Art of Adornment</p>
-                <h2>A Symbol Of Love, Beauty, And Sophistication, Beautifully Showcased Around Your Neck</h2>
-                <p class="nature-description">Inspired by nature's enduring forms, each pendant balances sculpted gold with a luminous centre stone. Meticulous setting and a graceful silhouette create a piece that feels intimate, distinctive and effortless to wear—an expression of beauty made personal.</p>
+                <h2>A Touch of Elegance, A Reflection of Your Style.</h2>
+                <p class="nature-description">Thoughtfully designed to bring together refined detailing and timeless appeal, each pendant is an expression of understated elegance. With graceful silhouettes and carefully considered finishes, our designs add a distinctive touch to your style, making every piece a personal expression of beauty.</p>
                 <a class="button button-light" href="category.php?category=pendants">Know More</a>
             </div>
         </div>
+        <?php /* The client requested that this complete ring-focused section remain in source but not render.
         <div class="cave-scene" id="cave-scene" aria-label="Carat Street forest jewellery reveal">
             <div class="cave-stage"><img class="cave-reveal" src="assets/open-cave.png" alt="Enchanted green forest within a rocky cave"><img class="cave-hand" src="assets/only-hand.png" alt="Moss-covered hand presenting a gemstone ring">
                 <div class="cave-wordmark" aria-hidden="true"><span>Carat</span><span>Street</span></div><img class="cave-foliage cave-foliage-one" src="assets/web/cave-left-tree.webp" alt="" aria-hidden="true"><img class="cave-foliage cave-foliage-two" src="assets/web/cave-right-tree.webp" alt="" aria-hidden="true">
             </div><button class="cave-toggle" type="button" aria-expanded="false" aria-controls="cave-scene"><span>Tap To Reveal</span></button>
         </div>
+        */ ?>
     </section>
 
     <section class="collection-showcase" id="collection-story">
         <div class="collection-showcase-visual"><img src="assets/web/jewellery-styling-model.jpg" alt="Indian woman wearing fine jewellery"><span>Jewellery For Every Moment</span></div>
         <div class="collection-showcase-copy">
-            <p class="eyebrow">Your Jewellery, Your Story</p>
-            <h2>Discover the Piece Made for Your Moment</h2>
-            <p class="collection-showcase-intro">From wedding celebrations and meaningful gifts to everyday expressions of style, explore jewellery designed to make every moment feel distinctly yours.</p>
+            <p class="eyebrow">Jewellery That Tells Your Story</p>
+            <h2>Made for Moments That Matter.</h2>
+            <p class="collection-showcase-intro">From everyday expressions of elegance to life's most meaningful celebrations, discover jewellery that brings together thoughtful design, refined craftsmanship and timeless appeal. Each piece is created to complement your style and become part of your story.</p>
             <div class="collection-showcase-actions"><a class="button collection-showcase-primary" href="category.php">Explore The Collection</a><a class="collection-showcase-link" href="category.php?category=pendants">View Pendants <span aria-hidden="true">→</span></a></div>
             <div class="collection-showcase-services" aria-label="Collection highlights">
                 <div><strong>01</strong><span>Everyday Elegance</span></div>
-                <div><strong>02</strong><span>Meaningful Gifts</span></div>
-                <div><strong>03</strong><span>Certified Materials</span></div>
-                <div><strong>04</strong><span>Thoughtful Craft</span></div>
+                <div><strong>02</strong><span>Meaningful Moments</span></div>
+                <div><strong>03</strong><span>Quality &amp; Certification</span></div>
+                <div><strong>04</strong><span>Thoughtful Craftsmanship</span></div>
             </div>
         </div>
     </section>

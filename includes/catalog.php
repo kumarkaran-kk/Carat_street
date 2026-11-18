@@ -140,29 +140,9 @@ $catalogProducts = [
     ],
 ];
 
-$catalogRetailUrls = [
-    'ada' => 'https://www.indiekonnect.com/shop/product/3',
-    'amelia' => 'https://www.indiekonnect.com/shop/product/9',
-    'amora' => 'https://www.indiekonnect.com/shop/product/1',
-    'cora' => 'https://www.indiekonnect.com/shop/product/10',
-    'darlene' => 'https://www.indiekonnect.com/shop/product/16',
-    'della' => 'https://www.indiekonnect.com/shop/product/11',
-    'dua' => 'https://www.indiekonnect.com/shop/product/7',
-    'eva' => 'https://www.indiekonnect.com/shop/product/15',
-    'faye' => 'https://www.indiekonnect.com/shop/product/17',
-    'layla' => 'https://www.indiekonnect.com/shop/product/13',
-    'maya' => 'https://www.indiekonnect.com/shop/product/2',
-    'nora' => 'https://www.indiekonnect.com/shop/product/12',
-    'ray' => 'https://www.indiekonnect.com/shop/product/6',
-    'stella' => 'https://www.indiekonnect.com/shop/product/14',
-    'tara' => 'https://www.indiekonnect.com/shop/product/4',
-    'zaina' => 'https://www.indiekonnect.com/shop/product/8',
-    'zoha' => 'https://www.indiekonnect.com/shop/product/5',
-];
-
 $catalogVisuals = [
     'ada' => ['card_image' => 'products/ada-card.jpg'],
-    'amelia' => ['card_image' => 'products/amelia-card.jpg'],
+    'amelia' => ['card_image' => 'products/amelia-creative.jpg', 'home_image' => 'products/amelia-creative.jpg'],
     'amora' => ['card_image' => 'products/amora-card.jpg'],
     'cora' => ['card_image' => 'products/cora-card.jpg'],
     'darlene' => ['card_image' => 'products/darlene-card.jpg'],
@@ -201,7 +181,6 @@ $catalogGalleryCounts = [
 ];
 
 foreach ($catalogProducts as &$catalogProduct) {
-    $catalogProduct['retail_url'] = $catalogRetailUrls[$catalogProduct['slug']] ?? 'https://www.indiekonnect.com/';
     $visuals = $catalogVisuals[$catalogProduct['slug']] ?? [];
     $catalogProduct['card_image'] = $visuals['card_image'] ?? $catalogProduct['image'];
     $catalogProduct['home_image'] = $visuals['home_image'] ?? $catalogProduct['card_image'];

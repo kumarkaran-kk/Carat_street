@@ -64,6 +64,46 @@
     border-color: #111
 }
 
+.future-collection {
+    margin: 0;
+    padding: 64px 24px 68px;
+    border-bottom: 1px solid #e3d7c7;
+    background: linear-gradient(120deg, #181511, #2a2117 65%, #6d522c);
+    color: #fff;
+    text-align: center
+}
+
+.future-collection p {
+    margin: 0 0 14px;
+    color: #d5ae58;
+    font: 600 11px/1 var(--sans);
+    letter-spacing: .28em;
+    text-transform: uppercase
+}
+
+.future-collection h2 {
+    margin: 0 0 18px;
+    font: 400 clamp(42px, 4.5vw, 72px)/1 var(--serif)
+}
+
+.future-collection span {
+    display: block;
+    max-width: 760px;
+    margin: auto;
+    color: rgba(255,255,255,.72);
+    font: 400 17px/1.7 var(--sans)
+}
+
+@media(max-width:600px) {
+    .future-collection {
+        padding: 50px 22px 54px
+    }
+
+    .future-collection span {
+        font-size: 15px
+    }
+}
+
 .catalog-wrap,
 .search-results {
     padding: 70px max(40px, calc((100% - 1740px)/2)) 130px

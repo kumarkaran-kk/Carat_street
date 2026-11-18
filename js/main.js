@@ -145,12 +145,12 @@ if(caveScene){
 }
 
 const storyVideoButton=document.querySelector('[data-story-video]');
-storyVideoButton?.addEventListener('click',()=>{
+const playStoryVideo=()=>{
   const videoCard=storyVideoButton.closest('.video-card');
   const videoId=storyVideoButton.dataset.storyVideo;
-  if(!videoCard||!videoId) return;
+  if(!videoCard||!videoId||videoCard.classList.contains('is-playing')) return;
   const player=document.createElement('iframe');
-  player.src=`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&rel=0&playsinline=1`;
+  player.src=`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&rel=0&playsinline=1`;
   player.title='Carat Street jewellery video';
   player.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
   player.allowFullscreen=true;
@@ -158,7 +158,17 @@ storyVideoButton?.addEventListener('click',()=>{
   videoCard.classList.add('is-playing');
   videoCard.append(player);
   storyVideoButton.remove();
-});
+};
+storyVideoButton?.addEventListener('click',playStoryVideo);
+if(storyVideoButton&&'IntersectionObserver' in window){
+  const storyVideoObserver=new IntersectionObserver(entries=>{
+    if(entries.some(entry=>entry.isIntersecting&&entry.intersectionRatio>=.55)){
+      playStoryVideo();
+      storyVideoObserver.disconnect();
+    }
+  },{threshold:[.55]});
+  storyVideoObserver.observe(storyVideoButton.closest('.video-card'));
+}
 
 const goldDish=document.querySelector('.gold-dish');
 const orbitText=goldDish?.querySelector('.orbit-text');

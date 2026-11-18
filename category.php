@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/includes/catalog.php';
-$allowedCategories = ['all', 'pendants', 'earrings', 'necklaces', 'rings', 'bracelets'];
+$allowedCategories = ['all', 'pendants', 'earrings'];
 $category = strtolower($_GET['category'] ?? 'all');
 if (!in_array($category, $allowedCategories, true)) $category = 'all';
 $categoryCounts = [];
@@ -19,16 +19,23 @@ $bodyClass = 'storefront-page';
 require __DIR__ . '/includes/header.php';
 ?>
 <main>
-    <section class="listing-intro"><p>Carat Street Collections</p><h1><?= htmlspecialchars($categoryName) ?></h1><span>Jewellery with a quiet confidence, thoughtfully made for your story.</span></section>
+    <section class="listing-intro"><p>Carat Street Collection</p><h1><?= htmlspecialchars($categoryName) ?></h1><span>Thoughtfully designed jewellery that reflects your individuality and becomes part of your story.</span></section>
     <nav class="category-tabs" aria-label="Product categories">
         <?php foreach ($allowedCategories as $item): ?>
             <?php $itemComingSoon = $item !== 'all' && ($categoryCounts[$item] ?? 0) === 0; ?>
             <a class="<?= $category === $item ? 'is-active' : '' ?><?= $itemComingSoon ? ' is-coming-soon' : '' ?>" href="category.php?category=<?= urlencode($item) ?>"<?= $itemComingSoon ? ' aria-label="' . htmlspecialchars(ucwords(str_replace('-', ' ', $item))) . ' — Coming Soon"' : '' ?>>
-                <span><?= $item === 'all' ? 'View All' : htmlspecialchars(ucwords(str_replace('-', ' ', $item))) ?></span>
+                <span><?= $item === 'all' ? 'Our Collection' : htmlspecialchars(ucwords(str_replace('-', ' ', $item))) ?></span>
                 <?php if ($itemComingSoon): ?><small>Coming Soon</small><?php endif; ?>
             </a>
         <?php endforeach; ?>
     </nav>
+    <?php if ($category === 'all'): ?>
+        <section class="future-collection" aria-labelledby="future-collection-title">
+            <p>Coming Soon</p>
+            <h2 id="future-collection-title">Something Special</h2>
+            <span>Discover the upcoming Lab-Grown Diamond Collection—thoughtfully created for a new expression of modern brilliance.</span>
+        </section>
+    <?php endif; ?>
     <section class="catalog-wrap">
         <?php if ($isComingSoon): ?>
             <div class="category-coming-soon" role="status">

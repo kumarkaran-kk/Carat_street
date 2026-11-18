@@ -22,7 +22,7 @@ $relatedMap = [
     'signature-collection' => [['Everyday Luxury', 'everyday-luxury.php'], ['Craftsmanship', 'craftsmanship.php'], ['Explore Earrings', 'category.php?category=earrings']],
     'gold-purity' => [['The Gold Guide', 'gold-guide.php'], ['Hallmark Information', 'hallmark-information.php'], ['Certification', 'certification.php']],
     'hallmark-information' => [['Gold Purity', 'gold-purity.php'], ['The Gold Guide', 'gold-guide.php'], ['Certification', 'certification.php']],
-    'jewellery-care' => [['Craftsmanship', 'craftsmanship.php'], ['Gold Guide', 'gold-guide.php'], ['Contact Client Care', 'contact.php']],
+    'jewellery-care' => [['Craftsmanship', 'craftsmanship.php'], ['Gold Guide', 'gold-guide.php'], ['Explore Jewellery', 'category.php']],
     'certification' => [['Diamond Guide', 'diamond-guide.php'], ['Hallmark Information', 'hallmark-information.php'], ['Gold Purity', 'gold-purity.php']],
 ];
 
@@ -74,7 +74,7 @@ require __DIR__ . '/header.php';
     <section class="editorial-quote"><p><?= htmlspecialchars($page['quote']) ?></p></section>
 
     <section class="editorial-notes">
-        <div class="editorial-section-heading"><p class="editorial-label">A Considered Approach</p><h2><?= htmlspecialchars($page['notes_title']) ?></h2></div>
+        <div class="editorial-section-heading"><p class="editorial-label"><?= htmlspecialchars($page['notes_label'] ?? 'A Considered Approach') ?></p><h2><?= htmlspecialchars($page['notes_title']) ?></h2></div>
         <div class="editorial-note-list">
             <?php foreach ($page['notes'] as $index => $note): ?>
                 <article><span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span><h3><?= htmlspecialchars($note[0]) ?></h3><p><?= htmlspecialchars($note[1]) ?></p></article>

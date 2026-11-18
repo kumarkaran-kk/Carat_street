@@ -153,7 +153,7 @@
 .editorial-page .editorial-feature-copy>p:last-child {
   margin-bottom: 0;
   color: #50483f;
-  font: 300 clamp(16px, 1.18vw, 20px)/1.75 var(--sans)
+  font: 400 clamp(17px, 1.2vw, 21px)/1.75 var(--sans)
 }
 
 .editorial-page .editorial-feature {
@@ -220,7 +220,8 @@
 .editorial-page .editorial-section-heading {
   display: grid;
   grid-template-columns: minmax(180px, .55fr) minmax(0, 1.7fr);
-  gap: clamp(45px, 8vw, 155px)
+  gap: clamp(45px, 8vw, 155px);
+  align-items: end
 }
 
 .editorial-page .editorial-section-heading h2 {
@@ -268,7 +269,7 @@
   max-width: 440px;
   margin-bottom: 0;
   color: #5e554b;
-  font: 300 16px/1.7 var(--sans)
+  font: 400 17px/1.72 var(--sans)
 }
 
 .editorial-page .editorial-quote {
@@ -407,7 +408,60 @@
   display: block;
   max-width: 700px;
   color: rgba(255, 255, 255, .62);
-  font: 300 17px/1.65 var(--sans)
+  font: 400 18px/1.65 var(--sans)
+}
+
+/* Proofreading refinements for the client-reviewed editorial pages. */
+.editorial-house .editorial-hero-copy {
+  right: auto;
+  left: clamp(42px, 7vw, 130px);
+  width: min(680px, 46vw)
+}
+
+.editorial-house .editorial-hero-shade {
+  background: linear-gradient(90deg, rgba(8, 7, 6, .76) 0%, rgba(8, 7, 6, .42) 44%, rgba(8, 7, 6, .08) 72%), linear-gradient(0deg, rgba(8, 7, 6, .38), transparent 52%)
+}
+
+.editorial-craftsmanship .editorial-hero-copy {
+  right: clamp(42px, 7vw, 130px);
+  left: auto;
+  width: min(680px, 46vw)
+}
+
+.editorial-craftsmanship .editorial-hero-shade {
+  background: linear-gradient(270deg, rgba(8, 7, 6, .78) 0%, rgba(8, 7, 6, .44) 45%, rgba(8, 7, 6, .06) 72%), linear-gradient(0deg, rgba(8, 7, 6, .38), transparent 52%)
+}
+
+.editorial-house .editorial-cta {
+  background: linear-gradient(120deg, #9b7745, #c09a63 56%, #8d6939)
+}
+
+.editorial-house .editorial-quote,
+.editorial-jewellery-care .editorial-quote {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,.11), transparent 26%),
+    linear-gradient(135deg, #9d7746, #c19a62 55%, #8c6738)
+}
+
+.editorial-craftsmanship .editorial-statement h2,
+.editorial-craftsmanship .editorial-feature-copy h2,
+.editorial-craftsmanship .editorial-section-heading h2,
+.editorial-jewellery-care .editorial-section-heading h2 {
+  letter-spacing: -.045em
+}
+
+@media(max-width:700px) {
+  .editorial-house .editorial-hero-copy,
+  .editorial-craftsmanship .editorial-hero-copy {
+    right: 22px;
+    left: 22px;
+    width: auto
+  }
+
+  .editorial-house .editorial-hero-shade,
+  .editorial-craftsmanship .editorial-hero-shade {
+    background: linear-gradient(0deg, rgba(8, 7, 6, .76), rgba(8, 7, 6, .08) 78%)
+  }
 }
 
 .editorial-page .editorial-cta>a {
@@ -442,7 +496,7 @@
 
 @keyframes editorialHeroSettle {
   from { opacity: .55; transform: scale(1.07) }
-  to { opacity: 1; transform: scale(1.01) }
+  to { opacity: 1; transform: scale(1) }
 }
 
 @media(max-width:1100px) {
