@@ -2,7 +2,7 @@
 require __DIR__ . '/includes/catalog.php';
 $query = trim($_GET['q'] ?? '');
 $results = $query === '' ? [] : array_values(array_filter($catalogProducts, fn($product) => stripos($product['name'] . ' ' . $product['category'], $query) !== false));
-$pageTitle = 'Search — Carat Street';
+$pageTitle = 'Search | Carat Street';
 $pageDescription = 'Search the Carat Street jewellery collection.';
 $pageStyles = ['css/storefront.css'];
 $bodyClass = 'storefront-page search-page';

@@ -12,7 +12,7 @@ foreach ($featuredProductSlugs as $slug) {
 foreach ($catalogProducts as $catalogProduct) {
     if (!in_array($catalogProduct['slug'], $featuredProductSlugs, true)) $products[] = $catalogProduct;
 }
-$pageTitle = 'Carat Street — Fine Jewellery';
+$pageTitle = 'Carat Street | Fine Jewellery';
 $pageDescription = "Timeless jewellery for life's most meaningful moments.";
 $bodyClass = 'home-page';
 $pageStylesAfterResponsive = ['css/home.css'];
@@ -29,8 +29,12 @@ $pageStylesAfterResponsive = ['css/home.css'];
                 <source media="(max-width:600px)" srcset="assets/web/carat-banner-editorial-mobile.jpg"><img src="assets/web/carat-banner-editorial.jpg" alt="Model wearing a Carat Street diamond pendant">
             </picture>
             <picture class="hero-slide hero-slide-product">
-                <source media="(max-width:600px)" srcset="assets/web/carat-banner-signature-mobile.jpg"><img src="assets/web/carat-banner-signature.jpg" alt="Carat Street diamond pendant styled on blue silk">
+                <source media="(max-width:600px)" srcset="assets/web/revised-home-hero-mobile.jpg"><img src="assets/web/revised-home-hero.jpg" alt="Model wearing a Carat Street diamond pendant">
             </picture>
+        </div>
+        <div class="hero-controls" aria-label="Hero banner controls">
+            <button type="button" data-hero-previous aria-label="Previous banner">←</button>
+            <button type="button" data-hero-next aria-label="Next banner">→</button>
         </div>
     </section>
 
@@ -45,32 +49,36 @@ $pageStylesAfterResponsive = ['css/home.css'];
         <div class="occasion-copy">
             <p class="eyebrow">Born to Shine, Crafted to Last</p>
             <h2>Jewellery That Reflects Your Style,<br>A Story in Every Detail</h2>
-            <p>Every piece of jewellery carries its own character and charm. Thoughtfully designed with refined silhouettes and attention to detail, our creations celebrate individuality, personal expression and timeless elegance—pieces chosen for today and treasured for years to come.</p>
+            <p>Every piece of jewellery carries its own character and charm. Thoughtfully designed with refined silhouettes and attention to detail, our creations celebrate individuality, personal expression and timeless elegance, with pieces chosen for today and treasured for years to come.</p>
             <a class="text-link" href="category.php?category=all">Shop Now <span aria-hidden="true">→</span></a>
             <div class="occasion-inset"><img src="assets/web/models/nora-model.jpg" alt="Carat Street Nora pendant worn with fine jewellery"></div>
         </div>
         <div class="occasion-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28">
                 <path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15" />
             </svg>
-            <p>Fine jewellery for a brighter you</p><span></span>
+            <p>Where Heritage Meets Tomorrow.</p><span></span>
         </div>
     </section>
 
     <section class="collections" id="collections">
+        <?php /* Shared collection backgrounds are retained for reference but disabled. Each image now stays inside its own card.
         <div class="collections-backgrounds" aria-hidden="true">
             <img class="collections-background collections-background-default is-active" data-collection-bg="default" src="assets/web/collections-overview.jpg" alt="">
             <img class="collections-background" data-collection-bg="earrings" src="assets/web/collection-earrings.jpg" alt="">
             <img class="collections-background" data-collection-bg="pendant" src="assets/web/collection-pendants.jpg" alt="">
         </div>
+        */ ?>
         <div class="collection-carousel-viewport" data-collection-viewport tabindex="0" aria-label="Jewellery collections carousel">
             <div class="collection-carousel-track">
                 <article class="collection-card earrings" data-collection-background="earrings">
+                    <img src="assets/web/revised-collection-earrings.jpg" alt="Model wearing Carat Street earrings">
                     <div>
                         <h3>Earrings</h3>
                         <p>From refined studs to expressive drops, discover earrings<br>shaped to frame the face with light, movement<br>and effortless elegance</p><a href="category.php?category=earrings">Know More</a>
                     </div>
                 </article>
                 <article class="collection-card pendant" data-collection-background="pendant">
+                    <img src="assets/web/revised-collection-pendants.jpg" alt="Model wearing a Carat Street pendant">
                     <div>
                         <h3>Pendants</h3>
                         <p>Meaningful symbols, luminous stones and graceful forms<br>come together in pendants designed to rest close<br>to the heart and be treasured</p><a href="category.php?category=pendants">Know More</a>
@@ -135,7 +143,7 @@ $pageStylesAfterResponsive = ['css/home.css'];
         <div class="home-product-signature" aria-hidden="true"><span></span><svg viewBox="0 0 32 28">
                 <path d="M7 3h18l4 7-13 15L3 10l4-7Zm-4 7h26M7 3l5 7 4-7 4 7 5-7M12 10l4 15 4-15" />
             </svg>
-            <p>Fine jewellery for a brighter you</p><span></span>
+            <p>Where Heritage Meets Tomorrow.</p><span></span>
         </div>
         <a class="products-view-all" href="category.php?category=all">View All Products</a>
     </section>

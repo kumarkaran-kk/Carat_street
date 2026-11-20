@@ -34,15 +34,31 @@ window.addEventListener('scroll', updateStickyHeader, {passive: true});
 const heroSlides=[...document.querySelectorAll('.hero-slide')];
 let heroIndex=0;
 if(heroSlides.length>1){
-  setInterval(()=>{
+  let heroTimer;
+  const showHeroSlide=(nextIndex,resetTimer=true)=>{
     const previous=heroIndex;
-    heroIndex=(heroIndex+1)%heroSlides.length;
+    heroIndex=(nextIndex+heroSlides.length)%heroSlides.length;
+    if(previous===heroIndex) return;
     heroSlides[previous].classList.remove('active');
     heroSlides[previous].classList.add('past');
     heroSlides[heroIndex].classList.remove('past');
     heroSlides[heroIndex].classList.add('active');
     setTimeout(()=>heroSlides[previous].classList.remove('past'),1100);
-  },4500);
+    if(resetTimer){
+      clearInterval(heroTimer);
+      heroTimer=setInterval(()=>showHeroSlide(heroIndex+1,false),4500);
+    }
+  };
+  heroTimer=setInterval(()=>showHeroSlide(heroIndex+1,false),4500);
+  document.querySelector('[data-hero-previous]')?.addEventListener('click',()=>showHeroSlide(heroIndex-1));
+  document.querySelector('[data-hero-next]')?.addEventListener('click',()=>showHeroSlide(heroIndex+1));
+  const heroRegion=document.querySelector('.hero');
+  let heroTouchStart=0;
+  heroRegion?.addEventListener('touchstart',event=>{heroTouchStart=event.changedTouches[0]?.clientX||0},{passive:true});
+  heroRegion?.addEventListener('touchend',event=>{
+    const distance=(event.changedTouches[0]?.clientX||0)-heroTouchStart;
+    if(Math.abs(distance)>45) showHeroSlide(heroIndex+(distance<0?1:-1));
+  },{passive:true});
 }
 
 const fitHomeCanvas=()=>{

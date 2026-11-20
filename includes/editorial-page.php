@@ -7,7 +7,7 @@ if (!isset($editorialKey, $editorialPages[$editorialKey])) {
 }
 
 $page = $editorialPages[$editorialKey];
-$pageTitle = $page['title'] . ' — Carat Street';
+$pageTitle = $page['title'] . ' | Carat Street';
 $pageDescription = $page['intro'];
 $pageStylesAfterResponsive = ['css/editorial.css'];
 $bodyClass = 'editorial-page editorial-' . $page['type'] . ' editorial-' . $editorialKey;
@@ -20,9 +20,9 @@ $relatedMap = [
     'gold-guide' => [['Gold Purity', 'gold-purity.php'], ['Hallmark Information', 'hallmark-information.php'], ['Jewellery Care', 'jewellery-care.php']],
     'everyday-luxury' => [['Signature Collection', 'signature-collection.php'], ['Our Philosophy', 'philosophy.php'], ['Explore Pendants', 'category.php?category=pendants']],
     'signature-collection' => [['Everyday Luxury', 'everyday-luxury.php'], ['Craftsmanship', 'craftsmanship.php'], ['Explore Earrings', 'category.php?category=earrings']],
-    'gold-purity' => [['The Gold Guide', 'gold-guide.php'], ['Hallmark Information', 'hallmark-information.php'], ['Certification', 'certification.php']],
-    'hallmark-information' => [['Gold Purity', 'gold-purity.php'], ['The Gold Guide', 'gold-guide.php'], ['Certification', 'certification.php']],
-    'jewellery-care' => [['Craftsmanship', 'craftsmanship.php'], ['Gold Guide', 'gold-guide.php'], ['Explore Jewellery', 'category.php']],
+    'gold-purity' => [['Certification', 'certification.php'], ['Hallmark Information', 'hallmark-information.php'], ['Jewellery Care', 'jewellery-care.php']],
+    'hallmark-information' => [['Gold Purity', 'gold-purity.php'], ['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php']],
+    'jewellery-care' => [['Craftsmanship', 'craftsmanship.php'], ['Certification', 'certification.php'], ['Explore Jewellery', 'category.php']],
     'certification' => [['Diamond Guide', 'diamond-guide.php'], ['Hallmark Information', 'hallmark-information.php'], ['Gold Purity', 'gold-purity.php']],
 ];
 
@@ -43,6 +43,22 @@ require __DIR__ . '/header.php';
         <a class="editorial-scroll" href="#introduction" aria-label="Continue to page content"><span></span>Discover</a>
     </section>
 
+    <?php if (($page['custom_layout'] ?? '') === 'certification'): ?>
+    <section class="certification-introduction" id="introduction">
+        <p class="editorial-label"><?= htmlspecialchars($page['statement_label']) ?></p>
+        <h2><?= htmlspecialchars($page['statement_title']) ?></h2>
+        <?php foreach ($page['statement_copy'] as $paragraph): ?><p><?= htmlspecialchars($paragraph) ?></p><?php endforeach; ?>
+    </section>
+    <section class="certification-assurances" aria-label="Carat Street quality certifications">
+        <?php foreach ($page['certifications'] as $certification): ?>
+            <article>
+                <div class="certification-logo"><img loading="lazy" decoding="async" src="<?= htmlspecialchars($certification[0]) ?>" alt="<?= htmlspecialchars($certification[1]) ?>"></div>
+                <div><p class="editorial-label"><?= htmlspecialchars($certification[2]) ?></p><h2><?= htmlspecialchars($certification[3]) ?></h2><p><?= htmlspecialchars($certification[4]) ?></p></div>
+            </article>
+        <?php endforeach; ?>
+    </section>
+    <section class="certification-closing"><h2><?= htmlspecialchars($page['certification_closing_title']) ?></h2><p><?= htmlspecialchars($page['certification_closing_copy']) ?></p></section>
+    <?php else: ?>
     <section class="editorial-statement" id="introduction">
         <p class="editorial-label"><?= htmlspecialchars($page['statement_label']) ?></p>
         <div>
@@ -71,10 +87,12 @@ require __DIR__ . '/header.php';
         </div>
     </section>
 
-    <section class="editorial-quote"><p><?= htmlspecialchars($page['quote']) ?></p></section>
+    <section class="editorial-quote"><div><p><?= htmlspecialchars($page['quote']) ?></p><?php if (!empty($page['quote_copy'])): ?><span><?= htmlspecialchars($page['quote_copy']) ?></span><?php endif; ?></div></section>
 
+    <?php if (empty($page['hide_notes'])): ?>
     <section class="editorial-notes">
         <div class="editorial-section-heading"><p class="editorial-label"><?= htmlspecialchars($page['notes_label'] ?? 'A Considered Approach') ?></p><h2><?= htmlspecialchars($page['notes_title']) ?></h2></div>
+        <?php if (!empty($page['notes_intro'])): ?><p class="editorial-notes-intro"><?= htmlspecialchars($page['notes_intro']) ?></p><?php endif; ?>
         <div class="editorial-note-list">
             <?php foreach ($page['notes'] as $index => $note): ?>
                 <article><span><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT) ?></span><h3><?= htmlspecialchars($note[0]) ?></h3><p><?= htmlspecialchars($note[1]) ?></p></article>
@@ -82,6 +100,8 @@ require __DIR__ . '/header.php';
         </div>
         <?php if (!empty($page['source_url'])): ?><p class="editorial-source">Reference: <a href="<?= htmlspecialchars($page['source_url']) ?>" target="_blank" rel="noopener noreferrer"><?= htmlspecialchars($page['source_label']) ?></a></p><?php endif; ?>
     </section>
+    <?php endif; ?>
+    <?php endif; ?>
 
     <section class="editorial-related">
         <p class="editorial-label">Continue Exploring</p>

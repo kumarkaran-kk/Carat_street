@@ -1,5 +1,5 @@
 <?php
-$pageTitle = $pageTitle ?? 'Carat Street — Fine Jewellery';
+$pageTitle = $pageTitle ?? 'Carat Street | Fine Jewellery';
 $pageDescription = $pageDescription ?? "Timeless jewellery for life's most meaningful moments.";
 $pageStyles = $pageStyles ?? [];
 $pageStylesAfterResponsive = $pageStylesAfterResponsive ?? [];

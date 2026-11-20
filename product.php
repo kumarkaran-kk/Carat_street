@@ -17,7 +17,7 @@ $galleryImages = $product['gallery_images'] ?: [$product['image'], $product['hov
 $primaryGalleryImage = $galleryImages[0];
 $productCategoryName = ucfirst($product['category']);
 $productTypeName = $product['category'] === 'earrings' ? 'Earrings' : 'Pendant';
-$pageTitle = $product['name'] . ' — Carat Street';
+$pageTitle = $product['name'] . ' | Carat Street';
 $pageDescription = $product['description'];
 $pageStyles = [];
 $pageStylesAfterResponsive = ['css/product-refined.css'];
@@ -54,20 +54,20 @@ $footerId = 'contact';
                 <div class="pdp-price-wrap"><span>Price</span>
                     <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
                 </div>
-                <a class="purchase-cta" href="#"><span>Buy Now</span><b aria-hidden="true">→</b></a>
+                <a class="purchase-cta" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener noreferrer"><span>View on IndieKonnect</span><b aria-hidden="true">↗</b></a>
             </div>
             <p class="pdp-tax-note">Inclusive of all applicable taxes. Shipping charges are calculated separately at checkout.</p>
             <p class="pdp-purchase-notes">Secure checkout <span>•</span> Insured delivery <span>•</span> Lifetime care</p>
             <div class="pdp-promises" id="product-standard" aria-label="The Carat Street standard">
-                <article><i aria-hidden="true">&#9998;</i><span>01</span>
+                <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 20 4.4-1 10.7-10.7a2.3 2.3 0 0 0-3.3-3.3L5.1 15.7 4 20Z"/><path d="m14.5 6.3 3.2 3.2M4.8 15.9l3.3 3.3"/></svg></i><span>01</span>
                     <h3>Thoughtful Design</h3>
                     <p>Balanced proportions shaped for graceful, effortless wear.</p>
                 </article>
-                <article><i aria-hidden="true">&#9671;</i><span>02</span>
+                <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 2.2 6.2L20 10l-5.8 2.1L12 18l-2.1-5.9L4 10l5.9-1.8L12 2Z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15Z"/></svg></i><span>02</span>
                     <h3>Refined Finish</h3>
                     <p>Every visible detail is considered from every angle.</p>
                 </article>
-                <article><i aria-hidden="true">&#9825;</i><span>03</span>
+                <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6V3Z"/><path d="M15 3v4h4M9 11h6M9 15h6"/></svg></i><span>03</span>
                     <h3>Complete Details</h3>
                     <p>Clear information about materials, finish and jewellery care.</p>
                 </article>
@@ -76,10 +76,10 @@ $footerId = 'contact';
     </section>
 
     <section class="pdp-assurances" aria-label="Carat Street purchase assurances">
-        <article><i aria-hidden="true">&#9651;</i><p><strong>BIS Hallmarked</strong><span>Certified gold you can trust</span></p></article>
-        <article><i aria-hidden="true">&#9671;</i><p><strong>Certified Diamonds</strong><span>Natural and conflict free</span></p></article>
-        <article><i aria-hidden="true">&#9825;</i><p><strong>Lifetime Care</strong><span>Cleaning and care guidance</span></p></article>
-        <article><i aria-hidden="true">&#9635;</i><p><strong>Secure Purchase</strong><span>A seamless and secure shopping experience.</span></p></article>
+        <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2 20 5v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5l8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></i><p><strong>BIS Hallmarked</strong><span>Certified gold you can trust</span></p></article>
+        <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 9 4-5h10l4 5-9 12L3 9Z"/><path d="M3 9h18M7 4l5 17 5-17M7 9l5-5 5 5"/></svg></i><p><strong>Certified Diamonds</strong><span>Natural and conflict free</span></p></article>
+        <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 5.8a5.5 5.5 0 0 0-7.8 0L12 6.9l-1.1-1.1a5.5 5.5 0 0 0-7.7 7.8L12 22l8.8-8.4a5.5 5.5 0 0 0 0-7.8Z"/><path d="M17 9v4M15 11h4"/></svg></i><p><strong>Lifetime Care</strong><span>Cleaning and care guidance</span></p></article>
+        <article><i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></i><p><strong>Secure Purchase</strong><span>Completed through IndieKonnect</span></p></article>
     </section>
 
     <section class="pdp-secondary-details pdp-reveal" id="product-notes" aria-label="Product details">
@@ -102,11 +102,11 @@ $footerId = 'contact';
             </details>
             <details>
                 <summary>Availability &amp; Purchase</summary>
-                <p>Product availability, pricing and purchase details are provided at the time of ordering.</p>
+                <p>Current availability, delivery and transaction details are provided by IndieKonnect, our authorised retail partner.</p>
             </details>
             <details>
                 <summary>Shipping &amp; Returns</summary>
-                <p>Shipping timelines, delivery details and applicable return policies are shared during the purchase process.</p>
+                <p>Shipping timelines, insurance and return eligibility are confirmed on IndieKonnect before purchase.</p>
             </details>
         </div>
     </section>

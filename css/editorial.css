@@ -65,9 +65,9 @@
 
 .editorial-page .editorial-hero-copy {
   position: absolute;
-  left: clamp(38px, 8vw, 150px);
+  right: clamp(0px, 0vw, 139px);
   bottom: clamp(100px, 14vh, 165px);
-  width: min(850px, 75vw)
+  width: min(660px, 75vw);
 }
 
 .editorial-page .editorial-hero-copy>p,
@@ -234,6 +234,10 @@
   border-top: 1px solid var(--editorial-line)
 }
 
+.editorial-diamond-guide .editorial-chapter-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr))
+}
+
 .editorial-page .editorial-chapter-grid article {
   min-height: 360px;
   padding: 38px clamp(25px, 3vw, 55px) 50px 0;
@@ -279,7 +283,7 @@
   min-height: 650px;
   padding: 100px 9vw;
   overflow: hidden;
-  background: #ad8959;
+  background: #b49612;
   color: #fff;
   text-align: center
 }
@@ -309,6 +313,26 @@
   margin-bottom: 0;
   font: 400 clamp(50px, 5.3vw, 100px)/1.02 var(--serif);
   letter-spacing: -.035em
+}
+
+.editorial-page .editorial-quote>div {
+  position: relative;
+  z-index: 1
+}
+
+.editorial-page .editorial-quote>div>span {
+  display: block;
+  max-width: 760px;
+  margin: 32px auto 0;
+  color: rgba(255, 255, 255, .82);
+  font: 400 18px/1.7 var(--sans)
+}
+
+.editorial-notes-intro {
+  max-width: 840px;
+  margin: 34px 0 48px auto;
+  color: #5e554b;
+  font: 400 18px/1.72 var(--sans)
 }
 
 .editorial-page .editorial-notes {
@@ -423,8 +447,8 @@
 }
 
 .editorial-craftsmanship .editorial-hero-copy {
-  right: clamp(42px, 7vw, 130px);
-  left: auto;
+  left: clamp(42px, 7vw, 130px);
+  right: auto;
   width: min(680px, 46vw)
 }
 
@@ -438,9 +462,7 @@
 
 .editorial-house .editorial-quote,
 .editorial-jewellery-care .editorial-quote {
-  background:
-    radial-gradient(circle at 18% 20%, rgba(255,255,255,.11), transparent 26%),
-    linear-gradient(135deg, #9d7746, #c19a62 55%, #8c6738)
+  background: #b49612
 }
 
 .editorial-craftsmanship .editorial-statement h2,
@@ -451,6 +473,7 @@
 }
 
 @media(max-width:700px) {
+
   .editorial-house .editorial-hero-copy,
   .editorial-craftsmanship .editorial-hero-copy {
     right: 22px;
@@ -491,12 +514,129 @@
 }
 
 .editorial-collection .editorial-quote {
-  background: #8f6d48
+  background: #b49612
+}
+
+.certification-introduction {
+  padding: clamp(100px, 10vw, 180px) clamp(38px, 9vw, 170px);
+  text-align: center;
+  background: #fbf7f0
+}
+
+.certification-introduction h2 {
+  max-width: 960px;
+  margin: 24px auto 30px;
+  font-size: clamp(56px, 7vw, 118px);
+  line-height: .95
+}
+
+.certification-introduction>p:last-child {
+  max-width: 830px;
+  margin: 0 auto;
+  color: #5e554b;
+  font: 400 18px/1.75 var(--sans)
+}
+
+.certification-assurances {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(75px, 8vw, 145px) clamp(38px, 8vw, 152px);
+  background: #fff
+}
+
+.certification-assurances article {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: clamp(30px, 4vw, 70px);
+  padding: 35px clamp(30px, 5vw, 90px);
+  align-items: center;
+  border-right: 1px solid var(--editorial-line)
+}
+
+.certification-assurances article:last-child {
+  border-right: 0
+}
+
+.certification-logo {
+  display: grid;
+  min-height: 150px;
+  place-items: center
+}
+
+.certification-logo img {
+  width: 100%;
+  max-height: 130px;
+  object-fit: contain
+}
+
+.certification-assurances h2 {
+  margin: 18px 0 24px;
+  font-size: clamp(42px, 4vw, 70px);
+  line-height: 1
+}
+
+.certification-assurances article>div:last-child>p:last-child {
+  color: #5e554b;
+  font: 400 17px/1.72 var(--sans)
+}
+
+.certification-closing {
+  padding: clamp(100px, 10vw, 180px) 9vw;
+  background: #b49612;
+  color: #fff;
+  text-align: center
+}
+
+.certification-closing h2 {
+  margin: 0 0 28px;
+  font-size: clamp(58px, 7vw, 118px);
+  line-height: .95
+}
+
+.certification-closing p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, .82);
+  font: 400 18px/1.7 var(--sans)
+}
+
+@media(max-width:900px) {
+  .certification-assurances {
+    grid-template-columns: 1fr
+  }
+
+  .certification-assurances article {
+    border-right: 0;
+    border-bottom: 1px solid var(--editorial-line)
+  }
+
+  .certification-assurances article:last-child {
+    border-bottom: 0
+  }
+}
+
+@media(max-width:600px) {
+  .certification-assurances article {
+    grid-template-columns: 1fr;
+    padding: 42px 0;
+    text-align: center
+  }
+
+  .certification-logo img {
+    max-width: 150px
+  }
 }
 
 @keyframes editorialHeroSettle {
-  from { opacity: .55; transform: scale(1.07) }
-  to { opacity: 1; transform: scale(1) }
+  from {
+    opacity: .55;
+    transform: scale(1.07)
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
 }
 
 @media(max-width:1100px) {

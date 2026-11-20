@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/includes/catalog.php';
-$allowedCategories = ['all', 'pendants', 'earrings'];
+$allowedCategories = ['all', 'pendants', 'earrings', 'coming-soon'];
 $category = strtolower($_GET['category'] ?? 'all');
 if (!in_array($category, $allowedCategories, true)) $category = 'all';
 $categoryCounts = [];
@@ -9,9 +9,9 @@ foreach ($catalogProducts as $catalogProduct) {
     $categoryCounts[$catalogCategory] = ($categoryCounts[$catalogCategory] ?? 0) + 1;
 }
 $visibleProducts = $category === 'all' ? $catalogProducts : array_values(array_filter($catalogProducts, fn($product) => $product['category'] === $category));
-$isComingSoon = $category !== 'all' && ($categoryCounts[$category] ?? 0) === 0;
-$categoryName = $category === 'all' ? 'Fine Jewellery' : ucfirst($category);
-$pageTitle = $categoryName . ' — Carat Street';
+$isComingSoon = $category === 'coming-soon';
+$categoryName = $category === 'all' ? 'Fine Jewellery' : ($isComingSoon ? 'Coming Soon' : ucfirst($category));
+$pageTitle = $categoryName . ' | Carat Street';
 $pageDescription = 'Explore ' . strtolower($categoryName) . ' selected with the timeless Carat Street sensibility.';
 $pageStyles = ['css/storefront.css'];
 $pageStylesAfterResponsive = ['css/catalog-cards.css'];
@@ -22,26 +22,18 @@ require __DIR__ . '/includes/header.php';
     <section class="listing-intro"><p>Carat Street Collection</p><h1><?= htmlspecialchars($categoryName) ?></h1><span>Thoughtfully designed jewellery that reflects your individuality and becomes part of your story.</span></section>
     <nav class="category-tabs" aria-label="Product categories">
         <?php foreach ($allowedCategories as $item): ?>
-            <?php $itemComingSoon = $item !== 'all' && ($categoryCounts[$item] ?? 0) === 0; ?>
-            <a class="<?= $category === $item ? 'is-active' : '' ?><?= $itemComingSoon ? ' is-coming-soon' : '' ?>" href="category.php?category=<?= urlencode($item) ?>"<?= $itemComingSoon ? ' aria-label="' . htmlspecialchars(ucwords(str_replace('-', ' ', $item))) . ' — Coming Soon"' : '' ?>>
+            <a class="<?= $category === $item ? 'is-active' : '' ?><?= $item === 'coming-soon' ? ' is-coming-soon' : '' ?>" href="category.php?category=<?= urlencode($item) ?>">
                 <span><?= $item === 'all' ? 'Our Collection' : htmlspecialchars(ucwords(str_replace('-', ' ', $item))) ?></span>
-                <?php if ($itemComingSoon): ?><small>Coming Soon</small><?php endif; ?>
             </a>
         <?php endforeach; ?>
     </nav>
-    <?php if ($category === 'all'): ?>
-        <section class="future-collection" aria-labelledby="future-collection-title">
-            <p>Coming Soon</p>
-            <h2 id="future-collection-title">Something Special</h2>
-            <span>Discover the upcoming Lab-Grown Diamond Collection—thoughtfully created for a new expression of modern brilliance.</span>
-        </section>
-    <?php endif; ?>
     <section class="catalog-wrap">
         <?php if ($isComingSoon): ?>
             <div class="category-coming-soon" role="status">
-                <p>Arriving Soon</p>
-                <h2><?= htmlspecialchars($categoryName) ?> are coming soon.</h2>
-                <span>Our next collection is being thoughtfully completed. Explore the pieces currently available while we prepare its reveal.</span>
+                <p>Coming Soon</p>
+                <h2>A New Expression of Brilliance</h2>
+                <span>Something special is on its way. Discover the upcoming Lab-Grown Diamond Collection by Carat Street, where contemporary elegance meets timeless brilliance.</span>
+                <span>Thoughtfully designed for those who appreciate the beauty of fine jewellery, the collection brings a fresh perspective to modern diamond jewellery.</span>
                 <a href="category.php">Explore Available Jewellery</a>
             </div>
         <?php else: ?>

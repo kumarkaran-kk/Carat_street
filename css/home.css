@@ -31,6 +31,92 @@
   object-position: center 70% !important;
 }
 
+.home-page .collections {
+  background: #211b16 !important
+}
+
+.home-page .collections .collection-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden
+}
+
+.home-page .collections .collection-card>img {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transform: scale(1) !important;
+  transition: transform .8s ease
+}
+
+.home-page .collections .collection-card:hover>img,
+.home-page .collections .collection-card:focus-within>img {
+  opacity: 1;
+  transform: scale(1.035) !important
+}
+
+.home-page .collections .collection-card:after {
+  display: block;
+  z-index: 1;
+  background: linear-gradient(0deg, rgba(14, 10, 7, .74), rgba(14, 10, 7, .16) 74%);
+  transition: background .45s ease;
+  pointer-events: none
+}
+
+.home-page .collections .collection-card:hover:after,
+.home-page .collections .collection-card:focus-within:after {
+  background: linear-gradient(0deg, rgba(14, 10, 7, .66), rgba(14, 10, 7, .08) 74%)
+}
+
+.home-page .hero-controls {
+  position: absolute;
+  z-index: 5;
+  right: clamp(22px, 3.5vw, 68px);
+  bottom: clamp(24px, 4vw, 72px);
+  display: flex;
+  gap: 10px
+}
+
+.home-page .hero-controls button {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .7);
+  border-radius: 50%;
+  background: rgba(17, 14, 11, .5);
+  color: #fff;
+  font-size: 20px;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: background .25s ease, color .25s ease
+}
+
+.home-page .hero-controls button:hover,
+.home-page .hero-controls button:focus-visible {
+  background: #fff;
+  color: #17130f
+}
+
+@media(max-width:600px) {
+  .home-page .hero-controls {
+    right: 18px;
+    bottom: 18px
+  }
+
+  .home-page .hero-controls button {
+    width: 44px;
+    height: 44px
+  }
+}
+
 .home-page .craftsmanship-feature {
   position: relative;
   isolation: isolate;
@@ -1286,12 +1372,12 @@
 
 /* Client-approved refinement for the editorial portrait feature. */
 .home-page .gold-dish {
-  background: linear-gradient(145deg, #b69569 0%, #d0b58e 52%, #aa8559 100%);
+  background: #b49612;
 }
 
 .home-page .gold-dish .gold-dish-headline {
   right: 0;
-  bottom: clamp(22px, 2.6vw, 48px) !important;
+  bottom: clamp(22px, 2.vw, 48px) !important;
   left: 0;
   display: flex;
   width: 100%;

@@ -6,7 +6,9 @@
 .search-intro {
     text-align: center;
     padding: 120px 30px 78px;
-    background: #fbf7f1;
+    background:
+        radial-gradient(circle at 50% 14%, rgba(180, 150, 18, .14), transparent 31%),
+        linear-gradient(135deg, #fffdf9 0%, #f5ecdc 52%, #fbf7f1 100%);
     border-bottom: 1px solid #e5ded5
 }
 
@@ -64,6 +66,10 @@
     border-color: #111
 }
 
+.category-tabs a.is-coming-soon {
+    color: #8e710f
+}
+
 .future-collection {
     margin: 0;
     padding: 64px 24px 68px;
@@ -92,6 +98,50 @@
     margin: auto;
     color: rgba(255,255,255,.72);
     font: 400 17px/1.7 var(--sans)
+}
+
+.category-coming-soon {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: clamp(70px, 9vw, 135px) clamp(26px, 8vw, 110px);
+    border: 1px solid rgba(180, 150, 18, .32);
+    background:
+        radial-gradient(circle at 50% 0, rgba(180, 150, 18, .18), transparent 42%),
+        linear-gradient(145deg, #fffdf9, #f4ead8);
+    text-align: center
+}
+
+.category-coming-soon>p {
+    color: #947914;
+    font: 600 11px/1 var(--sans);
+    letter-spacing: .28em;
+    text-transform: uppercase
+}
+
+.category-coming-soon h2 {
+    margin: 24px 0 28px;
+    font: 400 clamp(48px, 6vw, 92px)/.98 var(--serif)
+}
+
+.category-coming-soon>span {
+    display: block;
+    max-width: 780px;
+    margin: 15px auto 0;
+    color: #62594f;
+    font: 400 17px/1.75 var(--sans)
+}
+
+.category-coming-soon>a {
+    display: inline-flex;
+    min-height: 56px;
+    margin-top: 38px;
+    padding: 0 30px;
+    align-items: center;
+    border: 1px solid #8d7115;
+    color: #5e4a0b;
+    font: 600 11px/1 var(--sans);
+    letter-spacing: .14em;
+    text-transform: uppercase
 }
 
 @media(max-width:600px) {
@@ -592,6 +642,14 @@
     margin: 20px 0 40px
 }
 
+.contact-discovery>span {
+    display: block;
+    max-width: 760px;
+    margin: -12px auto 38px;
+    color: rgba(255,255,255,.82);
+    font: 400 17px/1.75 var(--sans)
+}
+
 .contact-discovery a {
     display: inline-flex;
     background: #fff;
@@ -646,6 +704,21 @@
 
 @media(max-width:600px) {
 
+    .category-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        height: auto;
+        padding: 12px 16px;
+        gap: 0 18px;
+        overflow: visible
+    }
+
+    .category-tabs a {
+        padding: 18px 4px 12px;
+        text-align: center
+    }
+
     .listing-intro,
     .search-intro {
         padding: 70px 20px 55px
@@ -653,7 +726,28 @@
 
     .listing-intro h1,
     .search-intro h1 {
-        font-size: 58px
+        font-size: 52px
+    }
+
+    .category-coming-soon {
+        width: 100%;
+        min-height: 0;
+        padding: 64px 20px
+    }
+
+    .category-coming-soon h2,
+    .category-coming-soon>span {
+        width: 100%;
+        overflow-wrap: anywhere
+    }
+
+    .category-coming-soon h2 {
+        font-size: 43px
+    }
+
+    .category-coming-soon>span {
+        font-size: 14px;
+        line-height: 1.7
     }
 
     .catalog-wrap,
