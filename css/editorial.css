@@ -238,6 +238,12 @@
   grid-template-columns: repeat(4, minmax(0, 1fr))
 }
 
+@media(min-width:901px) {
+  .editorial-diamond-guide .editorial-chapter-grid h3 {
+    min-height: clamp(164px, 12vw, 190px)
+  }
+}
+
 .editorial-page .editorial-chapter-grid article {
   min-height: 360px;
   padding: 38px clamp(25px, 3vw, 55px) 50px 0;
@@ -452,8 +458,19 @@
   width: min(680px, 46vw)
 }
 
+.editorial-diamond-guide .editorial-hero-copy,
+.editorial-jewellery-care .editorial-hero-copy,
+.editorial-certification .editorial-hero-copy,
+.editorial-philosophy .editorial-hero-copy,
+.editorial-signature-collection .editorial-hero-copy,
+.editorial-everyday-luxury .editorial-hero-copy {
+  right: auto;
+  left: clamp(42px, 7vw, 130px);
+  width: min(680px, 46vw)
+}
+
 .editorial-craftsmanship .editorial-hero-shade {
-  background: linear-gradient(270deg, rgba(8, 7, 6, .78) 0%, rgba(8, 7, 6, .44) 45%, rgba(8, 7, 6, .06) 72%), linear-gradient(0deg, rgba(8, 7, 6, .38), transparent 52%)
+  background: none !important
 }
 
 .editorial-house .editorial-cta {
@@ -578,6 +595,27 @@
 .certification-assurances article>div:last-child>p:last-child {
   color: #5e554b;
   font: 400 17px/1.72 var(--sans)
+}
+
+@media(min-width:901px) {
+  .certification-assurances article {
+    align-items: stretch
+  }
+
+  .certification-assurances .certification-logo {
+    align-self: center
+  }
+
+  .certification-assurances article>div:last-child {
+    display: grid;
+    grid-template-rows: 40px clamp(170px, 13vw, 220px) auto;
+    align-content: start
+  }
+
+  .certification-assurances article>div:last-child>.editorial-label,
+  .certification-assurances article>div:last-child>h2 {
+    margin: 0
+  }
 }
 
 .certification-closing {

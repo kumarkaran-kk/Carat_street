@@ -17,13 +17,13 @@ $relatedMap = [
     'philosophy' => [['The House', 'house-of-carat-street.php'], ['Everyday Luxury', 'everyday-luxury.php'], ['Craftsmanship', 'craftsmanship.php']],
     'craftsmanship' => [['Our Philosophy', 'philosophy.php'], ['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php']],
     'diamond-guide' => [['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php'], ['Explore Jewellery', 'category.php']],
-    'gold-guide' => [['Gold Purity', 'gold-purity.php'], ['Hallmark Information', 'hallmark-information.php'], ['Jewellery Care', 'jewellery-care.php']],
+    'gold-guide' => [['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php'], ['Diamond Guide', 'diamond-guide.php']],
     'everyday-luxury' => [['Signature Collection', 'signature-collection.php'], ['Our Philosophy', 'philosophy.php'], ['Explore Pendants', 'category.php?category=pendants']],
     'signature-collection' => [['Everyday Luxury', 'everyday-luxury.php'], ['Craftsmanship', 'craftsmanship.php'], ['Explore Earrings', 'category.php?category=earrings']],
-    'gold-purity' => [['Certification', 'certification.php'], ['Hallmark Information', 'hallmark-information.php'], ['Jewellery Care', 'jewellery-care.php']],
-    'hallmark-information' => [['Gold Purity', 'gold-purity.php'], ['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php']],
+    'gold-purity' => [['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php'], ['Diamond Guide', 'diamond-guide.php']],
+    'hallmark-information' => [['Certification', 'certification.php'], ['Jewellery Care', 'jewellery-care.php'], ['Diamond Guide', 'diamond-guide.php']],
     'jewellery-care' => [['Craftsmanship', 'craftsmanship.php'], ['Certification', 'certification.php'], ['Explore Jewellery', 'category.php']],
-    'certification' => [['Diamond Guide', 'diamond-guide.php'], ['Hallmark Information', 'hallmark-information.php'], ['Gold Purity', 'gold-purity.php']],
+    'certification' => [['Diamond Guide', 'diamond-guide.php'], ['Jewellery Care', 'jewellery-care.php'], ['Craftsmanship', 'craftsmanship.php']],
 ];
 
 require __DIR__ . '/header.php';

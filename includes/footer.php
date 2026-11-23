@@ -19,7 +19,7 @@ $mainScriptVersion = @filemtime(__DIR__ . '/../js/main.js') ?: 1;
             </div>
             <div><h3>Discover</h3><a href="house-of-carat-street.php">The House</a><a href="philosophy.php">Our Philosophy</a><a href="craftsmanship.php">Craftsmanship</a><a href="category.php">Collections</a><a href="contact.php">Contact</a></div>
             <div><h3>Collections</h3><a href="category.php?category=pendants">Pendants</a><a href="category.php?category=earrings">Earrings</a><a href="everyday-luxury.php">Everyday Luxury</a><a href="signature-collection.php">Signature Collection</a></div>
-            <div><h3>Guides</h3><a href="diamond-guide.php">Diamond Guide</a><!-- Gold Guide link retained in source for a future use: <a href="gold-guide.php">Gold Guide</a> --><a href="jewellery-care.php">Jewellery Care</a><a href="certification.php">Certification</a></div>
+            <div><h3>Guides</h3><a href="diamond-guide.php">Diamond Guide</a><?php /* Client-hidden guide routes retained for possible future use: gold-guide.php, gold-purity.php and hallmark-information.php. */ ?><a href="jewellery-care.php">Jewellery Care</a><a href="certification.php">Certification</a></div>
         </div>
         <div class="copyright"><span>© <?= date('Y') ?> Carat Street. All rights reserved.</span><span>Jewellery for every story, crafted with intention.</span></div>
     </footer>
