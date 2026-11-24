@@ -49,11 +49,13 @@ require __DIR__ . '/header.php';
         <h2><?= htmlspecialchars($page['statement_title']) ?></h2>
         <?php foreach ($page['statement_copy'] as $paragraph): ?><p><?= htmlspecialchars($paragraph) ?></p><?php endforeach; ?>
     </section>
-    <section class="certification-assurances" aria-label="Carat Street quality certifications">
+    <section class="certification-assurances" id="certifications" aria-label="Carat Street quality certifications">
         <?php foreach ($page['certifications'] as $certification): ?>
             <article>
+                <p class="editorial-label"><?= htmlspecialchars($certification[2]) ?></p>
+                <h2><?= htmlspecialchars($certification[3]) ?></h2>
                 <div class="certification-logo"><img loading="lazy" decoding="async" src="<?= htmlspecialchars($certification[0]) ?>" alt="<?= htmlspecialchars($certification[1]) ?>"></div>
-                <div><p class="editorial-label"><?= htmlspecialchars($certification[2]) ?></p><h2><?= htmlspecialchars($certification[3]) ?></h2><p><?= htmlspecialchars($certification[4]) ?></p></div>
+                <p class="certification-copy"><?= htmlspecialchars($certification[4]) ?></p>
             </article>
         <?php endforeach; ?>
     </section>
@@ -82,7 +84,13 @@ require __DIR__ . '/header.php';
         <div class="editorial-section-heading"><p class="editorial-label">Explore The Details</p><h2><?= htmlspecialchars($page['chapters_title']) ?></h2></div>
         <div class="editorial-chapter-grid">
             <?php foreach ($page['chapters'] as $chapter): ?>
-                <article><span><?= htmlspecialchars($chapter[0]) ?></span><h3><?= htmlspecialchars($chapter[1]) ?></h3><p><?= htmlspecialchars($chapter[2]) ?></p></article>
+                <?php
+                $chapterHeading = htmlspecialchars($chapter[1]);
+                if ($editorialKey === 'diamond-guide') {
+                    $chapterHeading = preg_replace('/:\s*/', ':<br>', $chapterHeading, 1);
+                }
+                ?>
+                <article><span><?= htmlspecialchars($chapter[0]) ?></span><h3><?= $chapterHeading ?></h3><p><?= htmlspecialchars($chapter[2]) ?></p></article>
             <?php endforeach; ?>
         </div>
     </section>
